@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://did7j3dbqdrpv"]
+
+[ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/forest.png" id="1_lk5r1"]
+[ext_resource type="PackedScene" uid="uid://yukpyd0g312j" path="res://scenes/player.tscn" id="2_6iys2"]
+
+[node name="End" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 702.0
+offset_top = 394.0
+offset_right = 702.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lk5r1")
+
+[node name="Player" parent="." instance=ExtResource("2_6iys2")]
+position = Vector2(335, 509)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(353, 387)

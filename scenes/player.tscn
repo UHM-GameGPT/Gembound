@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://yukpyd0g312j"]
+
+[ext_resource type="Texture2D" uid="uid://ccquh52h4pvol" path="res://assets/sprites/Pink_Monster_Jump_8.png" id="1_tf6kg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p03sn"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjp1a"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0knd8"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_484rc"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bsqc"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnicq"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2y41"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdk4a"]
+atlas = ExtResource("1_tf6kg")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6fgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p03sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjp1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0knd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_484rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bsqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnicq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2y41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdk4a")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8chne"]
+radius = 11.0
+
+[node name="Player" type="Node2D"]
+
+[node name="character" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="character"]
+position = Vector2(1, -28)
+scale = Vector2(1.6875, 1.6875)
+sprite_frames = SubResource("SpriteFrames_k6fgc")
+animation = &"jump"
+autoplay = "jump"
+frame_progress = 0.0460053
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character"]
+z_index = 5
+position = Vector2(-2, -21)
+shape = SubResource("CircleShape2D_8chne")
