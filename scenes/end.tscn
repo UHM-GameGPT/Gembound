@@ -1,9 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://did7j3dbqdrpv"]
+[gd_scene load_steps=10 format=3 uid="uid://did7j3dbqdrpv"]
 
-[ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/forest.png" id="1_lk5r1"]
-[ext_resource type="PackedScene" uid="uid://yukpyd0g312j" path="res://scenes/player.tscn" id="2_6iys2"]
+[ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_lk5r1"]
+[ext_resource type="Script" path="res://scripts/end.gd" id="1_wajyk"]
+[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_6iys2"]
+[ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="3_svyif"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lxtuu"]
+distance = 7.0
+
+[sub_resource type="Animation" id="Animation_vl3h1"]
+resource_name = "typewriter"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_e0n08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ytjg"]
+_data = {
+"RESET": SubResource("Animation_e0n08"),
+"typewriter": SubResource("Animation_vl3h1")
+}
+
+[sub_resource type="GDScript" id="GDScript_rqjke"]
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	play(\"typewriter\")
+"
 
 [node name="End" type="Node2D"]
+script = ExtResource("1_wajyk")
+
+[node name="Player" parent="." instance=ExtResource("2_6iys2")]
+position = Vector2(154, 127)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -18,16 +73,42 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(320, 180)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -702.0
+offset_top = -393.0
+offset_right = -382.0
+offset_bottom = -213.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_lk5r1")
-
-[node name="Player" parent="." instance=ExtResource("2_6iys2")]
-position = Vector2(335, 509)
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(353, 387)
+position = Vector2(158, 90)
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(96, 153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lxtuu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 322.0
+offset_bottom = 56.0
+theme_override_fonts/normal_font = ExtResource("3_svyif")
+text = "You have defeated the Final Boss. The balance is restored. Time and Space are whole."
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RichTextLabel")
+libraries = {
+"": SubResource("AnimationLibrary_1ytjg")
+}
+script = SubResource("GDScript_rqjke")

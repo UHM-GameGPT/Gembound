@@ -2,7 +2,6 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d0lkbool548po"
 uid="uid://dsb6338jj88k8"
 path="res://.godot/imported/Planes_ValMore.ttf-43fa34755df1877d1d499aae646e77ad.fontdata"
 
@@ -29,7 +28,12 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}
