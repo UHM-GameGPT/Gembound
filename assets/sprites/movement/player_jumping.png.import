@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b33qkw6qg2a6w"
-path="res://.godot/imported/forest.png-48daf4b5494a21a5a827cdfe9f19222d.ctex"
+uid="uid://bvkh1nxb2nkg7"
+path="res://.godot/imported/player_jumping.png-d34a2ec51234be4b2f43ef894bd47511.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/forest.png"
-dest_files=["res://.godot/imported/forest.png-48daf4b5494a21a5a827cdfe9f19222d.ctex"]
+source_file="res://assets/sprites/movement/player_jumping.png"
+dest_files=["res://.godot/imported/player_jumping.png-d34a2ec51234be4b2f43ef894bd47511.ctex"]
 
 [params]
 
