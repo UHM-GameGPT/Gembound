@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnp37rpcj8nr7"]
+
+[ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_jfylm"]
+[ext_resource type="Script" path="res://scripts/tutorial_1.gd" id="2_su0qo"]
+[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_tv66g"]
+[ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="3_16b3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltb60"]
+size = Vector2(20, 140.25)
+
+[node name="TutorialStart" type="TextureRect"]
+custom_minimum_size = Vector2(320, 180)
+texture = ExtResource("1_jfylm")
+expand_mode = 1
+script = ExtResource("2_su0qo")
+
+[node name="Player" parent="." instance=ExtResource("2_tv66g")]
+position = Vector2(34, 128)
+
+[node name="Floor" parent="." instance=ExtResource("3_16b3m")]
+
+[node name="PlatformSceneDetection" type="Area2D" parent="."]
+collision_layer = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformSceneDetection"]
+light_mask = 9
+visibility_layer = 9
+position = Vector2(327, 73.125)
+shape = SubResource("RectangleShape2D_ltb60")
+
+[connection signal="body_entered" from="PlatformSceneDetection" to="." method="_on_platform_scene_detection_body_entered"]

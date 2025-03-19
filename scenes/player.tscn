@@ -196,15 +196,13 @@ size = Vector2(18, 28)
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 position = Vector2(123, 164)
-collision_layer = 2
+collision_layer = 9
 script = ExtResource("1_j38ne")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5kimm")
 animation = &"jumping"
-frame = 7
-frame_progress = 0.475489
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
