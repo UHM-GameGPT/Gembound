@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Gembound"
-run/main_scene="res://scenes/tutorial/tutorial_2.tscn"
+run/main_scene="res://scenes/tutorial/tutorial_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NavigationManager="*res://scripts/navigation_manager.gd"
+TransitionScreen="*res://scenes/transition_screen.tscn"
 
 [display]
 
