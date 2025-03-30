@@ -27,3 +27,5 @@ func go_to_level(level_tag, destination_tag):
 		
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)
+
+# code from Soma Animus https://www.youtube.com/watch?v=3AdAnxrZWGo

@@ -19,3 +19,5 @@ func _on_animation_finished(anim_name):
 func transition():
 	color_rect.visible = true
 	animation_player.play("fade_to_black")
+
+# code from Soma Animus https://www.youtube.com/watch?v=Shj_QVwrefY
