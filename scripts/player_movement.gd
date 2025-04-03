@@ -7,6 +7,17 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready():
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+func _on_spawn(position: Vector2, direction: String):
+	global_position = position
+	animated_sprite.stop()
+	if (direction == "left"):
+		animated_sprite.flip_h = true
+	elif (direction == "right"):
+		animated_sprite.flip_h = false
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
