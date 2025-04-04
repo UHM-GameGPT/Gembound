@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://1dwenc3ti31r"]
+[gd_scene load_steps=27 format=3 uid="uid://1dwenc3ti31r"]
 
 [ext_resource type="Texture2D" uid="uid://bmwro771meyt3" path="res://assets/sprites/movement/player_walk_right.png" id="1_5c4ld"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_j38ne"]
 [ext_resource type="Texture2D" uid="uid://bglx6cwuv4cgr" path="res://assets/sprites/movement/player_idle_right.png" id="2_fx855"]
 [ext_resource type="Texture2D" uid="uid://bvkh1nxb2nkg7" path="res://assets/sprites/movement/player_jumping.png" id="3_cbsm1"]
+[ext_resource type="AudioStream" uid="uid://cwojtmgwg1cdq" path="res://assets/audio/soundfx/jump.mp3" id="5_1nos6"]
+[ext_resource type="AudioStream" uid="uid://dwsxqfcuxypth" path="res://assets/audio/soundfx/land-after-jump.mp3" id="6_vytfu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6j0ri"]
 atlas = ExtResource("2_fx855")
@@ -195,7 +197,7 @@ size = Vector2(18, 28)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
-position = Vector2(123, 164)
+position = Vector2(34, 128)
 collision_layer = 9
 script = ExtResource("1_j38ne")
 metadata/_edit_group_ = true
@@ -209,3 +211,11 @@ metadata/_edit_group_ = true
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_cm7r7")
 metadata/_edit_group_ = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1nos6")
+volume_db = -16.0
+
+[node name="JumpLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vytfu")
+volume_db = -16.0

@@ -1,31 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnp37rpcj8nr7"]
+[gd_scene load_steps=7 format=3 uid="uid://bnp37rpcj8nr7"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_jfylm"]
-[ext_resource type="Script" path="res://scripts/tutorial_1.gd" id="2_su0qo"]
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="2_m4uja"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_tv66g"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="3_16b3m"]
-[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="5_3u2su"]
+[ext_resource type="Texture2D" uid="uid://bs8mdrtq6e0cu" path="res://assets/sprites/tutorial/intro_sign.png" id="6_7d2df"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="6_ibhh6"]
 
 [node name="TutorialStart" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 texture = ExtResource("1_jfylm")
 expand_mode = 1
-script = ExtResource("2_su0qo")
+script = ExtResource("2_m4uja")
 
 [node name="Player" parent="." instance=ExtResource("2_tv66g")]
-position = Vector2(34, 128)
+position = Vector2(33, 127)
 
 [node name="Floor" parent="." instance=ExtResource("3_16b3m")]
 
+[node name="Sign" type="Sprite2D" parent="."]
+position = Vector2(228, 125)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("6_7d2df")
+
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door_E" parent="Doors" instance=ExtResource("5_3u2su")]
-position = Vector2(312, 91)
+[node name="Door_E" parent="Doors" instance=ExtResource("6_ibhh6")]
 destination_level_tag = "tutorial_2"
 destination_door_tag = "W"
 spawn_direction = "left"
 
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(325, 114)
+
 [node name="Spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(-24, 33)
+position = Vector2(296, 133)
 
 [editable path="Doors/Door_E"]
