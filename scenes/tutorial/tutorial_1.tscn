@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bnp37rpcj8nr7"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_jfylm"]
-[ext_resource type="Script" path="res://scripts/tutorial.gd" id="2_m4uja"]
+[ext_resource type="Script" uid="uid://c48xyfahmlm8" path="res://scripts/tutorial.gd" id="2_m4uja"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_tv66g"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="3_16b3m"]
 [ext_resource type="Texture2D" uid="uid://bs8mdrtq6e0cu" path="res://assets/sprites/tutorial/intro_sign.png" id="6_7d2df"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://did7j3dbqdrpv"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_lk5r1"]
-[ext_resource type="Script" path="res://scripts/end.gd" id="1_wajyk"]
+[ext_resource type="Script" uid="uid://cnjb6bwtgj3pi" path="res://scripts/end.gd" id="1_wajyk"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_6iys2"]
 [ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="3_svyif"]
 
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ytjg"]
 _data = {
-"RESET": SubResource("Animation_e0n08"),
-"typewriter": SubResource("Animation_vl3h1")
+&"RESET": SubResource("Animation_e0n08"),
+&"typewriter": SubResource("Animation_vl3h1")
 }
 
 [sub_resource type="GDScript" id="GDScript_rqjke"]
