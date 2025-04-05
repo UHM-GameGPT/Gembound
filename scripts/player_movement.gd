@@ -111,6 +111,15 @@ func _physics_process(delta: float) -> void:
 		landing = false
 	elif not is_on_floor():
 		landing = true
+		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider.name == "Log" and collider is RigidBody2D:
+			if direction != 0:
+				var push_direction = Vector2(direction, 0)
+				collider.linear_velocity = push_direction * 100
 
 func die():
 	if is_dead: return
