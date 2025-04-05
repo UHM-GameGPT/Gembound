@@ -131,7 +131,7 @@ spawn_direction = "left"
 position = Vector2(321, 20)
 
 [node name="Spawn" parent="Doors/Door_E1" index="1"]
-position = Vector2(296, 33)
+position = Vector2(297, 32)
 
 [node name="Door_E2" parent="Doors" instance=ExtResource("5_5q3ns")]
 destination_level_tag = "tutorial_3"

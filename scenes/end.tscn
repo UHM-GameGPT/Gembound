@@ -110,6 +110,6 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../RichTextLabel")
 libraries = {
-"": SubResource("AnimationLibrary_1ytjg")
+&"": SubResource("AnimationLibrary_1ytjg")
 }
 script = SubResource("GDScript_rqjke")

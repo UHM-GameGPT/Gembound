@@ -1,12 +1,38 @@
-[gd_scene load_steps=36 format=3 uid="uid://1dwenc3ti31r"]
+[gd_scene load_steps=44 format=3 uid="uid://1dwenc3ti31r"]
 
 [ext_resource type="Texture2D" uid="uid://bmwro771meyt3" path="res://assets/sprites/movement/player_walk_right.png" id="1_5c4ld"]
 [ext_resource type="Script" uid="uid://qi017n47oh7h" path="res://scripts/player_movement.gd" id="1_j38ne"]
 [ext_resource type="Texture2D" uid="uid://c0smvwa7lgv1g" path="res://assets/sprites/Pink_Monster_Death_8.png" id="2_fjrip"]
 [ext_resource type="Texture2D" uid="uid://bglx6cwuv4cgr" path="res://assets/sprites/movement/player_idle_right.png" id="2_fx855"]
+[ext_resource type="Texture2D" uid="uid://dnvagwo05km0m" path="res://assets/sprites/movement/player_run.png" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://bvkh1nxb2nkg7" path="res://assets/sprites/movement/player_jumping.png" id="3_cbsm1"]
 [ext_resource type="AudioStream" uid="uid://cwojtmgwg1cdq" path="res://assets/audio/soundfx/jump.mp3" id="5_1nos6"]
 [ext_resource type="AudioStream" uid="uid://dwsxqfcuxypth" path="res://assets/audio/soundfx/land-after-jump.mp3" id="6_vytfu"]
+[ext_resource type="AudioStream" uid="uid://bsal3fgcubs4d" path="res://assets/audio/soundfx/running-on-dirt-and-sand.mp3" id="9_ur7pv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("2_smehm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("2_smehm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("2_smehm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("2_smehm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("2_smehm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("2_smehm")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_fjrip")
@@ -115,6 +141,29 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_5kimm"]
 resource_local_to_scene = true
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
@@ -266,7 +315,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5kimm")
-animation = &"idle_right"
+animation = &"walk_right"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -281,3 +330,7 @@ volume_db = -16.0
 [node name="JumpLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_vytfu")
 volume_db = -16.0
+
+[node name="Run_Dirt_Sand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ur7pv")
+volume_db = -32.0
