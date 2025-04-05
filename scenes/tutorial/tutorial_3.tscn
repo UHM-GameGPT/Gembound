@@ -183,6 +183,18 @@ position = Vector2(-2, 114)
 [node name="Spawn" parent="Doors/Door_W2" index="1"]
 position = Vector2(22, 128)
 
+[node name="Door_E" parent="Doors" instance=ExtResource("5_fij67")]
+position = Vector2(320, -4)
+destination_level_tag = "tutorial_5"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(8, 116)
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-31, 128)
+
 [node name="GemText" type="Node2D" parent="."]
 script = ExtResource("8_eysq8")
 
@@ -216,4 +228,5 @@ libraries = {
 
 [editable path="Doors/Door_W1"]
 [editable path="Doors/Door_W2"]
+[editable path="Doors/Door_E"]
 [editable path="GemText/TutorialGem"]

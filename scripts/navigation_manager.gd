@@ -3,6 +3,7 @@ extends Node
 const scene_tutorial1 = preload("res://scenes/tutorial/tutorial_1.tscn")
 const scene_tutorial2 = preload("res://scenes/tutorial/tutorial_2.tscn")
 const scene_tutorial3 = preload("res://scenes/tutorial/tutorial_3.tscn")
+const scene_tutorial5 = preload("res://scenes/tutorial/turtrial_5.tscn")
 const scene_end = preload("res://scenes/end.tscn")
 
 signal on_trigger_player_spawn
@@ -19,6 +20,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_tutorial2
 		"tutorial_3":
 			scene_to_load = scene_tutorial3
+		"tutorial_5":
+			scene_to_load = scene_tutorial5
 		"end":
 			scene_to_load = scene_end
 		
