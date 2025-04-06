@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dlbi2bj87brjh" path="res://scripts/end.gd" id="1_wajyk"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_6iys2"]
 [ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="3_svyif"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="4_bvfni"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lxtuu"]
 distance = 7.0
@@ -54,42 +55,13 @@ func _ready() -> void:
 	play(\"typewriter\")
 "
 
-[node name="End" type="Node2D"]
-script = ExtResource("1_wajyk")
-
-[node name="Player" parent="." instance=ExtResource("2_6iys2")]
-position = Vector2(154, 127)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 702.0
-offset_top = 394.0
-offset_right = 702.0
-offset_bottom = 394.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="End" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -702.0
-offset_top = -393.0
-offset_right = -382.0
-offset_bottom = -213.0
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("1_lk5r1")
 expand_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(158, 90)
-zoom = Vector2(2, 2)
+[node name="Player" parent="." instance=ExtResource("2_6iys2")]
+position = Vector2(154, 127)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(96, 153)
@@ -110,6 +82,15 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../RichTextLabel")
 libraries = {
-"": SubResource("AnimationLibrary_1ytjg")
+&"": SubResource("AnimationLibrary_1ytjg")
 }
 script = SubResource("GDScript_rqjke")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_W" parent="Doors" instance=ExtResource("4_bvfni")]
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(23, 136)
+
+[editable path="Doors/Door_W"]

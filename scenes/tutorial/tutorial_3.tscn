@@ -1,11 +1,23 @@
-[gd_scene load_steps=9 format=4 uid="uid://dpsuej1t35y1g"]
+[gd_scene load_steps=18 format=4 uid="uid://dpsuej1t35y1g"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_ehf8j"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_245l4"]
 [ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_wldxo"]
+[ext_resource type="Script" uid="uid://c48xyfahmlm8" path="res://scripts/tutorial.gd" id="2_wldxo"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="3_ekw3v"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="4_lvwa6"]
+[ext_resource type="Texture2D" uid="uid://bs1pd6wb3x5xs" path="res://assets/sprites/tutorial/16-bit-spike-Sheet.png" id="5_1luhj"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="5_fij67"]
+[ext_resource type="PackedScene" uid="uid://baki5vpdwvbp0" path="res://scenes/tutorial/tutorial_gem.tscn" id="8_088gh"]
+[ext_resource type="Script" uid="uid://b5xbd211hg2y4" path="res://scenes/tutorial/gem_text.gd" id="8_eysq8"]
+[ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="9_vqmsi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76njk"]
+texture = ExtResource("5_1luhj")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6bh8"]
 texture = ExtResource("4_lvwa6")
@@ -89,6 +101,47 @@ texture = ExtResource("4_lvwa6")
 [sub_resource type="TileSet" id="TileSet_rfyhq"]
 physics_layer_0/collision_layer = 1
 sources/6 = SubResource("TileSetAtlasSource_u6bh8")
+sources/0 = SubResource("TileSetAtlasSource_76njk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eysq8"]
+font = ExtResource("9_vqmsi")
+font_size = 220
+
+[sub_resource type="Animation" id="Animation_60vy7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4lo02"]
+resource_name = "show_tutorial"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.464, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w83iy"]
+_data = {
+&"RESET": SubResource("Animation_60vy7"),
+&"show_tutorial": SubResource("Animation_4lo02")
+}
 
 [node name="TutorialCollect" type="TextureRect"]
 z_index = 1
@@ -104,7 +157,7 @@ script = ExtResource("2_wldxo")
 [node name="Floor" parent="." instance=ExtResource("3_ekw3v")]
 
 [node name="Platforms" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAACAAMABgAEAAAAAAADAAMABgAFAAAAAAD//wMABgADAAAAAAAAAAMABgAEAAAAAAABAAMABgAEAAAAAAAFAAUABgADAAAAAAAGAAUABgAEAAAAAAAHAAUABgAEAAAAAAAIAAUABgAEAAAAAAAJAAUABgAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAMABgAEAAAAAAADAAMABgAFAAAAAAD//wMABgADAAAAAAAAAAMABgAEAAAAAAABAAMABgAEAAAAAAAFAAUABgADAAAAAAAGAAUABgAEAAAAAAAHAAUABgAEAAAAAAAIAAUABgAEAAAAAAAJAAUABgAFAAAAAAAMAAYABgADAAAAAAANAAYABgAEAAAAAAAOAAYABgAEAAAAAAAPAAYABgAFAAAAAAA=")
 tile_set = SubResource("TileSet_rfyhq")
 
 [node name="Doors" type="Node" parent="."]
@@ -131,5 +184,50 @@ position = Vector2(-2, 114)
 [node name="Spawn" parent="Doors/Door_W2" index="1"]
 position = Vector2(22, 128)
 
+[node name="Door_E" parent="Doors" instance=ExtResource("5_fij67")]
+position = Vector2(320, -4)
+destination_level_tag = "tutorial_5"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(8, 116)
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-31, 128)
+
+[node name="GemText" type="Node2D" parent="."]
+script = ExtResource("8_eysq8")
+
+[node name="TutorialGem" parent="GemText" instance=ExtResource("8_088gh")]
+
+[node name="Gem" parent="GemText/TutorialGem" index="0"]
+position = Vector2(119, 70)
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="GemText/TutorialGem" index="1"]
+position = Vector2(119, 70)
+
+[node name="Text" type="Label" parent="GemText"]
+offset_left = 158.0
+offset_top = 8.0
+offset_right = 3094.0
+offset_bottom = 917.0
+scale = Vector2(0.05, 0.05)
+text = "Certain gems grant special
+abilities. Check out your
+new ability."
+label_settings = SubResource("LabelSettings_eysq8")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
+libraries = {
+&"": SubResource("AnimationLibrary_w83iy")
+}
+
 [editable path="Doors/Door_W1"]
 [editable path="Doors/Door_W2"]
+[editable path="Doors/Door_E"]
+[editable path="GemText/TutorialGem"]

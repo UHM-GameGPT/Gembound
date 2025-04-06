@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnvagwo05km0m"
-path="res://.godot/imported/Pink_Monster_Run_6.png-09e7e92327273052ef0e9c1e790314f4.ctex"
+uid="uid://bs1pd6wb3x5xs"
+path="res://.godot/imported/16-bit-spike-Sheet.png-626a91bd5ed7b3e9de9271adcd728fdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Pink_Monster_Run_6.png"
-dest_files=["res://.godot/imported/Pink_Monster_Run_6.png-09e7e92327273052ef0e9c1e790314f4.ctex"]
+source_file="res://assets/sprites/tutorial/16-bit-spike-Sheet.png"
+dest_files=["res://.godot/imported/16-bit-spike-Sheet.png-626a91bd5ed7b3e9de9271adcd728fdf.ctex"]
 
 [params]
 

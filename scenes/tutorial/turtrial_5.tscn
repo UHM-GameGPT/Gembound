@@ -1,0 +1,240 @@
+[gd_scene load_steps=22 format=4 uid="uid://bj6dgr7fiae4s"]
+
+[ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_uqtl2"]
+[ext_resource type="Script" uid="uid://c48xyfahmlm8" path="res://scripts/tutorial.gd" id="2_76njk"]
+[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_7s834"]
+[ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_86tkr"]
+[ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_2nxha"]
+[ext_resource type="Texture2D" uid="uid://bs1pd6wb3x5xs" path="res://assets/sprites/tutorial/16-bit-spike-Sheet.png" id="6_76njk"]
+[ext_resource type="Texture2D" uid="uid://ligp2ff8q0yf" path="res://assets/sprites/tutorial/slime_enemy.png" id="7_7s834"]
+[ext_resource type="Script" uid="uid://bbgikxqbo8pof" path="res://scenes/tutorial/enemy_spirit.gd" id="7_86tkr"]
+[ext_resource type="Texture2D" uid="uid://cnm7sr43nwnmb" path="res://assets/sprites/tutorial/log.png" id="9_2nxha"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_i7ey2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76njk"]
+texture = ExtResource("6_76njk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6bh8"]
+texture = ExtResource("5_2nxha")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/physics_layer_0/polygon_0/one_way = true
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/physics_layer_0/polygon_0/one_way = true
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/physics_layer_0/polygon_0/one_way = true
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rfyhq"]
+physics_layer_0/collision_layer = 1
+sources/6 = SubResource("TileSetAtlasSource_u6bh8")
+sources/0 = SubResource("TileSetAtlasSource_76njk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s834"]
+size = Vector2(91.5625, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s834"]
+atlas = ExtResource("7_7s834")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86tkr"]
+atlas = ExtResource("7_7s834")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nxha"]
+atlas = ExtResource("7_7s834")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ey2"]
+atlas = ExtResource("7_7s834")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu40o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s834")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86tkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nxha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ey2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s834"]
+radius = 33.0151
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ey2"]
+size = Vector2(26, 14)
+
+[node name="TutorialEnemy" type="TextureRect"]
+z_index = 1
+custom_minimum_size = Vector2(320, 180)
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 181.0
+texture = ExtResource("1_uqtl2")
+expand_mode = 1
+script = ExtResource("2_76njk")
+
+[node name="Player" parent="." instance=ExtResource("3_7s834")]
+position = Vector2(42, 128)
+
+[node name="Floor" parent="." instance=ExtResource("4_86tkr")]
+
+[node name="Platforms" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAVAAAABgACAAEAAAAVAAEABgACAAEAAAAVAAIABgACAAEAAAAVAAQABgACAAEAAAAVAAUABgACAAEAAAAVAAYABgACAAEAAAAVAAcABgACAAEAAAAVAAgABgACAAEAAAAVAAkABgACAAEAAAAVAAoABgACAAEAAAAVAAsABgACAAEAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAVAAMABgACAAEAAAAFAAYABgADAAAAAAAGAAYABgAFAAAAAAAOAAUABgADAAAAAAAPAAUABgAEAAAAAAAQAAUABgAEAAAAAAARAAUABgAEAAAAAAASAAUABgAEAAAAAAATAAUABgAEAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAJAAQABgAEAAAAAAAIAAQABgADAAAAAAAKAAQABgAFAAAAAAAOAAQAAAAAAAAAAAD+/woABgAAAAEAAAD+/wkABgAAAAEAAAD+/wgABgAAAAEAAAD+/wcABgAAAAEAAAD+/wYABgAAAAEAAAD+/wUABgAAAAEAAAD+/wQABgAAAAEAAAD+/wMABgAAAAEAAAD+/wIABgAAAAEAAAD+/wEABgAAAAEAAAD+/wAABgAAAAEAAAA=")
+tile_set = SubResource("TileSet_rfyhq")
+
+[node name="Spike" type="Area2D" parent="Platforms"]
+position = Vector2(65, 98)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/Spike"]
+position = Vector2(211.781, -26)
+shape = SubResource("RectangleShape2D_7s834")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Spike"]
+position = Vector2(63.4375, 38)
+shape = SubResource("RectangleShape2D_7s834")
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(34, 130)
+
+[node name="EnemySpirit" type="Area2D" parent="."]
+script = ExtResource("7_86tkr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySpirit"]
+position = Vector2(212, 121)
+scale = Vector2(2.39941, 2.65625)
+sprite_frames = SubResource("SpriteFrames_pu40o")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
+position = Vector2(213, 129)
+shape = SubResource("CircleShape2D_7s834")
+
+[node name="Log" type="RigidBody2D" parent="."]
+mass = 10.0
+gravity_scale = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Log"]
+position = Vector2(163, 4)
+scale = Vector2(0.120455, 0.15)
+texture = ExtResource("9_2nxha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Log"]
+position = Vector2(163, 5)
+shape = SubResource("RectangleShape2D_i7ey2")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_W" parent="Doors" instance=ExtResource("10_i7ey2")]
+position = Vector2(0, -7)
+destination_level_tag = "tutorial_3"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-5, 133)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(20, 133)
+
+[node name="Door_E" parent="Doors" instance=ExtResource("10_i7ey2")]
+position = Vector2(331, -18)
+destination_level_tag = "end"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(-5, 133)
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-32, 134)
+
+[connection signal="body_entered" from="Platforms/Spike" to="." method="_on_spike_body_entered"]
+[connection signal="body_entered" from="EnemySpirit" to="." method="_on_enemy_spirit_body_entered"]
+[connection signal="body_entered" from="EnemySpirit" to="EnemySpirit" method="_on_body_entered"]
+
+[editable path="Doors/Door_W"]
+[editable path="Doors/Door_E"]
