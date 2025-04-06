@@ -1,5 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cp6k4hb15r38t"]
 
+[ext_resource type="Script" uid="uid://db6ct6agxlp00" path="res://scripts/transition_screen.gd" id="1_ueyoo"]
 [ext_resource type="Script" uid="uid://bppj0dub806wy" path="res://scripts/transition_screen.gd" id="1_ueyoo"]
 
 [sub_resource type="Animation" id="Animation_1k6on"]
@@ -70,5 +71,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xqoav")
+&"": SubResource("AnimationLibrary_xqoav")
 }

@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://csv3m7oq5y5mx"]
+
+[ext_resource type="Script" uid="uid://bu5uen0rtcfbs" path="res://scenes/title_screen/title_screen.gd" id="1_xoykc"]
+[ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="2_cxcmr"]
+[ext_resource type="Texture2D" uid="uid://bk48vi5rpb888" path="res://assets/sprites/title screen/PlayButton.png" id="3_d6x3v"]
+[ext_resource type="Texture2D" uid="uid://dcgibv6fxt1ys" path="res://assets/sprites/title screen/Gembound Logo.png" id="3_j12ko"]
+[ext_resource type="Texture2D" uid="uid://driqfa1q8myhw" path="res://assets/sprites/title screen/ExitButton.png" id="4_5uxxq"]
+[ext_resource type="Texture2D" uid="uid://cvnftxycdq576" path="res://assets/sprites/title screen/PlayButton Hover.png" id="4_cxcmr"]
+[ext_resource type="Texture2D" uid="uid://5br4dsfd8gas" path="res://assets/sprites/title screen/PlayButton Pressed.png" id="4_j12ko"]
+[ext_resource type="Texture2D" uid="uid://4j5kfbffdcgm" path="res://assets/sprites/title screen/ExitButton Pressed.png" id="7_yegqs"]
+[ext_resource type="Texture2D" uid="uid://did1i7k121apm" path="res://assets/sprites/title screen/ExitButton Hover.png" id="8_xoykc"]
+[ext_resource type="AudioStream" uid="uid://brjauicgaqeby" path="res://assets/audio/music/StartMenuTheme.mp3" id="10_ju3lf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mn4df"]
+texture = ExtResource("2_cxcmr")
+modulate_color = Color(0.376029, 0.376028, 0.376028, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ge1w"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xoykc")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mn4df")
+
+[node name="Buttons Without Texture" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 12.0
+offset_right = 54.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="StartButton" type="Button" parent="Buttons Without Texture"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ge1w")
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="Buttons Without Texture"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ge1w")
+text = "Exit"
+
+[node name="GameLogo" type="Node2D" parent="."]
+
+[node name="Gembound Logo" type="Sprite2D" parent="GameLogo"]
+position = Vector2(160, 86)
+scale = Vector2(0.167192, 0.158546)
+texture = ExtResource("3_j12ko")
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 6.0
+offset_right = 664.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.13993, 0.13993)
+texture_normal = ExtResource("3_d6x3v")
+texture_pressed = ExtResource("4_j12ko")
+texture_hover = ExtResource("4_cxcmr")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="ExitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 38.0
+offset_right = 664.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.13993, 0.13993)
+texture_normal = ExtResource("4_5uxxq")
+texture_pressed = ExtResource("7_yegqs")
+texture_hover = ExtResource("8_xoykc")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ju3lf")
+volume_db = -9.7
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
