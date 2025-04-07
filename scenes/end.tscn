@@ -1,7 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://did7j3dbqdrpv"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_lk5r1"]
-[ext_resource type="Script" uid="uid://dlbi2bj87brjh" path="res://scripts/end.gd" id="1_wajyk"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_6iys2"]
 [ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="3_svyif"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="4_bvfni"]
@@ -70,6 +69,7 @@ position = Vector2(96, 153)
 shape = SubResource("WorldBoundaryShape2D_lxtuu")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_right = 311.0
 offset_bottom = 56.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
