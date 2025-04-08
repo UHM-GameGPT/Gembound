@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://8l0gw5stvdej"]
+
+[ext_resource type="Script" uid="uid://bsrg2n43qlfgs" path="res://scripts/credits.gd" id="1_0bpdh"]
+
+[sub_resource type="Gradient" id="Gradient_yeqti"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0bpdh"]
+gradient = SubResource("Gradient_yeqti")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yeqti"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(180, 180, 1)
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_0bpdh")
+
+[sub_resource type="Animation" id="Animation_0bpdh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("creditslabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 159)]
+}
+
+[sub_resource type="Animation" id="Animation_yeqti"]
+resource_name = "scrollup"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("creditslabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 160), Vector2(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0bpdh"]
+_data = {
+&"RESET": SubResource("Animation_0bpdh"),
+&"scrollup": SubResource("Animation_yeqti")
+}
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0bpdh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 318.0
+offset_bottom = 182.0
+color = Color(0, 0, 0, 1)
+
+[node name="stars" type="GPUParticles2D" parent="."]
+position = Vector2(152, 80)
+scale = Vector2(1.107, 1.107)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_yeqti")
+
+[node name="creditslabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 159.0
+offset_right = 317.0
+offset_bottom = 342.0
+text = "Game development Team:
+Iverson Yago
+Juan Olivo
+Keiko Raiola
+Samantha Limon
+Susan Ma"
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0bpdh")
+}
+autoplay = "scrollup"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

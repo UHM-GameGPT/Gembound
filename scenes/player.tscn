@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bmwro771meyt3" path="res://assets/sprites/movement/player_walk_right.png" id="1_5c4ld"]
 [ext_resource type="Script" uid="uid://b5tc46vlb633h" path="res://scripts/player_movement.gd" id="1_j38ne"]
-[ext_resource type="Script" uid="uid://qi017n47oh7h" path="res://scripts/player_movement.gd" id="1_j38ne"]
 [ext_resource type="Texture2D" uid="uid://c0smvwa7lgv1g" path="res://assets/sprites/Pink_Monster_Death_8.png" id="2_fjrip"]
 [ext_resource type="Texture2D" uid="uid://bglx6cwuv4cgr" path="res://assets/sprites/movement/player_idle_right.png" id="2_fx855"]
 [ext_resource type="Texture2D" uid="uid://dnvagwo05km0m" path="res://assets/sprites/movement/player_run.png" id="2_smehm"]
@@ -316,7 +315,8 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5kimm")
-animation = &"death"
+animation = &"jumping"
+frame_progress = 0.265708
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
