@@ -7,6 +7,7 @@ extends TextureRect
 func _ready() -> void:
 	animated_sprite.play("jumping")
 	timer.start()
+	AudioManager.play_music_tutorial()
 
 func _process(delta: float) -> void:
 	pass
