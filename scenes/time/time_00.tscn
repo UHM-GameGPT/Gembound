@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvydoagjangfu"]
+
+[ext_resource type="Texture2D" uid="uid://ckkgaw16mhm00" path="res://assets/sprites/backgrounds/time.png" id="1_ws1tb"]
+[ext_resource type="PackedScene" uid="uid://cx1shiqipudem" path="res://scenes/time/time_platform.tscn" id="2_3fgb8"]
+[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_v0bud"]
+[ext_resource type="Texture2D" uid="uid://bdety48wd51wm" path="res://assets/sprites/clock.png" id="4_3fgb8"]
+[ext_resource type="PackedScene" uid="uid://kvmubtwhmlkl" path="res://scenes/time/timegem.tscn" id="4_v3ggq"]
+
+[sub_resource type="Animation" id="Animation_v0bud"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(167, 118), Vector2(248, 73)]
+}
+
+[sub_resource type="Animation" id="Animation_3fgb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(191, 117)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v3ggq"]
+_data = {
+&"RESET": SubResource("Animation_3fgb8"),
+&"move": SubResource("Animation_v0bud")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kxwvo"]
+distance = -172.0
+
+[node name="Time00" type="TextureRect"]
+offset_right = 321.0
+offset_bottom = 180.0
+texture = ExtResource("1_ws1tb")
+expand_mode = 1
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="TimePlatform" parent="Platforms" instance=ExtResource("2_3fgb8")]
+position = Vector2(103, 130)
+
+[node name="TimePlatform2" parent="Platforms" instance=ExtResource("2_3fgb8")]
+position = Vector2(191, 117)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/TimePlatform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_v3ggq")
+}
+autoplay = "move"
+
+[node name="platform2btn" type="TextureButton" parent="Platforms/TimePlatform2"]
+offset_left = -22.0
+offset_top = -4.0
+offset_right = 23.0
+offset_bottom = 3.0
+
+[node name="Player" parent="." instance=ExtResource("2_v0bud")]
+position = Vector2(33, 153)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(62, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("WorldBoundaryShape2D_kxwvo")
+
+[node name="timegem" parent="." instance=ExtResource("4_v3ggq")]
+position = Vector2(163, 155)
+
+[node name="stop" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 16.0
+offset_right = 169.0
+offset_bottom = 160.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("4_3fgb8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="stop"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 39.0
+text = "Stop Time"
