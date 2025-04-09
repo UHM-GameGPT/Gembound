@@ -2,8 +2,7 @@ extends Area2D
 
 @onready var gem: AnimatedSprite2D = $Gem
 @onready var gem_collected: AudioStreamPlayer = $Collected
-@onready var stopbtn: TextureButton = $"../stop"
-@onready var slowbtn: TextureButton = $"../slow"
+@onready var time_00: TimeZero = $".."
 
 @export var gem_name: String = "gem_stoptime"
 
@@ -20,9 +19,8 @@ func _on_body_entered(body: Node2D) -> void:
 		GemManager.collect_gem(gem_name)
 		gem.visible = false
 		gem_collected.play()
-		stopbtn.visible = true
-		#slowbtn.visible = true
 		await gem_collected.finished
+		time_00.enableButtons()
 		PlayerState.dash_unlocked = true
 		body.can_dash = true
 		queue_free()

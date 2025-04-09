@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvydoagjangfu"]
+[gd_scene load_steps=16 format=3 uid="uid://dvydoagjangfu"]
 
 [ext_resource type="Texture2D" uid="uid://ckkgaw16mhm00" path="res://assets/sprites/backgrounds/time.png" id="1_ws1tb"]
 [ext_resource type="PackedScene" uid="uid://cx1shiqipudem" path="res://scenes/time/time_platform.tscn" id="2_3fgb8"]
 [ext_resource type="Script" uid="uid://blrdd4vvh6f7r" path="res://scripts/time_00.gd" id="2_ox78b"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_v0bud"]
-[ext_resource type="Texture2D" uid="uid://bdety48wd51wm" path="res://assets/sprites/clock.png" id="4_3fgb8"]
 [ext_resource type="PackedScene" uid="uid://kvmubtwhmlkl" path="res://scenes/time/timegem.tscn" id="4_v3ggq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kxwvo"]
@@ -200,46 +199,7 @@ focus_mode = 0
 position = Vector2(33, 153)
 
 [node name="timegem" parent="." instance=ExtResource("4_v3ggq")]
-position = Vector2(66, 16)
-
-[node name="stop" type="TextureButton" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 148.0
-offset_bottom = 148.0
-scale = Vector2(0.25, 0.25)
-focus_mode = 0
-texture_normal = ExtResource("4_3fgb8")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="stop"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 102.0
-offset_bottom = 39.0
-text = "Stop Time"
-
-[node name="slow" type="TextureButton" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 58.0
-offset_top = 16.0
-offset_right = 202.0
-offset_bottom = 160.0
-scale = Vector2(0.25, 0.25)
-focus_mode = 0
-texture_normal = ExtResource("4_3fgb8")
-
-[node name="Label" type="Label" parent="slow"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 12.0
-offset_right = 103.0
-offset_bottom = 35.0
-text = "Slow Time"
+position = Vector2(67, 15)
 
 [connection signal="timeout" from="Platforms/TimePlatform2/timeplatform2/platform2timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Platforms/TimePlatform2/platform2btn" to="." method="_on_platform_2_btn_pressed"]
@@ -247,5 +207,3 @@ text = "Slow Time"
 [connection signal="pressed" from="Platforms/TimePlatform3/platform3btn" to="." method="_on_platform_3_btn_pressed"]
 [connection signal="timeout" from="Platforms/TimePlatform4/timeplatform4/platform4timer" to="." method="_on_platform_4_timer_timeout"]
 [connection signal="pressed" from="Platforms/TimePlatform4/platform4btn" to="." method="_on_platform_4_btn_pressed"]
-[connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
-[connection signal="pressed" from="slow" to="." method="_on_slow_pressed"]

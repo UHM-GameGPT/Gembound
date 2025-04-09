@@ -1,5 +1,7 @@
 extends TextureRect
 
+class_name TimeZero
+
 #platform 2
 @onready var platform2btn: TextureButton = $Platforms/TimePlatform2/platform2btn
 @onready var timeplatform_2: AnimationPlayer = $Platforms/TimePlatform2/timeplatform2
@@ -15,7 +17,7 @@ extends TextureRect
 @onready var timeplatform_4: AnimationPlayer = $Platforms/TimePlatform4/timeplatform4
 @onready var platform_4_timer: Timer = $Platforms/TimePlatform4/timeplatform4/platform4timer
 
-
+var random = RandomNumberGenerator.new()
 var activeSkill: String
 
 func _ready() -> void:
@@ -23,9 +25,24 @@ func _ready() -> void:
 	platform3btn.disabled = true
 	platform4btn.disabled = true
 
+func _process(delta: float) -> void:
+	if GemManager.collected_gems.has("gem_stoptime"):
+		activeSkill = "stop"
+
+func enableButtons() -> void:
+	platform2btn.disabled = false
+	platform3btn.disabled = false
+	platform4btn.disabled = false
+
 func _on_platform_2_btn_pressed() -> void:
 	print("clicked platform 2 button")
-	platform_2_timer.start(5.0)
+	
+	platform_2_timer.wait_time = random.randf_range(1.0, 5.0)
+	platform_2_timer.start()
+	
+	platform2btn.disabled = true
+	set_process(true)
+	
 	match activeSkill:
 		"stop":
 			timeplatform_2.speed_scale = 0.0
@@ -34,24 +51,16 @@ func _on_platform_2_btn_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	timeplatform_2.speed_scale = 1.0
-
-func _on_stop_pressed() -> void:
-	print("clicked stop button")
-	activeSkill = "stop"
 	platform2btn.disabled = false
-	platform3btn.disabled = false
-	platform4btn.disabled = false
-
-func _on_slow_pressed() -> void:
-	print("clicked slow button")
-	activeSkill = "slow"
-	platform2btn.disabled = false
-	platform3btn.disabled = false
-	platform4btn.disabled = false
+	set_process(false)
 
 func _on_platform_3_btn_pressed() -> void:
 	print("clicked platform 3 button")
-	platform_3_timer.start(2.0)
+	platform3btn.disabled = true
+	set_process(true)
+	platform_3_timer.wait_time = random.randf_range(1.0, 2.0)
+	platform_3_timer.start()
+	
 	match activeSkill:
 		"stop":
 			timeplatform_3.speed_scale = 0.0
@@ -60,10 +69,15 @@ func _on_platform_3_btn_pressed() -> void:
 			
 func _on_platform_3_timer_timeout() -> void:
 	timeplatform_3.speed_scale = 1.0
+	platform3btn.disabled = false
+	set_process(false)
 
 func _on_platform_4_btn_pressed() -> void:
 	print("clicked platform 4 button")
-	platform_4_timer.start(5.0)
+	platform4btn.disabled = true
+	set_process(true)
+	platform_4_timer.wait_time = random.randf_range(1.0, 5.0)
+	platform_4_timer.start()
 	match activeSkill:
 		"stop":
 			timeplatform_4.speed_scale = 0.0
@@ -72,3 +86,5 @@ func _on_platform_4_btn_pressed() -> void:
 
 func _on_platform_4_timer_timeout() -> void:
 	timeplatform_4.speed_scale = 1.0
+	platform4btn.disabled = false
+	set_process(false)
