@@ -10,11 +10,18 @@ extends TextureRect
 @onready var timeplatform_3: AnimationPlayer = $Platforms/TimePlatform3/timeplatform3
 @onready var platform_3_timer: Timer = $Platforms/TimePlatform3/timeplatform3/platform3timer
 
+#platform 4
+@onready var platform4btn: TextureButton = $Platforms/TimePlatform4/platform4btn
+@onready var timeplatform_4: AnimationPlayer = $Platforms/TimePlatform4/timeplatform4
+@onready var platform_4_timer: Timer = $Platforms/TimePlatform4/timeplatform4/platform4timer
+
+
 var activeSkill: String
 
 func _ready() -> void:
 	platform2btn.disabled = true
 	platform3btn.disabled = true
+	platform4btn.disabled = true
 
 func _on_platform_2_btn_pressed() -> void:
 	print("clicked platform 2 button")
@@ -33,13 +40,14 @@ func _on_stop_pressed() -> void:
 	activeSkill = "stop"
 	platform2btn.disabled = false
 	platform3btn.disabled = false
+	platform4btn.disabled = false
 
 func _on_slow_pressed() -> void:
 	print("clicked slow button")
 	activeSkill = "slow"
 	platform2btn.disabled = false
 	platform3btn.disabled = false
-
+	platform4btn.disabled = false
 
 func _on_platform_3_btn_pressed() -> void:
 	print("clicked platform 3 button")
@@ -52,3 +60,15 @@ func _on_platform_3_btn_pressed() -> void:
 			
 func _on_platform_3_timer_timeout() -> void:
 	timeplatform_3.speed_scale = 1.0
+
+func _on_platform_4_btn_pressed() -> void:
+	print("clicked platform 4 button")
+	platform_4_timer.start(5.0)
+	match activeSkill:
+		"stop":
+			timeplatform_4.speed_scale = 0.0
+		"slow":
+			timeplatform_4.speed_scale = 0.25
+
+func _on_platform_4_timer_timeout() -> void:
+	timeplatform_4.speed_scale = 1.0

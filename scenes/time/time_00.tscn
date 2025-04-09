@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvydoagjangfu"]
+[gd_scene load_steps=17 format=3 uid="uid://dvydoagjangfu"]
 
 [ext_resource type="Texture2D" uid="uid://ckkgaw16mhm00" path="res://assets/sprites/backgrounds/time.png" id="1_ws1tb"]
 [ext_resource type="PackedScene" uid="uid://cx1shiqipudem" path="res://scenes/time/time_platform.tscn" id="2_3fgb8"]
@@ -27,6 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_v0bud"]
 resource_name = "move"
+length = 1.5
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -35,10 +36,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(167, 118), Vector2(248, 73)]
+"values": [Vector2(130, 135), Vector2(220, 73)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v3ggq"]
@@ -61,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(285, 20), Vector2(285, 150)]
+"values": [Vector2(285, 20), Vector2(285, 100)]
 }
 
 [sub_resource type="Animation" id="Animation_cjovo"]
@@ -85,6 +86,43 @@ _data = {
 &"updown": SubResource("Animation_ox78b")
 }
 
+[sub_resource type="Animation" id="Animation_tlr86"]
+resource_name = "vertical"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(224, 29), Vector2(140, 29)]
+}
+
+[sub_resource type="Animation" id="Animation_ojb43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(143, 29)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fimxx"]
+_data = {
+&"RESET": SubResource("Animation_ojb43"),
+&"vertical": SubResource("Animation_tlr86")
+}
+
 [node name="Time00" type="TextureRect"]
 offset_right = 321.0
 offset_bottom = 180.0
@@ -102,7 +140,7 @@ shape = SubResource("WorldBoundaryShape2D_kxwvo")
 [node name="Platforms" type="Node" parent="."]
 
 [node name="TimePlatform" parent="Platforms" instance=ExtResource("2_3fgb8")]
-position = Vector2(79, 131)
+position = Vector2(78, 29)
 
 [node name="TimePlatform2" parent="Platforms" instance=ExtResource("2_3fgb8")]
 position = Vector2(191, 117)
@@ -134,23 +172,43 @@ autoplay = "updown"
 [node name="platform3timer" type="Timer" parent="Platforms/TimePlatform3/timeplatform3"]
 
 [node name="platform3btn" type="TextureButton" parent="Platforms/TimePlatform3"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -24.0
+offset_top = -3.0
+offset_right = 23.0
+offset_bottom = 3.0
+focus_mode = 0
+
+[node name="TimePlatform4" parent="Platforms" instance=ExtResource("2_3fgb8")]
+position = Vector2(143, 29)
+
+[node name="timeplatform4" type="AnimationPlayer" parent="Platforms/TimePlatform4"]
+libraries = {
+&"": SubResource("AnimationLibrary_fimxx")
+}
+autoplay = "vertical"
+
+[node name="platform4timer" type="Timer" parent="Platforms/TimePlatform4/timeplatform4"]
+
+[node name="platform4btn" type="TextureButton" parent="Platforms/TimePlatform4"]
+offset_left = -22.0
+offset_top = -4.0
+offset_right = 22.0
+offset_bottom = 4.0
 focus_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("2_v0bud")]
 position = Vector2(33, 153)
 
 [node name="timegem" parent="." instance=ExtResource("4_v3ggq")]
-position = Vector2(163, 155)
+position = Vector2(66, 16)
 
 [node name="stop" type="TextureButton" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 25.0
-offset_top = 16.0
-offset_right = 169.0
-offset_bottom = 160.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 148.0
+offset_bottom = 148.0
 scale = Vector2(0.25, 0.25)
 focus_mode = 0
 texture_normal = ExtResource("4_3fgb8")
@@ -187,5 +245,7 @@ text = "Slow Time"
 [connection signal="pressed" from="Platforms/TimePlatform2/platform2btn" to="." method="_on_platform_2_btn_pressed"]
 [connection signal="timeout" from="Platforms/TimePlatform3/timeplatform3/platform3timer" to="." method="_on_platform_3_timer_timeout"]
 [connection signal="pressed" from="Platforms/TimePlatform3/platform3btn" to="." method="_on_platform_3_btn_pressed"]
+[connection signal="timeout" from="Platforms/TimePlatform4/timeplatform4/platform4timer" to="." method="_on_platform_4_timer_timeout"]
+[connection signal="pressed" from="Platforms/TimePlatform4/platform4btn" to="." method="_on_platform_4_btn_pressed"]
 [connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="slow" to="." method="_on_slow_pressed"]
