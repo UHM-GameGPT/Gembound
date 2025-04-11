@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
-[ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_hpemy"]
+[ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_xk3wa"]
 [ext_resource type="Texture2D" uid="uid://cjm47g6gu63om" path="res://assets/sprites/time_level/palm_tree.png" id="4_8fusb"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_a72n5"]
@@ -246,7 +246,7 @@ offset_right = 320.0
 offset_bottom = 180.0
 texture = ExtResource("1_xlol3")
 expand_mode = 1
-script = ExtResource("2_hpemy")
+script = ExtResource("2_0hwx0")
 
 [node name="Player" parent="." instance=ExtResource("3_xk3wa")]
 position = Vector2(23, 128)
@@ -300,6 +300,15 @@ shape = SubResource("CircleShape2D_hvore")
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Door_E" parent="Doors" instance=ExtResource("12_0hwx0")]
+position = Vector2(318, -23)
+destination_level_tag = "end"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-29, 155)
+
 [node name="Door_W" parent="Doors" instance=ExtResource("12_0hwx0")]
 position = Vector2(-6, -23)
 destination_level_tag = "time_start"
@@ -313,4 +322,6 @@ position = Vector2(28, 162)
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_entered" from="EnemySpirit" to="EnemySpirit" method="_on_body_entered"]
 
+[editable path="Coconut"]
+[editable path="Doors/Door_E"]
 [editable path="Doors/Door_W"]

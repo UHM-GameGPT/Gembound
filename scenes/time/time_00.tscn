@@ -47,6 +47,21 @@ _data = {
 &"move": SubResource("Animation_v0bud")
 }
 
+[sub_resource type="Animation" id="Animation_cjovo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(285, 20)]
+}
+
 [sub_resource type="Animation" id="Animation_ox78b"]
 resource_name = "updown"
 length = 2.0
@@ -64,7 +79,13 @@ tracks/0/keys = {
 "values": [Vector2(285, 20), Vector2(285, 100)]
 }
 
-[sub_resource type="Animation" id="Animation_cjovo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlr86"]
+_data = {
+&"RESET": SubResource("Animation_cjovo"),
+&"updown": SubResource("Animation_ox78b")
+}
+
+[sub_resource type="Animation" id="Animation_ojb43"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -76,13 +97,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(285, 20)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlr86"]
-_data = {
-&"RESET": SubResource("Animation_cjovo"),
-&"updown": SubResource("Animation_ox78b")
+"values": [Vector2(143, 29)]
 }
 
 [sub_resource type="Animation" id="Animation_tlr86"]
@@ -99,21 +114,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(224, 29), Vector2(140, 29)]
-}
-
-[sub_resource type="Animation" id="Animation_ojb43"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(143, 29)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fimxx"]

@@ -10,5 +10,4 @@ class_name Door
 
 func _on_body_entered(body):
 	if body is Player:
-		print(destination_level_tag)
 		NavigationManager.go_to_level(destination_level_tag, destination_door_tag)

@@ -284,6 +284,14 @@ libraries = {
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Door_W" parent="Doors" instance=ExtResource("10_sqqab")]
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-2, 110)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(22, 134)
+
 [node name="Door_E" parent="Doors" instance=ExtResource("10_sqqab")]
 position = Vector2(317, -22)
 destination_level_tag = "time_level2"
@@ -294,4 +302,5 @@ spawn_direction = "left"
 position = Vector2(-18, 157)
 
 [editable path="GemText/TutorialGem"]
+[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
