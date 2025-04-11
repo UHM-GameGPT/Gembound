@@ -3,7 +3,7 @@ extends Node
 const scene_tutorial1 = preload("res://scenes/tutorial/tutorial_1.tscn")
 const scene_tutorial2 = preload("res://scenes/tutorial/tutorial_2.tscn")
 const scene_tutorial3 = preload("res://scenes/tutorial/tutorial_3.tscn")
-const scene_tutorial5 = preload("res://scenes/tutorial/turtrial_5.tscn")
+const scene_tutorial5 = preload("res://scenes/tutorial/tutorial_5.tscn")
 
 const scene_timestart = preload("res://scenes/time_level/timelevel_start.tscn")
 const scene_time2 = preload("res://scenes/time_level/time_level_2.tscn")

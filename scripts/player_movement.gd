@@ -27,9 +27,13 @@ var dash_time: float = 0.0
 var dash_cooldown: float = 0.0
 var dash_direction: float = 0.0
 
+# Time ability 1 (Stopping objects)
+var can_stop: bool = false;
+
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	can_dash = PlayerState.dash_unlocked
+	can_stop = PlayerState.stop_unlocked
 	
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position

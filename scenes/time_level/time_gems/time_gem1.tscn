@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxonwjt7pi6yg"]
+
+[ext_resource type="Script" uid="uid://bpwr232vkm5do" path="res://scripts/gems/tutorial_gem.gd" id="1_atmn4"]
+[ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="2_27c2y"]
+[ext_resource type="AudioStream" uid="uid://lca3utl3wn73" path="res://assets/audio/soundfx/gem-collected.mp3" id="3_glkgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fio37"]
+atlas = ExtResource("2_27c2y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_got6p"]
+atlas = ExtResource("2_27c2y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71yxe"]
+atlas = ExtResource("2_27c2y")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cfcx"]
+atlas = ExtResource("2_27c2y")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldux7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fio37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_got6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71yxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cfcx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aekp7"]
+radius = 5.0
+height = 16.0
+
+[node name="TimeGem1" type="Area2D"]
+script = ExtResource("1_atmn4")
+
+[node name="Gem" type="AnimatedSprite2D" parent="."]
+position = Vector2(156, 86)
+sprite_frames = SubResource("SpriteFrames_ldux7")
+animation = &"idle"
+frame_progress = 0.476131
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(156, 86)
+shape = SubResource("CapsuleShape2D_aekp7")
+
+[node name="Collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_glkgl")
+volume_db = -16.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

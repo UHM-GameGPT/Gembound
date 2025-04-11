@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://d1vrlu0l8t8o"]
+[gd_scene load_steps=19 format=4 uid="uid://d1vrlu0l8t8o"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qdw5g"]
 [ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_3vjmf"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_5n7uh"]
 [ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="5_jemru"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_sqqab"]
-[ext_resource type="Script" uid="uid://b5xbd211hg2y4" path="res://scenes/tutorial/gem_text.gd" id="6_5n7uh"]
-[ext_resource type="PackedScene" uid="uid://baki5vpdwvbp0" path="res://scenes/tutorial/tutorial_gem.tscn" id="7_jemru"]
+[ext_resource type="Script" uid="uid://bb4gxdx8isfv1" path="res://scenes/time_level/time_gems/time_gem1_text.gd" id="8_r75vm"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="8_sqqab"]
+[ext_resource type="PackedScene" uid="uid://cxonwjt7pi6yg" path="res://scenes/time_level/time_gems/time_gem1.tscn" id="9_sqqab"]
+[ext_resource type="Script" uid="uid://cwi4i6ytod14t" path="res://scenes/time_level/time_gems/time_gem1.gd" id="10_r75vm"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_sqqab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
@@ -251,37 +252,6 @@ position = Vector2(23, 128)
 tile_map_data = PackedByteArray("AAAAAAsAAwABAAIAAAAAAAoAAwABAAEAAAAAAAkAAwAFAAAAAAABAAkAAwAFAAAAAAACAAkAAwAFAAAAAAADAAkAAwAFAAAAAAAEAAkAAwAFAAAAAAAFAAkAAwAFAAAAAAAGAAkAAwAFAAAAAAAHAAkAAwAFAAEAAAAIAAkAAwABAAEAAAAJAAkAAwABAAEAAAAKAAkAAwABAAEAAAALAAkAAwABAAEAAAAMAAkAAwABAAEAAAANAAkAAwABAAEAAAAOAAkAAwABAAEAAAAPAAkAAwAFAAEAAAAQAAkAAwAFAAAAAAARAAkAAwAFAAAAAAASAAkAAwAFAAAAAAATAAkAAwAFAAAAAAATAAoAAwABAAEAAAATAAsAAwABAAIAAAABAAoAAwABAAEAAAACAAoAAwABAAEAAAADAAoAAwABAAEAAAAEAAoAAwABAAEAAAAFAAoAAwABAAEAAAAGAAoAAwABAAEAAAAHAAoAAwABAAEAAAAIAAoAAwABAAEAAAAJAAoAAwABAAEAAAAKAAoAAwABAAEAAAALAAoAAwABAAEAAAAMAAoAAwABAAEAAAANAAoAAwABAAEAAAAOAAoAAwABAAEAAAAPAAoAAwABAAEAAAAQAAoAAwABAAEAAAARAAoAAwABAAEAAAASAAoAAwABAAEAAAABAAsAAwABAAIAAAACAAsAAwABAAIAAAADAAsAAwABAAIAAAAEAAsAAwABAAIAAAAFAAsAAwABAAIAAAAGAAsAAwABAAIAAAAHAAsAAwABAAIAAAAIAAsAAwABAAIAAAAJAAsAAwABAAIAAAAKAAsAAwABAAIAAAALAAsAAwABAAIAAAAMAAsAAwABAAIAAAANAAsAAwABAAIAAAAOAAsAAwABAAIAAAAPAAsAAwABAAIAAAAQAAsAAwABAAIAAAARAAsAAwABAAIAAAASAAsAAwABAAIAAAD//wkAAwAEAAAAAAAUAAkAAwAGAAAAAAD//woAAwAAAAEAAAAUAAoAAwACAAEAAAD//wsAAwAAAAIAAAAUAAsAAwACAAIAAAD+/wgAAwAFAAEAAAD+/wcAAwAFAAEAAAD+/wYAAwAFAAEAAAD+/wUAAwAFAAEAAAD+/wQAAwAFAAEAAAD+/wMAAwAFAAEAAAD+/wIAAwAFAAEAAAD+/wEAAwAFAAEAAAAVAAAAAwAFAAEAAAAVAAEAAwAFAAEAAAAVAAIAAwAFAAEAAAAVAAMAAwAFAAEAAAAVAAQAAwAFAAEAAAAVAAUAAwAFAAEAAAAVAAYAAwAFAAEAAAAVAAcAAwAFAAEAAAAVAAgAAwAFAAEAAAD+/wAAAwAFAAEAAAAHAAgAAwAEAAAAAAAIAAgAAwAFAAAAAAAJAAcAAwAEAAAAAAAJAAgAAwAFAAEAAAAKAAgAAwABAAEAAAALAAgAAwABAAEAAAAMAAgAAwABAAEAAAANAAgAAwABAAEAAAAOAAgAAwAFAAEAAAAPAAgAAwAGAAAAAAAKAAcAAwAFAAAAAAALAAcAAwAFAAAAAAAMAAcAAwAFAAAAAAANAAcAAwAFAAAAAAAOAAcAAwAGAAAAAAA=")
 tile_set = SubResource("TileSet_r75vm")
 
-[node name="GemText" type="Node2D" parent="."]
-script = ExtResource("6_5n7uh")
-
-[node name="TutorialGem" parent="GemText" instance=ExtResource("7_jemru")]
-
-[node name="Gem" parent="GemText/TutorialGem" index="0"]
-position = Vector2(190, 98)
-frame_progress = 0.0
-
-[node name="CollisionShape2D" parent="GemText/TutorialGem" index="1"]
-position = Vector2(190, 99)
-
-[node name="Text" type="Label" parent="GemText"]
-offset_left = 158.0
-offset_top = 8.0
-offset_right = 3094.0
-offset_bottom = 917.0
-scale = Vector2(0.05, 0.05)
-text = "Certain gems grant special
-abilities. Check out your
-new ability."
-label_settings = SubResource("LabelSettings_r75vm")
-horizontal_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
-libraries = {
-&"": SubResource("AnimationLibrary_w83iy")
-}
-
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_W" parent="Doors" instance=ExtResource("10_sqqab")]
@@ -301,6 +271,40 @@ spawn_direction = "left"
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-18, 157)
 
-[editable path="GemText/TutorialGem"]
+[node name="GemText" type="Node2D" parent="."]
+script = ExtResource("8_r75vm")
+
+[node name="TimeGem1" parent="GemText" instance=ExtResource("9_sqqab")]
+script = ExtResource("10_r75vm")
+gem_name = "gem_time1"
+
+[node name="Gem" parent="GemText/TimeGem1" index="0"]
+position = Vector2(192, 98)
+frame_progress = 0.13782
+
+[node name="CollisionShape2D" parent="GemText/TimeGem1" index="1"]
+position = Vector2(192, 98)
+
+[node name="Text" type="Label" parent="GemText"]
+offset_left = 158.0
+offset_top = 8.0
+offset_right = 3094.0
+offset_bottom = 917.0
+scale = Vector2(0.05, 0.05)
+text = "Certain gems grant special
+abilities. Check out your
+new ability in the next room.
+"
+label_settings = SubResource("LabelSettings_r75vm")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
+libraries = {
+&"": SubResource("AnimationLibrary_w83iy")
+}
+
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
+[editable path="GemText/TimeGem1"]

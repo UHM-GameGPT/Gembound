@@ -216,7 +216,9 @@ offset_bottom = 917.0
 scale = Vector2(0.05, 0.05)
 text = "Certain gems grant special
 abilities. Check out your
-new ability."
+new ability.
+
+- Press 'Shift' -"
 label_settings = SubResource("LabelSettings_eysq8")
 horizontal_alignment = 1
 visible_characters = 0
