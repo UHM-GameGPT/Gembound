@@ -15,6 +15,7 @@ func set_should_respawn(value: bool):
 	
 func _on_coconutbutton_pressed() -> void:
 	print("clicked the coconut")
+	# check if time gem is acquired
 	if coconut.sleeping:
 		coconut.sleeping = false
 	else:
