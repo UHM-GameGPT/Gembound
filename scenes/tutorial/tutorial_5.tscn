@@ -103,7 +103,7 @@ sources/6 = SubResource("TileSetAtlasSource_u6bh8")
 sources/0 = SubResource("TileSetAtlasSource_76njk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s834"]
-size = Vector2(103.828, 18)
+size = Vector2(93, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s834"]
 atlas = ExtResource("7_7s834")
@@ -142,7 +142,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i7ey2"]
-radius = 34.0
+radius = 44.5533
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ey2"]
 size = Vector2(26, 14)
@@ -158,10 +158,6 @@ expand_mode = 1
 script = ExtResource("2_76njk")
 
 [node name="Player" parent="." instance=ExtResource("3_7s834")]
-
-[node name="Playerold" parent="." instance=ExtResource("3_7s834")]
-visible = false
-position = Vector2(42, 128)
 collision_layer = 2
 collision_mask = 7
 
@@ -176,11 +172,11 @@ position = Vector2(65, 98)
 collision_mask = 7
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/Spike"]
-position = Vector2(214.609, -41)
+position = Vector2(208, -41)
 shape = SubResource("RectangleShape2D_7s834")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Spike"]
-position = Vector2(66.914, 38)
+position = Vector2(61.5, 38)
 shape = SubResource("RectangleShape2D_7s834")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
@@ -198,7 +194,7 @@ sprite_frames = SubResource("SpriteFrames_pu40o")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
-position = Vector2(217, 126)
+position = Vector2(218, 128)
 shape = SubResource("CircleShape2D_i7ey2")
 
 [node name="Log" type="RigidBody2D" parent="."]
@@ -219,6 +215,7 @@ shape = SubResource("RectangleShape2D_i7ey2")
 
 [node name="Door_W" parent="Doors" instance=ExtResource("10_i7ey2")]
 position = Vector2(0, -7)
+collision_mask = 7
 destination_level_tag = "tutorial_3"
 destination_door_tag = "E"
 spawn_direction = "right"
@@ -231,7 +228,7 @@ position = Vector2(35, 138)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("10_i7ey2")]
 position = Vector2(331, -18)
-collision_layer = 3
+collision_mask = 7
 destination_level_tag = "time_start"
 destination_door_tag = "W"
 spawn_direction = "left"
