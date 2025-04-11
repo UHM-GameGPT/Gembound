@@ -14,7 +14,7 @@ func set_should_respawn(value: bool):
 	should_respawn = value
 	
 func _on_coconutbutton_pressed() -> void:
-	print("clicked me")
+	print("clicked the coconut")
 	if coconut.sleeping:
 		coconut.sleeping = false
 	else:

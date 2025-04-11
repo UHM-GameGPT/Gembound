@@ -400,6 +400,8 @@ position = Vector2(23, 136)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="PlayerSpawn" type="Node2D" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Player"]
