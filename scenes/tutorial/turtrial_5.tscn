@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=4 uid="uid://bj6dgr7fiae4s"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_uqtl2"]
-[ext_resource type="Script" uid="uid://c48xyfahmlm8" path="res://scripts/tutorial.gd" id="2_76njk"]
+[ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_76njk"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_7s834"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_86tkr"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_2nxha"]
@@ -103,7 +103,7 @@ sources/6 = SubResource("TileSetAtlasSource_u6bh8")
 sources/0 = SubResource("TileSetAtlasSource_76njk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s834"]
-size = Vector2(110.781, 18)
+size = Vector2(103.828, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s834"]
 atlas = ExtResource("7_7s834")
@@ -142,7 +142,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i7ey2"]
-radius = 40.0125
+radius = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ey2"]
 size = Vector2(26, 14)
@@ -159,6 +159,8 @@ script = ExtResource("2_76njk")
 
 [node name="Player" parent="." instance=ExtResource("3_7s834")]
 position = Vector2(42, 128)
+collision_layer = 2
+collision_mask = 7
 
 [node name="Floor" parent="." instance=ExtResource("4_86tkr")]
 
@@ -168,19 +170,22 @@ tile_set = SubResource("TileSet_rfyhq")
 
 [node name="Spike" type="Area2D" parent="Platforms"]
 position = Vector2(65, 98)
+collision_mask = 7
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/Spike"]
 position = Vector2(214.609, -41)
 shape = SubResource("RectangleShape2D_7s834")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Spike"]
-position = Vector2(63.4375, 38)
+position = Vector2(66.914, 38)
 shape = SubResource("RectangleShape2D_7s834")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(34, 130)
 
 [node name="EnemySpirit" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("7_86tkr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySpirit"]
@@ -190,12 +195,13 @@ sprite_frames = SubResource("SpriteFrames_pu40o")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
-position = Vector2(214, 125)
+position = Vector2(217, 126)
 shape = SubResource("CircleShape2D_i7ey2")
 
 [node name="Log" type="RigidBody2D" parent="."]
-mass = 10.0
-gravity_scale = 2.0
+collision_layer = 4
+collision_mask = 7
+gravity_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="Log"]
 position = Vector2(163, 4)
