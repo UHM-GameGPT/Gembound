@@ -158,6 +158,9 @@ expand_mode = 1
 script = ExtResource("2_76njk")
 
 [node name="Player" parent="." instance=ExtResource("3_7s834")]
+
+[node name="Playerold" parent="." instance=ExtResource("3_7s834")]
+visible = false
 position = Vector2(42, 128)
 collision_layer = 2
 collision_mask = 7
@@ -221,19 +224,20 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-5, 133)
+position = Vector2(3, 121)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(20, 133)
+position = Vector2(35, 138)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("10_i7ey2")]
 position = Vector2(331, -18)
-destination_level_tag = "end"
+collision_layer = 3
+destination_level_tag = "time_start"
 destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(-5, 133)
+position = Vector2(-11, 129)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-32, 134)

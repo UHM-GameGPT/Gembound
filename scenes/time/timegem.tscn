@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://kvmubtwhmlkl"]
+
+[ext_resource type="Texture2D" uid="uid://djveq6774dj6l" path="res://assets/sprites/tutorial/tutorial_gem.png" id="1_30yfo"]
+[ext_resource type="Script" uid="uid://pejwe7umnxj6" path="res://scripts/gems/timegem.gd" id="1_d2dw1"]
+[ext_resource type="AudioStream" uid="uid://lca3utl3wn73" path="res://assets/audio/soundfx/gem-collected.mp3" id="2_s1oxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30yfo"]
+atlas = ExtResource("1_30yfo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1oxk"]
+atlas = ExtResource("1_30yfo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2dw1"]
+atlas = ExtResource("1_30yfo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6nd5"]
+atlas = ExtResource("1_30yfo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1oxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30yfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1oxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2dw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6nd5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_234hi"]
+radius = 5.0
+
+[node name="timegem" type="Area2D"]
+script = ExtResource("1_d2dw1")
+
+[node name="Gem" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s1oxk")
+autoplay = "default"
+frame = 1
+frame_progress = 0.288579
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_234hi")
+
+[node name="Collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s1oxk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
