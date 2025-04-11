@@ -13,7 +13,3 @@ func _on_level_spawn(destination_tag: String):
 func _on_spike_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.die()
-
-func _on_enemy_spirit_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		body.die()

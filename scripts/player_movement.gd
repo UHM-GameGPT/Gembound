@@ -114,13 +114,9 @@ func _physics_process(delta: float) -> void:
 		
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		
-		if collider.name == "Log" and collider is RigidBody2D:
-			if direction != 0:
-				var push_direction = Vector2(direction, 0)
-				collider.linear_velocity = push_direction * 100
-
+		if collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_central_impulse(-collision.get_normal() * 10)
+			
 func die():
 	if is_dead: return
 	is_dead = true
