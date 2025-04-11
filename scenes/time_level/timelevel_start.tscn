@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d1vrlu0l8t8o"]
+[gd_scene load_steps=18 format=4 uid="uid://d1vrlu0l8t8o"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qdw5g"]
 [ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_3vjmf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b5xbd211hg2y4" path="res://scenes/tutorial/gem_text.gd" id="6_5n7uh"]
 [ext_resource type="PackedScene" uid="uid://baki5vpdwvbp0" path="res://scenes/tutorial/tutorial_gem.tscn" id="7_jemru"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="8_sqqab"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_sqqab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_sqqab")
@@ -281,4 +282,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_w83iy")
 }
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_E" parent="Doors" instance=ExtResource("10_sqqab")]
+position = Vector2(317, -22)
+destination_level_tag = "time_level2"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-18, 157)
+
 [editable path="GemText/TutorialGem"]
+[editable path="Doors/Door_E"]

@@ -215,32 +215,18 @@ shape = SubResource("RectangleShape2D_i7ey2")
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_W" parent="Doors" instance=ExtResource("10_i7ey2")]
-position = Vector2(0, -7)
 destination_level_tag = "tutorial_3"
 destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-5, 133)
+position = Vector2(13, 110)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(20, 133)
-
-[node name="Door_E" parent="Doors" instance=ExtResource("10_i7ey2")]
-position = Vector2(331, -18)
-destination_level_tag = "end"
-destination_door_tag = "W"
-spawn_direction = "left"
-
-[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(-5, 133)
-
-[node name="Spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(-32, 134)
+position = Vector2(27, 134)
 
 [connection signal="body_entered" from="Platforms/Spike" to="." method="_on_spike_body_entered"]
 [connection signal="body_entered" from="EnemySpirit" to="." method="_on_enemy_spirit_body_entered"]
 [connection signal="body_entered" from="EnemySpirit" to="EnemySpirit" method="_on_body_entered"]
 
 [editable path="Doors/Door_W"]
-[editable path="Doors/Door_E"]
