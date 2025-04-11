@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://dd6tjeo1382st"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_se07g"]
-[ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_jhga6"]
+[ext_resource type="Script" uid="uid://c48xyfahmlm8" path="res://scripts/tutorial.gd" id="2_jhga6"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="2_rf3s0"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_51t5f"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="4_ae8lu"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b557oqusvb6dh" path="res://assets/sprites/tutorial/intro_sign2.png" id="6_ar7bx"]
 [ext_resource type="Texture2D" uid="uid://cbgelf4s2ruc7" path="res://assets/sprites/tutorial/intro_sign_arrow.png" id="7_ldvc6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6bh8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brk77"]
 texture = ExtResource("4_ae8lu")
 0:0/0 = 0
 1:0/0 = 0
@@ -90,7 +90,7 @@ texture = ExtResource("4_ae8lu")
 
 [sub_resource type="TileSet" id="TileSet_rfyhq"]
 physics_layer_0/collision_layer = 1
-sources/6 = SubResource("TileSetAtlasSource_u6bh8")
+sources/6 = SubResource("TileSetAtlasSource_brk77")
 
 [node name="TutorialPlatform" type="TextureRect"]
 z_index = 1

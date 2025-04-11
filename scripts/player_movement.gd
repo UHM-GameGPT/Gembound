@@ -4,8 +4,8 @@ class_name Player
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-const DASH_SPEED = 400.0
-const DASH_DURATION = 0.2
+const DASH_SPEED = 350.0
+const DASH_DURATION = 0.05
 const DASH_COOLDOWN = 0.5
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -17,6 +17,8 @@ const DASH_COOLDOWN = 0.5
 var landing: bool = false
 var is_dead: bool = false
 var can_move: bool = true
+
+var current_ability: Ability = null
 
 # Dashing variables
 var can_dash: bool = false
