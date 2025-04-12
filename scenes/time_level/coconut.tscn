@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxt6m0734tqan"]
+[gd_scene load_steps=5 format=3 uid="uid://cxt6m0734tqan"]
 
 [ext_resource type="Script" uid="uid://dux0ypjjckj87" path="res://scenes/time_level/coconut.gd" id="1_u67ma"]
 [ext_resource type="Texture2D" uid="uid://i3xex376nq8f" path="res://assets/sprites/time_level/coconut.png" id="1_ucqnu"]
+[ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="3_2ccp0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u67ma"]
 radius = 6.0
@@ -23,10 +24,10 @@ shape = SubResource("CircleShape2D_u67ma")
 [node name="coconutbutton" type="TextureButton" parent="."]
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 19.0
-offset_bottom = 19.0
+offset_right = 24.0
+offset_bottom = 23.0
 scale = Vector2(0.968696, 0.950229)
 focus_mode = 0
-texture_normal = ExtResource("1_ucqnu")
+texture_pressed = ExtResource("3_2ccp0")
 
 [connection signal="pressed" from="coconutbutton" to="." method="_on_coconutbutton_pressed"]
