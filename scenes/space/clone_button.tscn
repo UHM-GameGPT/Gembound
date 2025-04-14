@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://ib3yia12wg51"]
+
+[ext_resource type="Script" uid="uid://odw1jx3w7kak" path="res://scenes/space/clone_button.gd" id="1_qcosd"]
+[ext_resource type="Texture2D" uid="uid://ul82it1gqowc" path="res://assets/sprites/space/clone_button.png" id="2_pqni3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfgru"]
+atlas = ExtResource("2_pqni3")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu8ip"]
+atlas = ExtResource("2_pqni3")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py74q"]
+atlas = ExtResource("2_pqni3")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i62s"]
+atlas = ExtResource("2_pqni3")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xltso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfgru")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu8ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py74q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i62s")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcosd"]
+size = Vector2(26, 9)
+
+[node name="PressurePlate" type="Area2D"]
+script = ExtResource("1_qcosd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xltso")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qcosd")

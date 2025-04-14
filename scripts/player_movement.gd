@@ -13,6 +13,7 @@ const DASH_COOLDOWN = 0.5
 @onready var jump_land: AudioStreamPlayer = $JumpLand
 @onready var run_dirt_sand: AudioStreamPlayer = $Run_Dirt_Sand
 @onready var spawn_point = get_parent().get_node("PlayerSpawn")
+@export var clone_scene: PackedScene = preload("res://scenes/space/clone.tscn")
 
 var landing: bool = false
 var is_dead: bool = false
@@ -143,6 +144,8 @@ func die():
 func _input(event : InputEvent):
 	if(event.is_action_pressed("down")):
 		position.y += 1
+	if event.is_action_pressed("use_ability"):
+		use_ability()
 
 # Dashing motion for player
 func _start_dash(direction: float) -> void:
@@ -153,3 +156,16 @@ func _start_dash(direction: float) -> void:
 	dash_cooldown = DASH_COOLDOWN
 	dash_direction = direction
 	animated_sprite.play("dash")
+
+func use_ability():
+	if PlayerState.clone_unlocked:
+		spawn_clone()
+		
+func spawn_clone():
+	if not clone_scene:
+		print("No clone scene assigned!")
+		return
+
+	var clone = clone_scene.instantiate()
+	clone.global_position = global_position
+	get_parent().add_child(clone)

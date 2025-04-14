@@ -8,6 +8,9 @@ const scene_tutorial5 = preload("res://scenes/tutorial/tutorial_5.tscn")
 const scene_timestart = preload("res://scenes/time_level/timelevel_start.tscn")
 const scene_time2 = preload("res://scenes/time_level/time_level_2.tscn")
 
+const scene_space1 = preload("res://scenes/space/space_1.tscn")
+const scene_space2 = preload("res://scenes/space/space_2.tscn")
+
 const scene_end = preload("res://scenes/end.tscn")
 
 signal on_trigger_player_spawn
@@ -30,6 +33,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_timestart
 		"time_level2":
 			scene_to_load = scene_time2
+		"space_1":
+			scene_to_load = scene_space1
+		"space_2":
+			scene_to_load = scene_space2
 		"end":
 			scene_to_load = scene_end
 		

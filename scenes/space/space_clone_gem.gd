@@ -4,6 +4,7 @@ extends Area2D
 @onready var gem_collected: AudioStreamPlayer = $Collected
 
 @export var gem_name: String = "gem_space_clone"
+@export var clone: Ability
 
 func _ready() -> void:
 	if GemManager.collected_gems.has(gem_name):
@@ -18,6 +19,6 @@ func _on_body_entered(body: Node2D) -> void:
 		gem.visible = false
 		gem_collected.play()
 		await gem_collected.finished
-		PlayerState.dash_unlocked = true
-		body.can_dash = true
+		PlayerState.clone_unlocked = true
+		body.current_ability = clone
 		queue_free()

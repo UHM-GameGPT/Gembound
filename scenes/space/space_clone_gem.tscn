@@ -45,6 +45,8 @@ radius = 5.0
 height = 16.0
 
 [node name="SpaceCloneGem" type="Area2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_ur7p3")
 
 [node name="Gem" type="AnimatedSprite2D" parent="."]

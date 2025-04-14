@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://keyqbe2wrodm"]
+[gd_scene load_steps=17 format=4 uid="uid://keyqbe2wrodm"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_nixt0"]
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="2_btsbo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://1qu64wc2i1g" path="res://scenes/space/space_clone_gem_text.gd" id="6_8ijuy"]
 [ext_resource type="PackedScene" uid="uid://vq60gh4uk8af" path="res://scenes/space/space_clone_gem.tscn" id="7_jtqqj"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="8_mwc18"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="9_jtqqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_gqmi1")
@@ -239,4 +240,46 @@ libraries = {
 &"": SubResource("AnimationLibrary_w83iy")
 }
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_W" parent="Doors" instance=ExtResource("9_jtqqj")]
+position = Vector2(0, -7)
+collision_mask = 7
+destination_level_tag = "tutorial_3"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(3, 121)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(35, 138)
+
+[node name="Door_E1" parent="Doors" instance=ExtResource("9_jtqqj")]
+position = Vector2(331, -18)
+destination_level_tag = "space_2"
+destination_door_tag = "W1"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E1" index="0"]
+position = Vector2(-10, 68)
+
+[node name="Spawn" parent="Doors/Door_E1" index="1"]
+position = Vector2(-37, 87)
+
+[node name="Door_E2" parent="Doors" instance=ExtResource("9_jtqqj")]
+position = Vector2(331, -18)
+destination_level_tag = "space_2"
+destination_door_tag = "W2"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E2" index="0"]
+position = Vector2(-10, 142)
+
+[node name="Spawn" parent="Doors/Door_E2" index="1"]
+position = Vector2(-36, 152)
+
 [editable path="GemText/SpaceCloneGem"]
+[editable path="Doors/Door_W"]
+[editable path="Doors/Door_E1"]
+[editable path="Doors/Door_E2"]
