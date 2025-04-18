@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://keyqbe2wrodm"]
+[gd_scene load_steps=18 format=4 uid="uid://keyqbe2wrodm"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_nixt0"]
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="2_btsbo"]
+[ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_mwc18"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_gqmi1"]
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="4_gqmi1"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_fosxt"]
@@ -200,6 +201,7 @@ offset_right = 320.0
 offset_bottom = 190.0
 texture = ExtResource("1_nixt0")
 expand_mode = 1
+script = ExtResource("2_mwc18")
 
 [node name="Player" parent="." instance=ExtResource("3_gqmi1")]
 
@@ -243,41 +245,39 @@ libraries = {
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_W" parent="Doors" instance=ExtResource("9_jtqqj")]
-position = Vector2(0, -7)
 collision_mask = 7
-destination_level_tag = "tutorial_3"
+destination_level_tag = "tutorial_5"
 destination_door_tag = "E"
-spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(3, 121)
+position = Vector2(4, 118)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(35, 138)
+position = Vector2(33, 131)
 
 [node name="Door_E1" parent="Doors" instance=ExtResource("9_jtqqj")]
-position = Vector2(331, -18)
+collision_mask = 7
 destination_level_tag = "space_2"
 destination_door_tag = "W1"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E1" index="0"]
-position = Vector2(-10, 68)
+position = Vector2(319, 48)
 
 [node name="Spawn" parent="Doors/Door_E1" index="1"]
-position = Vector2(-37, 87)
+position = Vector2(295, 63)
 
 [node name="Door_E2" parent="Doors" instance=ExtResource("9_jtqqj")]
-position = Vector2(331, -18)
+collision_mask = 7
 destination_level_tag = "space_2"
 destination_door_tag = "W2"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E2" index="0"]
-position = Vector2(-10, 142)
+position = Vector2(318, 124)
 
 [node name="Spawn" parent="Doors/Door_E2" index="1"]
-position = Vector2(-36, 152)
+position = Vector2(294, 130)
 
 [editable path="GemText/SpaceCloneGem"]
 [editable path="Doors/Door_W"]
