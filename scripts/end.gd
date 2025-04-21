@@ -12,4 +12,5 @@ func _ready() -> void:
 	AudioManager.play_music_tutorial()
 
 func _on_timer_timeout() -> void:
+	NavigationManager.gameEnd = true
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
