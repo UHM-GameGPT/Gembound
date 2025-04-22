@@ -416,6 +416,7 @@ script = ExtResource("13_8cwnd")
 [node name="gemclone" type="AnimatedSprite2D" parent="GemclonePath2D/GemclonePathFollow2D"]
 position = Vector2(-1, 1.19209e-07)
 sprite_frames = SubResource("SpriteFrames_2iim0")
+autoplay = "default"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

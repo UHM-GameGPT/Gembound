@@ -2,6 +2,7 @@ extends TextureRect
 
 @onready var animated_sprite: AnimatedSprite2D = $Player/AnimatedSprite2D
 @onready var timer: Timer = $Timer
+var creditsScene = preload("res://scenes/credits.tscn")
 
 var angle:float = 0.0
 var speed:float = 1.5
@@ -13,4 +14,4 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	NavigationManager.gameEnd = true
-	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+	get_tree().change_scene_to_packed(creditsScene)

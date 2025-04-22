@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bnp37rpcj8nr7"]
+[gd_scene load_steps=8 format=4 uid="uid://bnp37rpcj8nr7"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_jfylm"]
 [ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_m4uja"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="3_16b3m"]
 [ext_resource type="Texture2D" uid="uid://bs8mdrtq6e0cu" path="res://assets/sprites/tutorial/intro_sign.png" id="6_7d2df"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="6_ibhh6"]
+[ext_resource type="PackedScene" uid="uid://dec4p3r26mnki" path="res://scenes/reload.tscn" id="7_4adrc"]
 
 [node name="TutorialStart" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
@@ -26,6 +27,12 @@ texture = ExtResource("6_7d2df")
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Door_W" parent="Doors" instance=ExtResource("6_ibhh6")]
+position = Vector2(-6, -23)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(37, 155)
+
 [node name="Door_E" parent="Doors" instance=ExtResource("6_ibhh6")]
 destination_level_tag = "tutorial_2"
 destination_door_tag = "W"
@@ -37,4 +44,7 @@ position = Vector2(325, 114)
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(296, 133)
 
+[node name="Reload" parent="." instance=ExtResource("7_4adrc")]
+
+[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
