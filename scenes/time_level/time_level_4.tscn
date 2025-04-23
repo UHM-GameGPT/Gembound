@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://ciepxnexgldla"]
+[gd_scene load_steps=26 format=4 uid="uid://ciepxnexgldla"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_ykmg6"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_6fh1u"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bgqnrwlef8bhd" path="res://scenes/time_level/platform_projectile.tscn" id="10_6fh1u"]
 [ext_resource type="Texture2D" uid="uid://dnu1vqwfjiwuq" path="res://assets/sprites/time_level/Phoenix_SpriteSheet_1.png" id="10_ddrfg"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="11_oxtxk"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_ddrfg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_avtyt")
@@ -327,5 +328,28 @@ script = ExtResource("11_oxtxk")
 position = Vector2(159, 190)
 shape = SubResource("RectangleShape2D_ddrfg")
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_W" parent="Doors" instance=ExtResource("12_ddrfg")]
+position = Vector2(-11, -25)
+destination_level_tag = "time_level3"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(31, 157)
+
+[node name="Door_E" parent="Doors" instance=ExtResource("12_ddrfg")]
+position = Vector2(314, -136)
+destination_level_tag = "end"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-21, 157)
+
 [connection signal="body_entered" from="FlyingEnemy/Area2D" to="FlyingEnemy" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
+
+[editable path="Doors/Door_W"]
+[editable path="Doors/Door_E"]

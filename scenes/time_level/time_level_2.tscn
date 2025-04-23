@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b3doeqcd52nu3"]
+[gd_scene load_steps=30 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_n22yi"]
 [ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="7_xk3wa"]
 [ext_resource type="Script" uid="uid://bbgikxqbo8pof" path="res://scenes/tutorial/enemy_spirit.gd" id="9_5xohw"]
+[ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="9_wu7qb"]
 [ext_resource type="Texture2D" uid="uid://ligp2ff8q0yf" path="res://assets/sprites/tutorial/slime_enemy.png" id="10_n22yi"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_0hwx0"]
 [ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="13_ek4c7"]
@@ -311,6 +312,9 @@ tile_set = SubResource("TileSet_r75vm")
 position = Vector2(167, 20)
 gravity_scale = 0.2
 
+[node name="coconutbutton" parent="Coconut" index="2"]
+texture_hover = ExtResource("9_wu7qb")
+
 [node name="CoconutSpawn" type="Node2D" parent="."]
 position = Vector2(167, 25)
 
@@ -344,7 +348,7 @@ shape = SubResource("CircleShape2D_hvore")
 
 [node name="Door_E" parent="Doors" instance=ExtResource("12_0hwx0")]
 position = Vector2(318, -23)
-destination_level_tag = "end"
+destination_level_tag = "time_level3"
 destination_door_tag = "W"
 spawn_direction = "left"
 

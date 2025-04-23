@@ -3,7 +3,6 @@ extends Control
 var titleScene = preload("res://scenes/title_screen/title_screen.tscn")
 
 func _ready():
-	NavigationManager.gameEnd = true
 	GemManager.collected_gems.clear()
 	PlayerState.dash_unlocked = false
 	PlayerState.stop_unlocked = false
