@@ -344,9 +344,12 @@ shape = SubResource("CircleShape2D_hvore")
 
 [node name="Door_E" parent="Doors" instance=ExtResource("12_0hwx0")]
 position = Vector2(318, -23)
-destination_level_tag = "end"
+destination_level_tag = "time_level3"
 destination_door_tag = "W"
 spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(19, 132)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-29, 155)
@@ -356,6 +359,9 @@ position = Vector2(-6, -23)
 destination_level_tag = "time_start"
 destination_door_tag = "E"
 spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-8, 133)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(28, 162)
@@ -380,6 +386,12 @@ visible_ratio = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_w83iy")
 }
+
+[node name="TimeSlowOverlay" type="ColorRect" parent="."]
+visible = false
+offset_right = 336.0
+offset_bottom = 192.0
+color = Color(1, 1, 0.533333, 0.227451)
 
 [connection signal="body_entered" from="Coconut" to="Coconut" method="_on_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

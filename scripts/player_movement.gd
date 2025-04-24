@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
-const DASH_SPEED = 350.0
+var SPEED = 130.0
+var JUMP_VELOCITY = -300.0
+var DASH_SPEED = 350.0
 const DASH_DURATION = 0.05
 const DASH_COOLDOWN = 0.5
 
@@ -13,6 +13,7 @@ const DASH_COOLDOWN = 0.5
 @onready var jump_land: AudioStreamPlayer = $JumpLand
 @onready var run_dirt_sand: AudioStreamPlayer = $Run_Dirt_Sand
 @onready var spawn_point = get_parent().get_node("PlayerSpawn")
+@onready var time_slow_overlay := get_parent().get_node("TimeSlowOverlay")
 @export var clone_scene: PackedScene = preload("res://scenes/space/clone.tscn")
 
 var landing: bool = false
@@ -31,6 +32,9 @@ var dash_direction: float = 0.0
 # Time ability 1 (Stopping objects)
 var can_stop: bool = false;
 
+# Time ability 2 (Slowing down time)
+var is_time_slowed = false  
+
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	can_dash = PlayerState.dash_unlocked
@@ -46,13 +50,15 @@ func _on_spawn(position: Vector2, direction: String):
 		animated_sprite.flip_h = false
 
 func _physics_process(delta: float) -> void:
+	if is_time_slowed:
+		delta /= Engine.time_scale
+	
 	if not can_move:
 		return
-
+		
 	# Allows the player to dash
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
-
 	if is_dashing:
 		dash_time -= delta
 		if dash_time <= 0:
@@ -160,7 +166,24 @@ func _start_dash(direction: float) -> void:
 func use_ability():
 	if PlayerState.clone_unlocked:
 		spawn_clone()
-		
+	elif PlayerState.slow_unlocked:
+		toggle_time_slow()
+
+func toggle_time_slow():
+	is_time_slowed = !is_time_slowed
+	if is_time_slowed:
+		Engine.time_scale = 0.4
+		self.SPEED *= 2.2
+		self.JUMP_VELOCITY *= 1.6
+		self.DASH_SPEED *= 1.8
+		time_slow_overlay.visible = true
+	else:
+		Engine.time_scale = 1.0
+		self.SPEED = 130.0
+		self.JUMP_VELOCITY = -300.0
+		self.DASH_SPEED = 350.0
+		time_slow_overlay.visible = false
+
 func spawn_clone():
 	if not clone_scene:
 		print("No clone scene assigned!")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://chxf20aag1vy7"]
+[gd_scene load_steps=20 format=4 uid="uid://chxf20aag1vy7"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_fsarr"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_jidb8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dotqj086r1ypp" path="res://assets/sprites/tilesets/stone_platform.png" id="9_ldaxc"]
 [ext_resource type="Texture2D" uid="uid://dgo6ntc0h2l6b" path="res://assets/sprites/tilesets/spritesheet_stone_highlight.png" id="10_lwyy0"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="11_d358o"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_lwyy0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_ldaxc")
@@ -282,4 +283,39 @@ script = ExtResource("11_d358o")
 position = Vector2(159, 190)
 shape = SubResource("RectangleShape2D_efl8c")
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_E" parent="Doors" instance=ExtResource("12_lwyy0")]
+position = Vector2(318, -23)
+destination_level_tag = "time_level4"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(21, 133)
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-21, 150)
+
+[node name="Door_W" parent="Doors" instance=ExtResource("12_lwyy0")]
+position = Vector2(-6, -23)
+destination_level_tag = "time_level2"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-10, 132)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(28, 162)
+
+[node name="TimeSlowOverlay" type="ColorRect" parent="."]
+visible = false
+offset_right = 336.0
+offset_bottom = 192.0
+color = Color(1, 1, 0.533333, 0.227451)
+
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
+
+[editable path="Doors/Door_E"]
+[editable path="Doors/Door_W"]
