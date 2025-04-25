@@ -327,6 +327,7 @@ libraries = {
 
 [node name="TimeSlowOverlay" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 336.0
 offset_bottom = 192.0
 color = Color(1, 1, 0.533333, 0.227451)

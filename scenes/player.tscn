@@ -310,6 +310,7 @@ size = Vector2(18, 28)
 z_index = 5
 position = Vector2(34, 128)
 collision_layer = 9
+collision_mask = 7
 script = ExtResource("1_j38ne")
 metadata/_edit_group_ = true
 

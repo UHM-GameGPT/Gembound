@@ -20,6 +20,8 @@ func _ready():
 	var current_scene = get_tree().current_scene.name
 	if current_scene == "time_level_2":
 		start_patrol()
+	if current_scene == "SpaceCloneEnemy":
+		start_patrol()
 
 func start_patrol():
 	while true:
