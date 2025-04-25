@@ -1,20 +1,22 @@
-[gd_scene load_steps=21 format=4 uid="uid://d1vrlu0l8t8o"]
+[gd_scene load_steps=33 format=4 uid="uid://dc0gerc0ha11p"]
 
-[ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qdw5g"]
-[ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_3vjmf"]
-[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_bridp"]
-[ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_5n7uh"]
-[ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="5_jemru"]
-[ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_sqqab"]
-[ext_resource type="Texture2D" uid="uid://b1txu2dxxs0ol" path="res://assets/sprites/platforms.png" id="6_vugu1"]
-[ext_resource type="Script" uid="uid://bb4gxdx8isfv1" path="res://scenes/time_level/time_gems/time_gem1_text.gd" id="8_r75vm"]
-[ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="8_sqqab"]
-[ext_resource type="PackedScene" uid="uid://cxonwjt7pi6yg" path="res://scenes/time_level/time_gems/time_gem1.tscn" id="9_sqqab"]
-[ext_resource type="Script" uid="uid://cwi4i6ytod14t" path="res://scenes/time_level/time_gems/time_gem1.gd" id="10_r75vm"]
-[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_sqqab"]
+[ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_a8mg3"]
+[ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_c4r03"]
+[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_5sy45"]
+[ext_resource type="Texture2D" uid="uid://cjm47g6gu63om" path="res://assets/sprites/time_level/palm_tree.png" id="3_c4r03"]
+[ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_22r3q"]
+[ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_i8iip"]
+[ext_resource type="Texture2D" uid="uid://b1txu2dxxs0ol" path="res://assets/sprites/platforms.png" id="6_l8raw"]
+[ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="7_fx6aj"]
+[ext_resource type="Script" uid="uid://b3fjntjevydgh" path="res://scenes/time_level/time_gems/time_gem2_text.gd" id="8_yqyej"]
+[ext_resource type="PackedScene" uid="uid://c8k8bk15xtmhk" path="res://scenes/time_level/time_gems/time_gem_2.tscn" id="9_22r3q"]
+[ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="10_7eblj"]
+[ext_resource type="Script" uid="uid://bsc6xgn3ngwu2" path="res://scenes/time_level/flying_bird.gd" id="12_22r3q"]
+[ext_resource type="Texture2D" uid="uid://dcpq6ekqi3pj5" path="res://assets/sprites/time_level/BirdSprite.png" id="13_i8iip"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="14_i8iip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
-texture = ExtResource("5_sqqab")
+texture = ExtResource("5_i8iip")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -100,7 +102,7 @@ texture = ExtResource("5_sqqab")
 4:10/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bit1"]
-texture = ExtResource("6_vugu1")
+texture = ExtResource("6_l8raw")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.70866, -8, 0.989223)
 1:0/0 = 0
@@ -118,7 +120,7 @@ texture = ExtResource("6_vugu1")
 2:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqqab"]
-texture = ExtResource("5_jemru")
+texture = ExtResource("7_fx6aj")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -218,7 +220,7 @@ sources/0 = SubResource("TileSetAtlasSource_r75vm")
 sources/1 = SubResource("TileSetAtlasSource_3bit1")
 
 [sub_resource type="LabelSettings" id="LabelSettings_r75vm"]
-font = ExtResource("8_sqqab")
+font = ExtResource("10_7eblj")
 font_size = 220
 
 [sub_resource type="Animation" id="Animation_60vy7"]
@@ -257,66 +259,109 @@ _data = {
 &"show_tutorial": SubResource("Animation_4lo02")
 }
 
-[node name="TimeLevelStart" type="TextureRect"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8raw"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx6aj"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqyej"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ntw6"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eblj"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78215"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgjyk"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1fwh"]
+atlas = ExtResource("13_i8iip")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1csx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8raw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx6aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqyej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ntw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eblj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78215")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgjyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1fwh")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5syww"]
+size = Vector2(16, 9)
+
+[node name="time_level_5" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
 offset_bottom = 180.0
-texture = ExtResource("1_qdw5g")
+texture = ExtResource("1_a8mg3")
 expand_mode = 1
-script = ExtResource("2_3vjmf")
+script = ExtResource("2_c4r03")
 
-[node name="Player" parent="." instance=ExtResource("3_bridp")]
+[node name="PalmTree" type="Sprite2D" parent="."]
+position = Vector2(201, 63)
+scale = Vector2(0.717105, 0.856251)
+texture = ExtResource("3_c4r03")
+
+[node name="Player" parent="." instance=ExtResource("3_5sy45")]
 position = Vector2(23, 128)
 
-[node name="Floor" parent="." instance=ExtResource("4_5n7uh")]
+[node name="Floor" parent="." instance=ExtResource("4_22r3q")]
 tile_map_data = PackedByteArray("AAAAAAsAAwABAAIAAAAAAAoAAwABAAEAAAAAAAkAAwAFAAAAAAABAAkAAwAFAAAAAAACAAkAAwAFAAAAAAADAAkAAwAFAAAAAAAEAAkAAwAFAAAAAAAFAAkAAwAFAAAAAAAGAAkAAwAFAAAAAAAHAAkAAwAFAAEAAAAIAAkAAwABAAEAAAAJAAkAAwABAAEAAAAKAAkAAwABAAEAAAALAAkAAwABAAEAAAAMAAkAAwABAAEAAAANAAkAAwABAAEAAAAOAAkAAwABAAEAAAAPAAkAAwAFAAEAAAAQAAkAAwAFAAAAAAARAAkAAwAFAAAAAAASAAkAAwAFAAAAAAATAAkAAwAFAAAAAAATAAoAAwABAAEAAAATAAsAAwABAAIAAAABAAoAAwABAAEAAAACAAoAAwABAAEAAAADAAoAAwABAAEAAAAEAAoAAwABAAEAAAAFAAoAAwABAAEAAAAGAAoAAwABAAEAAAAHAAoAAwABAAEAAAAIAAoAAwABAAEAAAAJAAoAAwABAAEAAAAKAAoAAwABAAEAAAALAAoAAwABAAEAAAAMAAoAAwABAAEAAAANAAoAAwABAAEAAAAOAAoAAwABAAEAAAAPAAoAAwABAAEAAAAQAAoAAwABAAEAAAARAAoAAwABAAEAAAASAAoAAwABAAEAAAABAAsAAwABAAIAAAACAAsAAwABAAIAAAADAAsAAwABAAIAAAAEAAsAAwABAAIAAAAFAAsAAwABAAIAAAAGAAsAAwABAAIAAAAHAAsAAwABAAIAAAAIAAsAAwABAAIAAAAJAAsAAwABAAIAAAAKAAsAAwABAAIAAAALAAsAAwABAAIAAAAMAAsAAwABAAIAAAANAAsAAwABAAIAAAAOAAsAAwABAAIAAAAPAAsAAwABAAIAAAAQAAsAAwABAAIAAAARAAsAAwABAAIAAAASAAsAAwABAAIAAAD//wkAAwAEAAAAAAAUAAkAAwAGAAAAAAD//woAAwAAAAEAAAAUAAoAAwACAAEAAAD//wsAAwAAAAIAAAAUAAsAAwACAAIAAAD+/wgAAwAFAAEAAAD+/wcAAwAFAAEAAAD+/wYAAwAFAAEAAAD+/wUAAwAFAAEAAAD+/wQAAwAFAAEAAAD+/wMAAwAFAAEAAAD+/wIAAwAFAAEAAAD+/wEAAwAFAAEAAAAVAAAAAwAFAAEAAAAVAAEAAwAFAAEAAAAVAAIAAwAFAAEAAAAVAAMAAwAFAAEAAAAVAAQAAwAFAAEAAAAVAAUAAwAFAAEAAAAVAAYAAwAFAAEAAAAVAAcAAwAFAAEAAAAVAAgAAwAFAAEAAAD+/wAAAwAFAAEAAAAHAAgAAwAEAAAAAAAIAAgAAwAFAAAAAAAJAAcAAwAEAAAAAAAJAAgAAwAFAAEAAAAKAAgAAwABAAEAAAALAAgAAwABAAEAAAAMAAgAAwABAAEAAAANAAgAAwABAAEAAAAOAAgAAwAFAAEAAAAPAAgAAwAGAAAAAAAKAAcAAwAFAAAAAAALAAcAAwAFAAAAAAAMAAcAAwAFAAAAAAANAAcAAwAFAAAAAAAOAAcAAwAGAAAAAAA=")
 tile_set = SubResource("TileSet_r75vm")
 
-[node name="Doors" type="Node" parent="."]
-
-[node name="Door_W" parent="Doors" instance=ExtResource("10_sqqab")]
-
-[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-2, 110)
-
-[node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(22, 134)
-
-[node name="Door_E" parent="Doors" instance=ExtResource("10_sqqab")]
-position = Vector2(317, -22)
-destination_level_tag = "time_level2"
-destination_door_tag = "W"
-spawn_direction = "left"
-
-[node name="Spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(-18, 157)
-
 [node name="GemText" type="Node2D" parent="."]
-script = ExtResource("8_r75vm")
+script = ExtResource("8_yqyej")
 
-[node name="TimeGem1" parent="GemText" instance=ExtResource("9_sqqab")]
-script = ExtResource("10_r75vm")
-gem_name = "gem_time1"
-
-[node name="Gem" parent="GemText/TimeGem1" index="0"]
-position = Vector2(192, 98)
-frame_progress = 0.13782
-
-[node name="CollisionShape2D" parent="GemText/TimeGem1" index="1"]
-position = Vector2(192, 98)
+[node name="time_gem_2" parent="GemText" instance=ExtResource("9_22r3q")]
 
 [node name="Text" type="Label" parent="GemText"]
-offset_left = 158.0
-offset_top = 8.0
-offset_right = 3094.0
-offset_bottom = 917.0
+offset_left = 193.0
+offset_top = 6.0
+offset_right = 2573.0
+offset_bottom = 915.0
 scale = Vector2(0.05, 0.05)
-text = "Certain gems grant special
-abilities. Check out your
-new ability in the next room.
+text = "You got a new ability. Press \"Q\" to see what it does.
 "
 label_settings = SubResource("LabelSettings_r75vm")
 horizontal_alignment = 1
+autowrap_mode = 3
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -325,6 +370,47 @@ libraries = {
 &"": SubResource("AnimationLibrary_w83iy")
 }
 
+[node name="FlyingBird" type="CharacterBody2D" parent="."]
+position = Vector2(199, 9)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("12_22r3q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlyingBird"]
+sprite_frames = SubResource("SpriteFrames_b1csx")
+animation = &"flying"
+frame_progress = 0.590238
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingBird"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_5syww")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_E" parent="Doors" instance=ExtResource("14_i8iip")]
+position = Vector2(318, -23)
+destination_level_tag = "time_level6"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(13, 134)
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-29, 155)
+
+[node name="Door_W" parent="Doors" instance=ExtResource("14_i8iip")]
+position = Vector2(-6, -23)
+destination_level_tag = "time_level4"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-5, 134)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(28, 162)
+
 [node name="TimeSlowOverlay" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
@@ -332,6 +418,5 @@ offset_right = 336.0
 offset_bottom = 192.0
 color = Color(1, 1, 0.533333, 0.227451)
 
-[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
-[editable path="GemText/TimeGem1"]
+[editable path="Doors/Door_W"]

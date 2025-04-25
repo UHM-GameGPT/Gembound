@@ -243,7 +243,6 @@ script = ExtResource("2_jidb8")
 [node name="Player" parent="." instance=ExtResource("3_m3714")]
 position = Vector2(23, 128)
 collision_layer = 1
-collision_mask = 7
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(34, 130)
@@ -285,25 +284,38 @@ shape = SubResource("RectangleShape2D_efl8c")
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door_W" parent="Doors" instance=ExtResource("12_lwyy0")]
-position = Vector2(-11, -24)
-destination_level_tag = "time_level2"
-destination_door_tag = "E"
-spawn_direction = "right"
-
-[node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(31, 161)
-
 [node name="Door_E" parent="Doors" instance=ExtResource("12_lwyy0")]
-position = Vector2(331, -21)
+position = Vector2(318, -23)
 destination_level_tag = "time_level4"
 destination_door_tag = "W"
 spawn_direction = "left"
 
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(21, 133)
+
 [node name="Spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(-26, 149)
+position = Vector2(-21, 150)
+
+[node name="Door_W" parent="Doors" instance=ExtResource("12_lwyy0")]
+position = Vector2(-6, -23)
+destination_level_tag = "time_level2"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-10, 132)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(28, 162)
+
+[node name="TimeSlowOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 336.0
+offset_bottom = 192.0
+color = Color(1, 1, 0.533333, 0.227451)
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
 
-[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
+[editable path="Doors/Door_W"]

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $CloneSprite
 
-const LIFE_TIME = 30.0
+const LIFE_TIME = 10.0
 var life_timer := 0.0
 
 func _ready():
