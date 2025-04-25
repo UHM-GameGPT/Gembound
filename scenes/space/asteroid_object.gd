@@ -1,13 +1,14 @@
 extends RigidBody2D
 
 @export var respawn_time: float = 5.0
-@export var move_threshold: float = 10.0  # Adjust as needed
+@export var move_threshold: float = 10.0
 
 var original_position: Vector2
-var has_moved = false
+var has_moved := false
 var respawn_timer: Timer
 
 func _ready():
+	await get_tree().process_frame  # Ensure the position is set by the scene first
 	original_position = global_position
 
 	respawn_timer = Timer.new()
@@ -16,21 +17,14 @@ func _ready():
 	respawn_timer.timeout.connect(_on_respawn_timeout)
 	add_child(respawn_timer)
 
-	print("Timer added with wait_time =", respawn_timer.wait_time)
-
 func _physics_process(_delta):
-	var dist = global_position.distance_to(original_position)
-	print("Distance from original:", dist)
-
-	if not has_moved and dist > move_threshold:
-		print("Asteroid moved! Distance =", dist)
+	if not has_moved and global_position.distance_to(original_position) > move_threshold:
 		has_moved = true
 		respawn_timer.start()
-		print("Respawn timer started!")
 
 func _on_respawn_timeout():
-	print("Respawning asteroid.")
-	global_position = original_position
+	# Fully reset the asteroid's position and motion
 	linear_velocity = Vector2.ZERO
-	angular_velocity = 0
+	angular_velocity = 0.0
+	global_position = original_position
 	has_moved = false

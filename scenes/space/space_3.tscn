@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://bbbwfvc8v8a2x"]
+[gd_scene load_steps=56 format=4 uid="uid://bbbwfvc8v8a2x"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_uaub7"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_0uwu5"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_qr23u"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_2gwxb"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_bpgfv"]
-[ext_resource type="Script" uid="uid://2747bd46ot5e" path="res://scenes/space/asteroid_object.gd" id="11_c11o2"]
 [ext_resource type="Texture2D" uid="uid://be8mmvy2ksh25" path="res://assets/sprites/space/asteroid_object.png" id="11_ogxyq"]
 [ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="12_ogxyq"]
 [ext_resource type="PackedScene" uid="uid://cxt6m0734tqan" path="res://scenes/time_level/coconut.tscn" id="13_c11o2"]
@@ -163,7 +162,7 @@ sources/6 = SubResource("TileSetAtlasSource_ocjhh")
 sources/0 = SubResource("TileSetAtlasSource_pntx0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc7ip"]
-size = Vector2(27.5, 92.5)
+size = Vector2(27.5, 75.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xim1i"]
 atlas = ExtResource("9_2gwxb")
@@ -430,21 +429,24 @@ expand_mode = 1
 script = ExtResource("2_0uwu5")
 
 [node name="Player" parent="." instance=ExtResource("3_t3sow")]
-position = Vector2(31, 64)
+position = Vector2(43, 64)
 collision_layer = 1
+collision_mask = 5
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(29, 65)
+position = Vector2(31, 65)
 
 [node name="Floor" parent="." instance=ExtResource("4_1ytg0")]
-tile_map_data = PackedByteArray("AAAAAAsAAQADAAYAAAAAAAoAAQADAAUAAAAAAAkAAQADAAUAAAABAAkAAQADAAUAAAACAAkAAQADAAUAAAADAAkAAQADAAUAAAAEAAkAAQADAAQAAAAFAAkAAQADAAQAAAAGAAkAAQADAAQAAAAHAAkAAQADAAQAAAAIAAkAAQADAAQAAAAJAAkAAQADAAQAAAAKAAkAAQADAAQAAAALAAkAAQADAAQAAAAMAAkAAQADAAQAAAANAAkAAQADAAQAAAAOAAkAAQADAAQAAAAPAAkAAQADAAQAAAAQAAkAAQADAAQAAAARAAkAAQADAAQAAAASAAkAAQADAAQAAAATAAkAAQADAAQAAAATAAoAAQADAAUAAAATAAsAAQADAAYAAAABAAoAAQADAAUAAAACAAoAAQADAAUAAAADAAoAAQADAAUAAAAEAAoAAQADAAUAAAAFAAoAAQADAAUAAAAGAAoAAQADAAUAAAAHAAoAAQADAAUAAAAIAAoAAQADAAUAAAAJAAoAAQADAAUAAAAKAAoAAQADAAUAAAALAAoAAQADAAUAAAAMAAoAAQADAAUAAAANAAoAAQADAAUAAAAOAAoAAQADAAUAAAAPAAoAAQADAAUAAAAQAAoAAQADAAUAAAARAAoAAQADAAUAAAASAAoAAQADAAUAAAABAAsAAQADAAYAAAACAAsAAQADAAYAAAADAAsAAQADAAYAAAAEAAsAAQADAAYAAAAFAAsAAQADAAYAAAAGAAsAAQADAAYAAAAHAAsAAQADAAYAAAAIAAsAAQADAAYAAAAJAAsAAQADAAYAAAAKAAsAAQADAAYAAAALAAsAAQADAAYAAAAMAAsAAQADAAYAAAANAAsAAQADAAYAAAAOAAsAAQADAAYAAAAPAAsAAQADAAYAAAAQAAsAAQADAAYAAAARAAsAAQADAAYAAAASAAsAAQADAAYAAAD//wkAAQACAAUAAAAUAAkAAQAEAAQAAAD//woAAQACAAUAAAAUAAoAAQAEAAUAAAD//wsAAQACAAYAAAAUAAsAAQAEAAYAAAD//wUAAQACAAQAAAADAAUAAQAEAAQAAAAAAAUAAQADAAQAAAABAAUAAQADAAQAAAACAAUAAQADAAQAAAADAAYAAQAEAAUAAAADAAcAAQAEAAUAAAADAAgAAQAEAAUAAAD//wYAAQACAAUAAAD//wcAAQACAAUAAAD//wgAAQACAAUAAAAAAAYAAQADAAUAAAABAAYAAQADAAUAAAACAAYAAQADAAUAAAACAAcAAQADAAUAAAABAAcAAQADAAUAAAAAAAcAAQADAAUAAAAAAAgAAQADAAUAAAABAAgAAQADAAUAAAACAAgAAQADAAUAAAA=")
+tile_map_data = PackedByteArray("AAAAAAsAAQADAAYAAAAAAAoAAQADAAUAAAAAAAkAAQADAAUAAAABAAkAAQADAAUAAAACAAkAAQADAAUAAAADAAkAAQADAAUAAAAEAAkAAQADAAQAAAAFAAkAAQADAAQAAAAGAAkAAQADAAQAAAAHAAkAAQADAAQAAAAIAAkAAQADAAQAAAAJAAkAAQADAAQAAAAKAAkAAQADAAQAAAALAAkAAQADAAQAAAAMAAkAAQADAAQAAAANAAkAAQADAAQAAAAOAAkAAQADAAQAAAAPAAkAAQADAAQAAAAQAAkAAQADAAQAAAARAAkAAQADAAQAAAASAAkAAQADAAQAAAATAAkAAQADAAQAAAATAAoAAQADAAUAAAATAAsAAQADAAYAAAABAAoAAQADAAUAAAACAAoAAQADAAUAAAADAAoAAQADAAUAAAAEAAoAAQADAAUAAAAFAAoAAQADAAUAAAAGAAoAAQADAAUAAAAHAAoAAQADAAUAAAAIAAoAAQADAAUAAAAJAAoAAQADAAUAAAAKAAoAAQADAAUAAAALAAoAAQADAAUAAAAMAAoAAQADAAUAAAANAAoAAQADAAUAAAAOAAoAAQADAAUAAAAPAAoAAQADAAUAAAAQAAoAAQADAAUAAAARAAoAAQADAAUAAAASAAoAAQADAAUAAAABAAsAAQADAAYAAAACAAsAAQADAAYAAAADAAsAAQADAAYAAAAEAAsAAQADAAYAAAAFAAsAAQADAAYAAAAGAAsAAQADAAYAAAAHAAsAAQADAAYAAAAIAAsAAQADAAYAAAAJAAsAAQADAAYAAAAKAAsAAQADAAYAAAALAAsAAQADAAYAAAAMAAsAAQADAAYAAAANAAsAAQADAAYAAAAOAAsAAQADAAYAAAAPAAsAAQADAAYAAAAQAAsAAQADAAYAAAARAAsAAQADAAYAAAASAAsAAQADAAYAAAD//wkAAQACAAUAAAAUAAkAAQAEAAQAAAD//woAAQACAAUAAAAUAAoAAQAEAAUAAAD//wsAAQACAAYAAAAUAAsAAQAEAAYAAAD//wUAAQACAAQAAAADAAUAAQAEAAQAAAAAAAUAAQADAAQAAAABAAUAAQADAAQAAAACAAUAAQADAAQAAAADAAYAAQAEAAUAAAADAAcAAQAEAAUAAAADAAgAAQAEAAUAAAD//wYAAQACAAUAAAD//wcAAQACAAUAAAD//wgAAQACAAUAAAAAAAYAAQADAAUAAAABAAYAAQADAAUAAAACAAYAAQADAAUAAAACAAcAAQADAAUAAAABAAcAAQADAAUAAAAAAAcAAQADAAUAAAAAAAgAAQADAAUAAAABAAgAAQADAAUAAAACAAgAAQADAAUAAAALAAQAAQACAAQAAAAMAAQAAQADAAQAAAANAAQAAQADAAQAAAAOAAQAAQADAAQAAAAPAAQAAQADAAQAAAAQAAQAAQADAAQAAAARAAQAAQADAAQAAAASAAQAAQADAAQAAAATAAQAAQADAAQAAAAUAAQAAQAEAAQAAAAUAAUAAQAEAAYAAAATAAUAAQADAAYAAAASAAUAAQADAAYAAAARAAUAAQADAAYAAAAQAAUAAQADAAYAAAAPAAUAAQADAAYAAAAOAAUAAQADAAYAAAANAAUAAQADAAYAAAAMAAUAAQADAAYAAAALAAUAAQACAAYAAAAUAP//AQADAAUAAAAUAAAAAQADAAUAAAAUAAEAAQADAAUAAAAUAAIAAQADAAUAAAAUAAMAAQADAAUAAAA=")
 
 [node name="Platforms" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAAMAAAAAAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_8ijuy")
 
 [node name="PressurePlate" parent="." instance=ExtResource("7_c11o2")]
 position = Vector2(55, -8)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="PressurePlate" index="0"]
 position = Vector2(48.5, 51.5)
@@ -455,6 +457,8 @@ position = Vector2(49, 51.5)
 
 [node name="PressurePlate3" parent="." instance=ExtResource("7_c11o2")]
 position = Vector2(252, 8)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="PressurePlate3" index="0"]
 position = Vector2(48.5, 51.5)
@@ -477,7 +481,9 @@ sprite_frames = SubResource("SpriteFrames_7g00e")
 animation = &"idle"
 
 [node name="PressurePlate2" parent="." instance=ExtResource("7_c11o2")]
-position = Vector2(196, 88)
+position = Vector2(158, 88)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="PressurePlate2" index="0"]
 position = Vector2(48.5, 51.5)
@@ -487,16 +493,16 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(49, 51.5)
 
 [node name="ButtonDoor2" type="StaticBody2D" parent="."]
-position = Vector2(56, 89)
+position = Vector2(44, 89)
 script = ExtResource("8_qr23u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDoor2"]
-position = Vector2(238, 23)
+position = Vector2(238, 31.625)
 shape = SubResource("RectangleShape2D_sc7ip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonDoor2"]
-position = Vector2(231.4, 22.5)
-scale = Vector2(0.6375, 1.01562)
+position = Vector2(231.4, 30.9999)
+scale = Vector2(0.6375, 0.749998)
 sprite_frames = SubResource("SpriteFrames_7g00e")
 animation = &"idle"
 
@@ -508,7 +514,7 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(3, 49)
+position = Vector2(-6, 49)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(29, 64)
@@ -520,7 +526,7 @@ destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(6, 49)
+position = Vector2(5, 49)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-16, 59)
@@ -530,7 +536,6 @@ position = Vector2(77, 67)
 collision_layer = 4
 collision_mask = 7
 gravity_scale = 0.5
-script = ExtResource("11_c11o2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Asteroid"]
 position = Vector2(170.8, -17.2)
@@ -538,7 +543,7 @@ scale = Vector2(1.025, 1.025)
 texture = ExtResource("11_ogxyq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid"]
-position = Vector2(170, -18)
+position = Vector2(171, -18)
 shape = SubResource("CircleShape2D_c11o2")
 
 [node name="KillZone" type="Area2D" parent="." groups=["ground"]]

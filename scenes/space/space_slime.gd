@@ -50,4 +50,5 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		$AnimatedSprite2D.play("death")
 		
+		body.queue_free()
 		queue_free()
