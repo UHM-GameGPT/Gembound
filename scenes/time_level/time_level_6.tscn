@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://ljr7ab8mr1ws"]
+[gd_scene load_steps=32 format=4 uid="uid://ljr7ab8mr1ws"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qbhvt"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_vixr4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_hhuqg"]
 [ext_resource type="Texture2D" uid="uid://b1txu2dxxs0ol" path="res://assets/sprites/platforms.png" id="6_a8v41"]
 [ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="7_3j2ex"]
+[ext_resource type="Texture2D" uid="uid://bs1pd6wb3x5xs" path="res://assets/sprites/tutorial/16-bit-spike-Sheet.png" id="8_3j2ex"]
 [ext_resource type="Script" uid="uid://d4cty6g1l1hv5" path="res://scenes/time_level/scorpion.gd" id="8_mlstw"]
 [ext_resource type="Texture2D" uid="uid://cakg3wpdums2k" path="res://assets/sprites/time_level/Scorpion_walk.png" id="8_vixr4"]
 [ext_resource type="Script" uid="uid://cstkne10i0rly" path="res://scenes/time_level/flying_enemy_2.gd" id="10_hhuqg"]
@@ -133,12 +134,14 @@ texture = ExtResource("7_3j2ex")
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:0/0 = 0
 10:0/0 = 0
 11:0/0 = 0
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
@@ -152,8 +155,11 @@ texture = ExtResource("7_3j2ex")
 8:1/0 = 0
 10:1/0 = 0
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
 4:2/0 = 0
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -217,11 +223,19 @@ texture = ExtResource("7_3j2ex")
 3:7/0 = 0
 4:7/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hlpm"]
+texture = ExtResource("8_3j2ex")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_r75vm"]
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_sqqab")
 sources/0 = SubResource("TileSetAtlasSource_r75vm")
 sources/1 = SubResource("TileSetAtlasSource_ldaxc")
+sources/4 = SubResource("TileSetAtlasSource_5hlpm")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlstw"]
 atlas = ExtResource("8_vixr4")
@@ -319,13 +333,12 @@ script = ExtResource("2_vixr4")
 [node name="Player" parent="." instance=ExtResource("3_mlstw")]
 position = Vector2(23, 128)
 collision_layer = 1
-collision_mask = 7
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(34, 130)
 
 [node name="Floor" parent="." groups=["ground"] instance=ExtResource("4_4xuf2")]
-tile_map_data = PackedByteArray("AAAAAAsAAwABAAIAAAAAAAoAAwABAAEAAAAAAAkAAwAFAAAAAAABAAkAAwAFAAAAAAACAAkAAwAFAAEAAAADAAkAAwAFAAEAAAAEAAkAAwAFAAAAAAAFAAkAAwAFAAAAAAAGAAkAAwAFAAAAAAAHAAkAAwAFAAAAAAAIAAkAAwAFAAAAAAAJAAkAAwAFAAAAAAAKAAkAAwAFAAAAAAALAAkAAwAFAAAAAAAMAAkAAwAFAAAAAAANAAkAAwAFAAAAAAAOAAkAAwAFAAAAAAAPAAkAAwAFAAAAAAAQAAkAAwAFAAAAAAARAAkAAwAFAAEAAAASAAkAAwAFAAEAAAATAAkAAwAFAAAAAAATAAoAAwABAAEAAAATAAsAAwABAAIAAAABAAoAAwABAAEAAAACAAoAAwABAAEAAAADAAoAAwABAAEAAAAEAAoAAwABAAEAAAAFAAoAAwABAAEAAAAGAAoAAwABAAEAAAAHAAoAAwABAAEAAAAIAAoAAwABAAEAAAAJAAoAAwABAAEAAAAKAAoAAwABAAEAAAALAAoAAwABAAEAAAAMAAoAAwABAAEAAAANAAoAAwABAAEAAAAOAAoAAwABAAEAAAAPAAoAAwABAAEAAAAQAAoAAwABAAEAAAARAAoAAwABAAEAAAASAAoAAwABAAEAAAABAAsAAwABAAIAAAACAAsAAwABAAIAAAADAAsAAwABAAIAAAAEAAsAAwABAAIAAAAFAAsAAwABAAIAAAAGAAsAAwABAAIAAAAHAAsAAwABAAIAAAAIAAsAAwABAAIAAAAJAAsAAwABAAIAAAAKAAsAAwABAAIAAAALAAsAAwABAAIAAAAMAAsAAwABAAIAAAANAAsAAwABAAIAAAAOAAsAAwABAAIAAAAPAAsAAwABAAIAAAAQAAsAAwABAAIAAAARAAsAAwABAAIAAAASAAsAAwABAAIAAAD//wkAAwAEAAAAAAAUAAkAAwAGAAAAAAD//woAAwAAAAEAAAAUAAoAAwACAAEAAAD//wsAAwAAAAIAAAAUAAsAAwACAAIAAAD+/wgAAwAFAAEAAAD+/wcAAwAFAAEAAAD+/wYAAwAFAAEAAAD+/wUAAwAFAAEAAAD+/wQAAwAFAAEAAAD+/wMAAwAFAAEAAAD+/wIAAwAFAAEAAAD+/wEAAwAFAAEAAAD+/wAAAwAFAAEAAAAVAAAAAwAFAAEAAAAVAAEAAwAFAAEAAAAVAAIAAwAFAAEAAAAVAAMAAwAFAAEAAAAVAAQAAwAFAAEAAAAVAAUAAwAFAAEAAAAVAAYAAwAFAAEAAAAVAAcAAwAFAAEAAAAVAAgAAwAFAAEAAAD+////AwAFAAEAAAD+//7/AwAFAAEAAAD///7/AwAFAAEAAAAVAP//AwAFAAEAAAAVAP7/AwAFAAEAAAAUAP7/AwAFAAEAAAADAAgAAwAGAAAAAAACAAgAAwAEAAAAAAARAAgAAwAEAAAAAAASAAgAAwAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAsAAwABAAIAAAAAAAoAAwABAAEAAAAAAAkAAwAFAAAAAAABAAkAAwAFAAAAAAACAAkAAwAFAAAAAAADAAkAAwAFAAEAAAAEAAkAAwAFAAAAAAAFAAkAAwAFAAAAAAAGAAkAAwAFAAAAAAAHAAkAAwAFAAAAAAAIAAkAAwAFAAAAAAAJAAkAAwAFAAAAAAAKAAkAAwAFAAAAAAALAAkAAwAFAAAAAAAMAAkAAwAFAAAAAAANAAkAAwAFAAAAAAAOAAkAAwAFAAAAAAAPAAkAAwAFAAAAAAAQAAkAAwAFAAAAAAARAAkAAwAFAAEAAAASAAkAAwAFAAAAAAATAAkAAwAFAAAAAAATAAoAAwABAAEAAAATAAsAAwABAAIAAAABAAoAAwABAAEAAAACAAoAAwABAAEAAAADAAoAAwABAAEAAAAEAAoAAwABAAEAAAAFAAoAAwABAAEAAAAGAAoAAwABAAEAAAAHAAoAAwABAAEAAAAIAAoAAwABAAEAAAAJAAoAAwABAAEAAAAKAAoAAwABAAEAAAALAAoAAwABAAEAAAAMAAoAAwABAAEAAAANAAoAAwABAAEAAAAOAAoAAwABAAEAAAAPAAoAAwABAAEAAAAQAAoAAwABAAEAAAARAAoAAwABAAEAAAASAAoAAwABAAEAAAABAAsAAwABAAIAAAACAAsAAwABAAIAAAADAAsAAwABAAIAAAAEAAsAAwABAAIAAAAFAAsAAwABAAIAAAAGAAsAAwABAAIAAAAHAAsAAwABAAIAAAAIAAsAAwABAAIAAAAJAAsAAwABAAIAAAAKAAsAAwABAAIAAAALAAsAAwABAAIAAAAMAAsAAwABAAIAAAANAAsAAwABAAIAAAAOAAsAAwABAAIAAAAPAAsAAwABAAIAAAAQAAsAAwABAAIAAAARAAsAAwABAAIAAAASAAsAAwABAAIAAAD//wkAAwAEAAAAAAAUAAkAAwAGAAAAAAD//woAAwAAAAEAAAAUAAoAAwACAAEAAAD//wsAAwAAAAIAAAAUAAsAAwACAAIAAAD+/wQAAwAFAAEAAAD+/wMAAwAFAAEAAAD+/wIAAwAFAAEAAAD+/wEAAwAFAAEAAAD+/wAAAwAFAAEAAAAVAAAAAwAFAAEAAAAVAAEAAwAFAAEAAAAVAAIAAwAFAAEAAAAVAAMAAwAFAAEAAAAVAAQAAwAFAAEAAAAVAAUAAwAFAAEAAAAVAAYAAwAFAAEAAAAVAAcAAwAFAAEAAAAVAAgAAwAFAAEAAAD+////AwAFAAEAAAD+//7/AwAFAAEAAAD///7/AwAFAAEAAAAVAP//AwAFAAEAAAAVAP7/AwAFAAEAAAAUAP7/AwAFAAEAAAADAAgAAwAHAAAAAAARAAgAAwAHAAAAAAD+/wkAAwAFAAEAAAD9/wkAAwAFAAEAAAD9/wgAAwAFAAEAAAD9/wcAAwAFAAEAAAD9/wYAAwAFAAEAAAD9/wUAAwAFAAEAAAD+/wUAAwAFAAEAAAA=")
 tile_set = SubResource("TileSet_r75vm")
 
 [node name="GroundEnemy" type="CharacterBody2D" parent="."]
@@ -379,7 +392,7 @@ destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(21, 133)
+position = Vector2(27, 138)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-2, 150)
@@ -391,15 +404,17 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-15, 134)
+position = Vector2(-29, 142)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(28, 162)
 
 [node name="TimeSlowOverlay" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 336.0
 offset_bottom = 192.0
+mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [connection signal="body_entered" from="GroundEnemy/Area2D" to="GroundEnemy" method="_on_area_2d_body_entered"]

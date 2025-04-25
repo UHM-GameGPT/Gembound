@@ -34,6 +34,7 @@ var can_stop: bool = false;
 
 # Time ability 2 (Slowing down time)
 var is_time_slowed = false  
+var time_slow_cooldown := 0.0
 
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -53,6 +54,9 @@ func _physics_process(delta: float) -> void:
 	if is_time_slowed:
 		delta /= Engine.time_scale
 	
+	if time_slow_cooldown > 0:
+		time_slow_cooldown -= delta
+		
 	if not can_move:
 		return
 		
@@ -166,7 +170,7 @@ func _start_dash(direction: float) -> void:
 func use_ability():
 	if PlayerState.clone_unlocked:
 		spawn_clone()
-	elif PlayerState.slow_unlocked:
+	elif PlayerState.slow_unlocked and time_slow_cooldown <= 0:
 		toggle_time_slow()
 
 func toggle_time_slow():
@@ -184,6 +188,15 @@ func toggle_time_slow():
 		self.DASH_SPEED = 350.0
 		time_slow_overlay.visible = false
 
+func reset_time_slow():
+	if is_time_slowed:
+		Engine.time_scale = 1.0
+		is_time_slowed = false
+		SPEED = 130.0
+		JUMP_VELOCITY = -300.0
+		DASH_SPEED = 350.0
+		time_slow_overlay.visible = false
+		
 func spawn_clone():
 	if not clone_scene:
 		print("No clone scene assigned!")

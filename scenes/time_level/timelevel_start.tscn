@@ -277,7 +277,7 @@ tile_set = SubResource("TileSet_r75vm")
 [node name="Door_W" parent="Doors" instance=ExtResource("10_sqqab")]
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-2, 110)
+position = Vector2(-16, 118)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(22, 134)
@@ -287,6 +287,9 @@ position = Vector2(317, -22)
 destination_level_tag = "time_level2"
 destination_door_tag = "W"
 spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(21, 140)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-18, 157)
@@ -330,6 +333,7 @@ visible = false
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 192.0
+mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [editable path="Doors/Door_W"]
