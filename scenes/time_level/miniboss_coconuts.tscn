@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dew8wpfyuss24"]
+
+[ext_resource type="Script" uid="uid://d7l5q326qlke" path="res://scenes/time_level/miniboss_coconuts.gd" id="1_lqxo8"]
+[ext_resource type="Texture2D" uid="uid://i3xex376nq8f" path="res://assets/sprites/time_level/coconut.png" id="1_yqb2h"]
+[ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="3_jqlhw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqxo8"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqlhw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqlhw"]
+radius = 6.0
+
+[node name="miniboss_coconuts" type="CharacterBody2D"]
+script = ExtResource("1_lqxo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yqb2h")
+
+[node name="HighlightSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_jqlhw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lqxo8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jqlhw")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_jqlhw")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

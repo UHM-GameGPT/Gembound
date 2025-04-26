@@ -51,7 +51,8 @@ func _on_body_entered(body: Node2D) -> void:
 		# Wait before deleting (0.3 seconds)
 		if body.has_method("set_should_respawn"):
 			body.set_should_respawn(false)
-		
+		if body.has_method("reset_time_slow"):
+			body.reset_time_slow()
 		await get_tree().create_timer(0.1).timeout
 
 		# THEN hide and remove both
