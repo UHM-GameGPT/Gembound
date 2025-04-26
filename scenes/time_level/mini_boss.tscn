@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cd1fhvpivyipl"]
+
+[ext_resource type="Script" uid="uid://dxkwdfn85e3oy" path="res://scenes/time_level/mini_boss.gd" id="1_uejrs"]
+[ext_resource type="Texture2D" uid="uid://dnu1vqwfjiwuq" path="res://assets/sprites/time_level/Phoenix_SpriteSheet_1.png" id="1_y5h01"]
+[ext_resource type="PackedScene" uid="uid://cr128b3phih61" path="res://scenes/time_level/miniboss_coconuts.tscn" id="2_bcybf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uejrs"]
+atlas = ExtResource("1_y5h01")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcybf"]
+atlas = ExtResource("1_y5h01")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qduq"]
+atlas = ExtResource("1_y5h01")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heuqo"]
+atlas = ExtResource("1_y5h01")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bvgy"]
+atlas = ExtResource("1_y5h01")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5wa5"]
+atlas = ExtResource("1_y5h01")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p23ld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uejrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcybf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qduq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heuqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bvgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5wa5")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d5pg"]
+size = Vector2(32, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uejrs"]
+size = Vector2(32, 23)
+
+[node name="MiniBoss" type="CharacterBody2D"]
+script = ExtResource("1_uejrs")
+coconut_scene = ExtResource("2_bcybf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p23ld")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0d5pg")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_uejrs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
