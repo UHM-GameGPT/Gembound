@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="2_psfd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8thni"]
-radius = 7.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gklkc"]
-radius = 9.0
+radius = 8.0
 
 [node name="miniboss_coconuts" type="CharacterBody2D"]
 collision_mask = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://vvowr2dh6j1q"]
+[gd_scene load_steps=14 format=4 uid="uid://vvowr2dh6j1q"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xmwvo"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_y54xv"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_qh8ip"]
 [ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="6_uivjy"]
 [ext_resource type="PackedScene" uid="uid://cd1fhvpivyipl" path="res://scenes/time_level/mini_boss.tscn" id="7_huwda"]
+[ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="8_y54xv"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="9_rlktc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_qh8ip")
@@ -193,6 +195,9 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_sqqab")
 sources/0 = SubResource("TileSetAtlasSource_r75vm")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmwvo"]
+size = Vector2(320, 7.5)
+
 [node name="time_level_boss" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -202,7 +207,7 @@ expand_mode = 1
 script = ExtResource("2_y54xv")
 
 [node name="Player" parent="." instance=ExtResource("3_rlktc")]
-position = Vector2(23, 128)
+position = Vector2(163, 128)
 collision_layer = 1
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
@@ -221,3 +226,59 @@ offset_right = 336.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
+
+[node name="FloorArea" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea"]
+position = Vector2(160, 149)
+shape = SubResource("RectangleShape2D_xmwvo")
+
+[node name="HealthBar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 1.0
+offset_right = 196.0
+offset_bottom = 22.0
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+texture = ExtResource("8_y54xv")
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+texture = ExtResource("8_y54xv")
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+texture = ExtResource("8_y54xv")
+stretch_mode = 5
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_E" parent="Doors" instance=ExtResource("9_rlktc")]
+position = Vector2(318, -23)
+destination_level_tag = "time_level_7"
+destination_door_tag = "W"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(72, 130)
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(55, 78)
+
+[node name="Door_W" parent="Doors" instance=ExtResource("9_rlktc")]
+position = Vector2(-6, -23)
+spawn_direction = ""
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-43, 135)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(170, 149)
+
+[editable path="Doors/Door_E"]
+[editable path="Doors/Door_W"]
