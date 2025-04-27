@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 70.0
+@export var speed: float = 80.0
 @export var move_distance: float = 130.0  # How far down it moves (roughly from -20 to 160)
 @export var pause_time: float = 0.8  # Pause at the bottom/top before moving again
 @export var side_x_positions: Array = [300.0, 10.0]  # Right side first, then left
@@ -50,7 +50,7 @@ func _physics_process(delta):
 		shoot_cooldown -= delta
 		if shoot_cooldown <= 0.0:
 			_shoot_coconut()
-			shoot_cooldown = randf_range(1, 1.5)
+			shoot_cooldown = randf_range(1.5, 2)
 
 func move_offscreen():
 	is_offscreen = true
@@ -167,14 +167,35 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			# Moving coconut → deal damage!
 			print("coconut")
+			flash_red()
 			take_damage()
 			body.queue_free()
+
+func flash_red() -> void:
+	var sprite = $AnimatedSprite2D
+	var original_modulate = sprite.modulate
+	sprite.modulate = Color(1, 0, 0)  # Full red
+	await get_tree().create_timer(0.3).timeout  # Wait 0.1 seconds
+	sprite.modulate = original_modulate  # Go back to normal
 
 func die():
 	print("Boss defeated!")
 	is_dead = true  
+	paused = true
+	is_throwing = false
+	is_offscreen = true
+	PlayerState.slow_unlocked = false
+	
+	for coconut in get_tree().get_nodes_in_group("Coconuts"):
+		coconut.queue_free()
+	
+	var player = get_tree().get_first_node_in_group("Player")
+	if player and player.is_time_slowed:
+		player.reset_time_slow()
+	
 	if has_node("AnimatedSprite2D"):
 		var sprite = $AnimatedSprite2D
 		sprite.play("death")  # Play the death animation
-		await get_tree().create_timer(2).timeout  # Wait until animation is done
+		await sprite.animation_finished  # Wait until animation is done
+		
 	queue_free()  # Delete boss after death animation

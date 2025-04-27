@@ -361,7 +361,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pb5b3")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 19.5
 }, {
@@ -434,10 +434,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d5pg"]
-size = Vector2(14, 14)
+size = Vector2(18, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uejrs"]
-size = Vector2(20, 24)
+size = Vector2(26, 24)
 
 [node name="MiniBoss" type="CharacterBody2D"]
 script = ExtResource("1_uejrs")
@@ -450,7 +450,7 @@ empty_heart_texture = ExtResource("5_k5wa5")
 position = Vector2(9, 13)
 scale = Vector2(0.0606497, 0.0605811)
 sprite_frames = SubResource("SpriteFrames_p23ld")
-animation = &"throw"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0d5pg")

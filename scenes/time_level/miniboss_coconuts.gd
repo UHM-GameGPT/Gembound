@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 150.0
+@export var speed: float = 120.0
 var direction := Vector2.LEFT
 var frozen := false
 var is_hovered := false
@@ -9,6 +9,7 @@ func _ready():
 	$Area2D.input_event.connect(_on_area_input)
 	$Area2D.mouse_entered.connect(_on_mouse_entered)
 	$Area2D.mouse_exited.connect(_on_mouse_exited)
+	add_to_group("Coconuts")
 	update_highlight()
 
 func _physics_process(delta):
