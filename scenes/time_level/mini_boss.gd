@@ -101,10 +101,11 @@ func _shoot_coconut():
 		spawn_coconut_delayed()
 
 func spawn_coconut_delayed() -> void:
-	await get_tree().create_timer(1).timeout  # Adjust timing to match throw animation
-	spawn_coconut()
-	$AnimatedSprite2D.play("fly")
-	is_throwing = false  # Return to flying animation
+	if is_dead == false:
+		await get_tree().create_timer(1).timeout  # Adjust timing to match throw animation
+		spawn_coconut()
+		$AnimatedSprite2D.play("fly")
+		is_throwing = false  # Return to flying animation
 
 func spawn_coconut():
 	var proj = coconut_scene.instantiate()
@@ -182,7 +183,6 @@ func die():
 	print("Boss defeated!")
 	is_dead = true  
 	paused = true
-	is_throwing = false
 	is_offscreen = true
 	PlayerState.slow_unlocked = false
 	
@@ -193,9 +193,8 @@ func die():
 	if player and player.is_time_slowed:
 		player.reset_time_slow()
 	
-	if has_node("AnimatedSprite2D"):
+	if is_dead == true:
 		var sprite = $AnimatedSprite2D
 		sprite.play("death")  # Play the death animation
-		await sprite.animation_finished  # Wait until animation is done
-		
+		await get_tree().create_timer(2).timeout  # Wait until animation is done
 	queue_free()  # Delete boss after death animation
