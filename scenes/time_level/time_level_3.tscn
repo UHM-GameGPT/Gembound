@@ -291,7 +291,7 @@ destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(21, 133)
+position = Vector2(23, 142)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-21, 150)
@@ -303,7 +303,7 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-10, 132)
+position = Vector2(-15, 141)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(28, 162)
@@ -313,6 +313,7 @@ visible = false
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 192.0
+mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]

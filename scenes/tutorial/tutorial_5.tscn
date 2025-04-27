@@ -11,14 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://cnm7sr43nwnmb" path="res://assets/sprites/tutorial/log.png" id="9_2nxha"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_i7ey2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76njk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l264y"]
 texture = ExtResource("6_76njk")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6bh8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhrob"]
 texture = ExtResource("5_2nxha")
 0:0/0 = 0
 1:0/0 = 0
@@ -99,8 +99,8 @@ texture = ExtResource("5_2nxha")
 
 [sub_resource type="TileSet" id="TileSet_rfyhq"]
 physics_layer_0/collision_layer = 1
-sources/6 = SubResource("TileSetAtlasSource_u6bh8")
-sources/0 = SubResource("TileSetAtlasSource_76njk")
+sources/6 = SubResource("TileSetAtlasSource_yhrob")
+sources/0 = SubResource("TileSetAtlasSource_l264y")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s834"]
 size = Vector2(93, 18)

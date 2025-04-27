@@ -294,7 +294,6 @@ script = ExtResource("2_0hwx0")
 [node name="Player" parent="." instance=ExtResource("3_xk3wa")]
 position = Vector2(23, 128)
 collision_layer = 1
-collision_mask = 7
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(34, 130)
@@ -353,7 +352,7 @@ destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(19, 132)
+position = Vector2(21, 141)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-29, 155)
@@ -365,7 +364,7 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-8, 133)
+position = Vector2(-15, 140)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(28, 162)
@@ -396,6 +395,7 @@ visible = false
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 192.0
+mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [connection signal="body_entered" from="Coconut" to="Coconut" method="_on_body_entered"]
