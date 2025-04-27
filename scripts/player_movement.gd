@@ -38,6 +38,7 @@ var time_slow_cooldown := 0.0
 
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	add_to_group("Player")
 	can_dash = PlayerState.dash_unlocked
 	can_stop = PlayerState.stop_unlocked
 	
