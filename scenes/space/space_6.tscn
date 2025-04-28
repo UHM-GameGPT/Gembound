@@ -376,7 +376,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uvwgq")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -436,7 +436,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAA
 tile_set = SubResource("TileSet_8ijuy")
 
 [node name="PressurePlate" parent="." instance=ExtResource("7_j6eea")]
-position = Vector2(197, 40)
+position = Vector2(79, 88)
 collision_layer = 2
 collision_mask = 2
 
@@ -487,16 +487,6 @@ position = Vector2(9, 49)
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-12, 57)
 
-[node name="Asteroid" parent="." instance=ExtResource("13_tgrfq")]
-position = Vector2(98, -13)
-collision_mask = 6
-
-[node name="Sprite2D" parent="Asteroid" index="0"]
-rotation = -0.437267
-
-[node name="OutlineSprite2D" parent="Asteroid" index="1"]
-rotation = -0.438078
-
 [node name="EnemySpirit" type="Area2D" parent="."]
 position = Vector2(-115, -1)
 collision_layer = 4
@@ -513,6 +503,9 @@ animation = &"idle"
 position = Vector2(178, 132)
 shape = SubResource("CircleShape2D_k4cjr")
 
+[node name="Asteroid" parent="." instance=ExtResource("13_tgrfq")]
+position = Vector2(-20, 31)
+
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate" to="ButtonDoor" method="close"]
 [connection signal="body_entered" from="EnemySpirit" to="EnemySpirit" method="_on_body_entered"]
@@ -520,4 +513,3 @@ shape = SubResource("CircleShape2D_k4cjr")
 [editable path="PressurePlate"]
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
-[editable path="Asteroid"]

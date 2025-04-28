@@ -197,7 +197,7 @@ _data = {
 &"show_tutorial": SubResource("Animation_4lo02")
 }
 
-[node name="SpaceCollect" type="TextureRect"]
+[node name="SpaceCollect2" type="TextureRect"]
 offset_right = 320.0
 offset_bottom = 190.0
 texture = ExtResource("1_vno8r")
@@ -267,10 +267,8 @@ position = Vector2(327, 48)
 position = Vector2(295, 63)
 
 [node name="Asteroid" parent="." instance=ExtResource("11_7n6sd")]
-position = Vector2(95, -31)
-collision_mask = 6
+position = Vector2(102, -42)
 
 [editable path="GemText/SpaceFloatGem"]
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
-[editable path="Asteroid"]
