@@ -80,7 +80,7 @@ offset_top = 159.0
 offset_right = 317.0
 offset_bottom = 342.0
 theme_override_fonts/normal_font = ExtResource("2_2ckv8")
-text = "Game development Team:
+text = "Game Development Team:
 Iverson Yago
 Juan Olivo
 Keiko Raiola
