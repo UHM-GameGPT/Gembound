@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://chxf20aag1vy7"]
+[gd_scene load_steps=27 format=4 uid="uid://chxf20aag1vy7"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_fsarr"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_jidb8"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dgo6ntc0h2l6b" path="res://assets/sprites/tilesets/spritesheet_stone_highlight.png" id="10_lwyy0"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="11_d358o"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_lwyy0"]
+[ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="13_efl8c"]
+[ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="14_up6eq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_ldaxc")
@@ -232,6 +234,42 @@ size = Vector2(82, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efl8c"]
 size = Vector2(238, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu2jg"]
+atlas = ExtResource("13_efl8c")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lint"]
+atlas = ExtResource("13_efl8c")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rurh"]
+atlas = ExtResource("13_efl8c")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfn67"]
+atlas = ExtResource("13_efl8c")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up6eq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lint")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rurh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfn67")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="time_level_3" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -315,6 +353,19 @@ offset_right = 336.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
+
+[node name="time_gem1" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 154)
+sprite_frames = SubResource("SpriteFrames_up6eq")
+
+[node name="gemlabel" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 160.0
+offset_right = 66.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("14_up6eq")
+theme_override_font_sizes/font_size = 8
+text = "test"
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
 
