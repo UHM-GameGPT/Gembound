@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b3doeqcd52nu3"]
+[gd_scene load_steps=36 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_0hwx0"]
 [ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="13_ek4c7"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_wu7qb"]
+[ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="16_mc3vn"]
+[ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="16_oq7vi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("6_n22yi")
@@ -282,6 +284,42 @@ _data = {
 &"show_tutorial": SubResource("Animation_4lo02")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu2jg"]
+atlas = ExtResource("16_oq7vi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lint"]
+atlas = ExtResource("16_oq7vi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rurh"]
+atlas = ExtResource("16_oq7vi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfn67"]
+atlas = ExtResource("16_oq7vi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjwo8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lint")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rurh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfn67")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="time_level_2" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -393,6 +431,21 @@ offset_right = 336.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
+
+[node name="gemlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 160.0
+offset_right = 66.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("16_mc3vn")
+theme_override_font_sizes/font_size = 8
+text = "test"
+
+[node name="time_gem1" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(28, 150)
+sprite_frames = SubResource("SpriteFrames_bjwo8")
 
 [connection signal="body_entered" from="Coconut" to="Coconut" method="_on_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
