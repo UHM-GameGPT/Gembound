@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8q4fdoaxk5oo"]
+
+[ext_resource type="Script" uid="uid://dp3uoriqaocf5" path="res://scenes/final_boss/laser.gd" id="1_j6fqy"]
+[ext_resource type="Texture2D" uid="uid://dhd1c2a1k34as" path="res://assets/sprites/FinalBoss/test_laser.png" id="1_pbj4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6fqy"]
+size = Vector2(36, 11)
+
+[node name="laser" type="Area2D"]
+script = ExtResource("1_j6fqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pbj4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_j6fqy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
