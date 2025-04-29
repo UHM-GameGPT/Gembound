@@ -306,7 +306,6 @@ mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="FallDetector" type="Area2D" parent="."]
-visible = false
 script = ExtResource("10_5hlpm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallDetector"]

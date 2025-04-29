@@ -18,17 +18,8 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		body.time_slow_cooldown = 1.0
-		if body.has_node("AnimatedSprite2D"):
-			body.get_node("AnimatedSprite2D").play("death")
-		
-		body.set_physics_process(false)
-
-		if body.has_method("reset_time_slow"):
-			body.reset_time_slow()
-
-		await get_tree().create_timer(1).timeout
-		get_tree().reload_current_scene()
+		if body.has_method("die"):
+			body.die()
 	
 	elif body.name == "FloorArea":
 		splat()

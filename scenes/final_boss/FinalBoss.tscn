@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://c216i6ku37cj5"]
+[gd_scene load_steps=90 format=3 uid="uid://c216i6ku37cj5"]
 
 [ext_resource type="Script" uid="uid://dphu4thrgdpxe" path="res://scenes/final_boss/final_boss.gd" id="1_dfubb"]
 [ext_resource type="Texture2D" uid="uid://b5wdh08kr1f6p" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_Monster_Idle_4.png" id="2_kmywa"]
@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="4_21t7m"]
 [ext_resource type="Texture2D" uid="uid://wnh3t6q6cgq1" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_Monster_Snap.png" id="4_gvl7l"]
 [ext_resource type="Texture2D" uid="uid://du5vkroefbmia" path="res://assets/sprites/time_level/miniboss_emptyheart.png" id="5_4gsp7"]
+[ext_resource type="PackedScene" uid="uid://inw4tpqj5k86" path="res://scenes/final_boss/exclamation_indicator.tscn" id="6_m5hgx"]
 [ext_resource type="Texture2D" uid="uid://bcscx82p6un67" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_Monster_charge.png" id="7_mi0ty"]
+[ext_resource type="PackedScene" uid="uid://tu0qsifv6tfr" path="res://scenes/final_boss/rain_laser.tscn" id="7_p56jg"]
 [ext_resource type="Texture2D" uid="uid://diby4dr6xbcou" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_Monster_4.png" id="8_mi0ty"]
+[ext_resource type="Texture2D" uid="uid://xbwjuco607o1" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_Monster_Throw_4.png" id="12_x37yv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gsp7"]
 atlas = ExtResource("4_gvl7l")
@@ -290,6 +293,22 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_kmywa")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3hk6"]
+atlas = ExtResource("12_x37yv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnu8r"]
+atlas = ExtResource("12_x37yv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw60o"]
+atlas = ExtResource("12_x37yv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6psqf"]
+atlas = ExtResource("12_x37yv")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4gsp7"]
 animations = [{
 "frames": [{
@@ -521,6 +540,23 @@ animations = [{
 "loop": true,
 "name": &"fly",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3hk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnu8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw60o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6psqf")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmywa"]
@@ -535,10 +571,12 @@ glass_block_scene = ExtResource("2_qse5j")
 laser_scene = ExtResource("3_qse5j")
 full_heart_texture = ExtResource("4_21t7m")
 empty_heart_texture = ExtResource("5_4gsp7")
+exclamation_scene = ExtResource("6_m5hgx")
+rain_laser_scene = ExtResource("7_p56jg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4gsp7")
-animation = &"death"
+animation = &"punch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 3)
