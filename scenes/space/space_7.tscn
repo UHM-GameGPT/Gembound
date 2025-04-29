@@ -1,0 +1,232 @@
+[gd_scene load_steps=18 format=3 uid="uid://cal36fdf1s6tu"]
+
+[ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_pmr7y"]
+[ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_rjyac"]
+[ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_qaduo"]
+[ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="4_vjljh"]
+[ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_6tmn0"]
+[ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_bwpr0"]
+[ext_resource type="PackedScene" uid="uid://mdj4ax2mc15f" path="res://scenes/space/asteroid_spawner.tscn" id="8_2ee70"]
+[ext_resource type="Script" uid="uid://cs4uwxer62bu4" path="res://scenes/space/ground.gd" id="10_3p2ia"]
+[ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_xmguv"]
+[ext_resource type="Script" uid="uid://u2bu11ccoluk" path="res://scenes/space/death_zone_top.gd" id="11_e5k7q"]
+[ext_resource type="Script" uid="uid://dil66bq7w8y63" path="res://scenes/space/spawn_trigger.gd" id="12_ugcpf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
+texture = ExtResource("5_6tmn0")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocjhh"]
+texture = ExtResource("6_bwpr0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/physics_layer_0/polygon_0/one_way = true
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/physics_layer_0/polygon_0/one_way = true
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/physics_layer_0/polygon_0/one_way = true
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8ijuy"]
+physics_layer_0/collision_layer = 1
+sources/6 = SubResource("TileSetAtlasSource_ocjhh")
+sources/0 = SubResource("TileSetAtlasSource_pntx0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ee70"]
+size = Vector2(358, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugcpf"]
+size = Vector2(335, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmr7y"]
+size = Vector2(20, 71)
+
+[node name="SpaceMiniBoss" type="TextureRect"]
+offset_right = 320.0
+offset_bottom = 190.0
+texture = ExtResource("1_pmr7y")
+expand_mode = 1
+script = ExtResource("2_rjyac")
+
+[node name="Player" parent="." instance=ExtResource("3_qaduo")]
+position = Vector2(20, 128)
+collision_layer = 1
+collision_mask = 5
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(18, 129)
+
+[node name="Floor" parent="." instance=ExtResource("4_vjljh")]
+
+[node name="Platforms" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_8ijuy")
+
+[node name="AsteroidContainer" type="Node" parent="."]
+
+[node name="AsteroidSpawner" parent="AsteroidContainer" instance=ExtResource("8_2ee70")]
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_W" parent="Doors" instance=ExtResource("10_xmguv")]
+position = Vector2(-11, 61)
+destination_level_tag = "space_6"
+destination_door_tag = "E"
+spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(3, 49)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(31, 60)
+
+[node name="Ground" type="Area2D" parent="."]
+script = ExtResource("10_3p2ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(159, 153)
+shape = SubResource("RectangleShape2D_2ee70")
+
+[node name="DeathZoneTop" type="Area2D" parent="."]
+script = ExtResource("11_e5k7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneTop"]
+position = Vector2(158, -13)
+shape = SubResource("RectangleShape2D_ugcpf")
+
+[node name="SpawnTrigger" type="Area2D" parent="."]
+script = ExtResource("12_ugcpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnTrigger"]
+position = Vector2(20, 111.5)
+shape = SubResource("RectangleShape2D_pmr7y")
+
+[connection signal="body_entered" from="Ground" to="Ground" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathZoneTop" to="DeathZoneTop" method="_on_body_entered"]
+[connection signal="body_entered" from="SpawnTrigger" to="SpawnTrigger" method="_on_body_entered"]
+
+[editable path="Doors/Door_W"]

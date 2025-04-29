@@ -20,6 +20,7 @@ const scene_space3 = preload("res://scenes/space/space_3.tscn")
 const scene_space4 = preload("res://scenes/space/space_4.tscn")
 const scene_space5 = preload("res://scenes/space/space_5.tscn")
 const scene_space6 = preload("res://scenes/space/space_6.tscn")
+const scene_space7 = preload("res://scenes/space/space_7.tscn")
 
 const scene_end = preload("res://scenes/end.tscn")
 
@@ -67,6 +68,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_space5
 		"space_6":
 			scene_to_load = scene_space6
+		"space_7":
+			scene_to_load = scene_space7
 		"end":
 			scene_to_load = scene_end
 		

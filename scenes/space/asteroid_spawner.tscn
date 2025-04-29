@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mdj4ax2mc15f"]
+
+[ext_resource type="Script" uid="uid://bavhgbfqmet12" path="res://scenes/space/asteroid_spawner.gd" id="1_5ul7x"]
+[ext_resource type="PackedScene" uid="uid://cvgi5v51yunsn" path="res://scenes/space/asteroid_boss.tscn" id="2_v0fjl"]
+
+[node name="AsteroidSpawner" type="Node2D"]
+position = Vector2(-152, -26)
+script = ExtResource("1_5ul7x")
+asteroid_scene = ExtResource("2_v0fjl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

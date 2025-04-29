@@ -477,9 +477,9 @@ position = Vector2(31, 60)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("10_273ih")]
 position = Vector2(318, 18)
-destination_level_tag = "space_5"
-destination_door_tag = "E"
-spawn_direction = "right"
+destination_level_tag = "space_7"
+destination_door_tag = "W"
+spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
 position = Vector2(9, 49)
