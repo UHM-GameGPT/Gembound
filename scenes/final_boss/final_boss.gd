@@ -46,15 +46,24 @@ func start_attack_cycle():
 
 func throw_glass_block():
 	if glass_block_scene:
-		$AnimatedSprite2D.play("punch")
 		var block = glass_block_scene.instantiate()
 		get_parent().add_child(block)
+
+		# Start block as invisible
+		block.modulate.a = 0.0
+
+		# Make block fade in over 1.4 seconds (same as wait time)
+		var fade_tween = create_tween()
+		fade_tween.tween_property(block, "modulate:a", 1.0, 1.4)
+
 		block.attach_to_boss(self)  # Attach block to boss initially
+		await get_tree().create_timer(1.4).timeout
 		# Wait a little, then launch it
 		launch_block_later(block)
 
 func launch_block_later(block):
-	await get_tree().create_timer(1.0).timeout  # Wait 1 second while attached
+	$AnimatedSprite2D.play("punch")
+	await get_tree().create_timer(1.1).timeout  # Wait 1 second while attached
 	if block and block.is_inside_tree():
 		block.launch()
 		$AnimatedSprite2D.play("fly")
@@ -65,12 +74,16 @@ func fire_laser():
 		var laser = laser_scene.instantiate()
 		get_parent().add_child(laser)
 		laser.global_position = global_position + Vector2(-20, 0)
+	
 	await get_tree().create_timer(1).timeout
 	clear_glass_blocks()
 
 func clear_glass_blocks():
 	for block in get_tree().get_nodes_in_group("GlassBlocks"):
-		block.queue_free()
+		if block.has_method("break_and_destroy"):
+			block.break_and_destroy()
+		else:
+			block.queue_free()
 
 func take_damage():
 	current_health -= 1
@@ -112,13 +125,13 @@ func start_laser_rain():
 
 	# Spawn 3 warnings at random X positions
 	for i in range(6):
-		var random_x = randf_range(20, 272)  # Adjust based on your screen size
+		var random_x = randf_range(20, 200)  # Adjust based on your screen size
 		var warning = exclamation_scene.instantiate()
 		get_parent().add_child(warning)
 		warning.global_position = Vector2(random_x, 10)
 		warning_positions.append(warning)
 
-	await get_tree().create_timer(2.0).timeout  # Wait for player to react
+	await get_tree().create_timer(1.5).timeout  # Wait for player to react
 
 	# Spawn 3 rain lasers at warning positions
 	for warning in warning_positions:
@@ -135,7 +148,7 @@ func _on_attack_timer_timeout() -> void:
 		throw_glass_block()
 		is_paused_for_attack = false
 		attack_phase = 1
-		$AttackTimer.start(3.0)
+		$AttackTimer.start(5.0)
 	elif attack_phase == 1:
 		print("Phase 1 start: Fire Laser")
 		$AnimatedSprite2D.play("charge")
@@ -144,7 +157,7 @@ func _on_attack_timer_timeout() -> void:
 		is_paused_for_attack = false
 		attack_phase = 2
 		$AnimatedSprite2D.play("fly")
-		$AttackTimer.start(3.0)
+		$AttackTimer.start(2.0)
 	elif attack_phase == 2:
 		print("Phase 2 start: Rain Laser")
 		$AnimatedSprite2D.play("charge")

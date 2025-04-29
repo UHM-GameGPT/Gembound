@@ -5,6 +5,7 @@ var direction := Vector2.LEFT
 var frozen := false
 var is_hovered := false
 var is_attached_to_boss: bool = false
+var is_breaking = false
 var boss_node: Node2D = null  # Store boss reference
 
 func _ready():
@@ -55,6 +56,25 @@ func update_highlight():
 		$HighlightSprite2D.modulate = Color(1, 1, 1, 0.5) # subtle white glow
 	else:
 		$HighlightSprite2D.visible = false
+
+func break_and_destroy():
+	if is_breaking:
+		return
+	is_breaking = true
+
+	# Turn off highlight if visible
+	if has_node("HighlightSprite2D"):
+		$HighlightSprite2D.visible = false
+	
+	if has_node("Sprite2D"):
+		$Sprite2D.visible = false
+
+	# Play breaking animation
+	if has_node("AnimatedSprite2D"):
+		$AnimatedSprite2D.play("breaking")
+
+	await get_tree().create_timer(0.7).timeout  # Match to breaking animation length
+	queue_free()
 
 func attach_to_boss(boss: Node2D):
 	is_attached_to_boss = true

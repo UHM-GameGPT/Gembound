@@ -22,7 +22,10 @@ func set_direction(new_direction: Vector2):
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("GlassBlocks") and body.has_method("is_frozen") and body.is_frozen() and not has_reflected:
 		direction = Vector2.RIGHT  # Reflect back toward boss
-		body.queue_free()
+		if body.has_method("break_and_destroy"):
+			body.break_and_destroy()
+		else:
+			body.queue_free()
 		has_reflected = true
 	elif body.is_in_group("Player"):
 		body.die()

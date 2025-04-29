@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://tk0leiank2m7"]
+[gd_scene load_steps=11 format=4 uid="uid://tk0leiank2m7"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_bylla"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_tnine"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="4_on63f"]
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_2hgj7"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_bb4bu"]
+[ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="7_tnine"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_2hgj7")
@@ -160,9 +161,35 @@ expand_mode = 1
 script = ExtResource("2_tnine")
 
 [node name="Player" parent="." instance=ExtResource("3_tdfr6")]
+position = Vector2(16, 128)
 
 [node name="Floor" parent="." instance=ExtResource("4_on63f")]
+tile_map_data = PackedByteArray("AAAAAAkAAQACAAQAAAABAAkAAQADAAQAAAACAAkAAQADAAQAAAADAAkAAQADAAQAAAAEAAkAAQADAAQAAAAFAAkAAQADAAQAAAAGAAkAAQADAAQAAAAHAAkAAQADAAQAAAAIAAkAAQADAAQAAAAJAAkAAQADAAQAAAAKAAkAAQADAAQAAAALAAkAAQADAAQAAAAMAAkAAQADAAQAAAANAAkAAQADAAQAAAAOAAkAAQADAAQAAAAPAAkAAQADAAQAAAAQAAkAAQADAAQAAAARAAkAAQADAAQAAAASAAkAAQADAAQAAAATAAkAAQAEAAQAAAAAAAoAAQACAAUAAAATAAoAAQAEAAUAAAAAAAsAAQACAAYAAAATAAsAAQAEAAYAAAABAAsAAQADAAYAAAACAAsAAQADAAYAAAADAAsAAQADAAYAAAAEAAsAAQADAAYAAAAFAAsAAQADAAYAAAAGAAsAAQADAAYAAAAHAAsAAQADAAYAAAAIAAsAAQADAAYAAAAJAAsAAQADAAYAAAAKAAsAAQADAAYAAAALAAsAAQADAAYAAAAMAAsAAQADAAYAAAANAAsAAQADAAYAAAAOAAsAAQADAAYAAAAPAAsAAQADAAYAAAAQAAsAAQADAAYAAAARAAsAAQADAAYAAAASAAsAAQADAAYAAAABAAoAAQADAAUAAAACAAoAAQADAAUAAAADAAoAAQADAAUAAAAEAAoAAQADAAUAAAAFAAoAAQADAAUAAAAGAAoAAQADAAUAAAAHAAoAAQADAAUAAAAIAAoAAQADAAUAAAAJAAoAAQADAAUAAAAKAAoAAQADAAUAAAALAAoAAQADAAUAAAAMAAoAAQADAAUAAAANAAoAAQADAAUAAAAOAAoAAQADAAUAAAAPAAoAAQADAAUAAAAQAAoAAQADAAUAAAARAAoAAQADAAUAAAASAAoAAQADAAUAAAD//wkAAQADAAQAAAD+/wkAAQADAAQAAAAUAAkAAQADAAQAAAAVAAkAAQADAAQAAAD9/wkAAQADAAQAAAD9/wgAAQADAAQAAAD9/wcAAQADAAQAAAD9/wYAAQADAAQAAAD9/wUAAQADAAQAAAD9/wQAAQADAAQAAAD9/wMAAQADAAQAAAD9/wIAAQADAAQAAAD9/wEAAQADAAQAAAD9/wAAAQADAAQAAAD9////AQADAAQAAAAWAAkAAQADAAQAAAAWAAgAAQADAAQAAAAWAAcAAQADAAQAAAAWAAYAAQADAAQAAAAWAAUAAQADAAQAAAAWAAQAAQADAAQAAAAWAAMAAQADAAQAAAAWAAIAAQADAAQAAAAWAAEAAQADAAQAAAAWAAAAAQADAAQAAAAWAP//AQADAAQAAAA=")
 
 [node name="Platforms" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAEAAYAAAAAAAAAAAAFAAYAAAABAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAABAAAAAAAIAAYAAAAAAAAAAAALAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAARAAUAAAAAAAAAAAATAAUAAAAAAAAAAAAMAAUAAAABAAAAAAAOAAUAAAABAAAAAAAQAAUAAAABAAAAAAASAAUAAAABAAAAAAAUAAUAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAABAAYAAAABAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAABAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAABAAAAAAASAAYAAAAAAAAAAAATAAYAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_8ijuy")
+
+[node name="HealthBar" type="HBoxContainer" parent="."]
+offset_left = 128.0
+offset_right = 192.0
+offset_bottom = 16.0
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+texture = ExtResource("7_tnine")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+texture = ExtResource("7_tnine")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+texture = ExtResource("7_tnine")
+expand_mode = 2
+stretch_mode = 5
