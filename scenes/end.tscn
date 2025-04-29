@@ -363,7 +363,6 @@ position = Vector2(55, 162)
 
 [node name="AnimatedSprite2D" parent="Player" index="0"]
 sprite_frames = SubResource("SpriteFrames_8cwnd")
-frame_progress = 0.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(91, 186)
