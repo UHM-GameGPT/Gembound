@@ -48,6 +48,8 @@ animations = [{
 size = Vector2(26, 9)
 
 [node name="PressurePlate" type="Area2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_qcosd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

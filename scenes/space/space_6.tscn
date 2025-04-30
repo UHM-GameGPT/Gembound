@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cb6muslg81rn6"]
+[gd_scene load_steps=52 format=4 uid="uid://cb6muslg81rn6"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_leq57"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_k4cjr"]
@@ -10,9 +10,9 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_4kdpc"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_dvv37"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_273ih"]
+[ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="12_tgrfq"]
+[ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="13_jej6g"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="13_tgrfq"]
-[ext_resource type="Script" uid="uid://bbgikxqbo8pof" path="res://scenes/tutorial/enemy_spirit.gd" id="14_eny32"]
-[ext_resource type="Texture2D" uid="uid://ligp2ff8q0yf" path="res://assets/sprites/tutorial/slime_enemy.png" id="15_hjfwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_32xp0")
@@ -313,44 +313,105 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7s834"]
-atlas = ExtResource("15_hjfwn")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_irkhd"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(0, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86tkr"]
-atlas = ExtResource("15_hjfwn")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6ghh"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(64, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2nxha"]
-atlas = ExtResource("15_hjfwn")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkryl"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(128, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7ey2"]
-atlas = ExtResource("15_hjfwn")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvwgq"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(192, 192, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2gwxb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c11o2"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr23u"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gwxb"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpgfv"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36o4c"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twe7w"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwlcx"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2dpn"]
+atlas = ExtResource("13_jej6g")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_leq57"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7s834")
+"texture": SubResource("AtlasTexture_irkhd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_86tkr")
+"texture": SubResource("AtlasTexture_k6ghh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2nxha")
+"texture": SubResource("AtlasTexture_dkryl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i7ey2")
+"texture": SubResource("AtlasTexture_uvwgq")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c11o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr23u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gwxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpgfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36o4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twe7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwlcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2dpn")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bpgfv"]
-radius = 19.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4cjr"]
+radius = 16.0
 
 [node name="SpaceCloneEnemy" type="TextureRect"]
 offset_right = 320.0
@@ -362,25 +423,29 @@ script = ExtResource("2_k4cjr")
 [node name="Player" parent="." instance=ExtResource("3_1cpob")]
 position = Vector2(31, 47)
 collision_layer = 1
+collision_mask = 5
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(29, 48)
 
 [node name="Floor" parent="." instance=ExtResource("4_i5sid")]
+tile_map_data = PackedByteArray("AAAAAAsAAQADAAYAAAAAAAoAAQADAAUAAAAAAAkAAQADAAQAAAABAAkAAQADAAQAAAACAAkAAQADAAQAAAADAAkAAQADAAQAAAAEAAkAAQADAAQAAAAFAAkAAQADAAQAAAAGAAkAAQADAAQAAAAHAAkAAQADAAQAAAAIAAkAAQADAAQAAAAJAAkAAQADAAQAAAAKAAkAAQADAAQAAAALAAkAAQADAAQAAAAMAAkAAQADAAUAAAANAAkAAQADAAUAAAAOAAkAAQADAAUAAAAPAAkAAQADAAUAAAAQAAkAAQADAAUAAAARAAkAAQADAAUAAAASAAkAAQADAAUAAAATAAkAAQADAAUAAAATAAoAAQADAAUAAAATAAsAAQADAAYAAAABAAoAAQADAAUAAAACAAoAAQADAAUAAAADAAoAAQADAAUAAAAEAAoAAQADAAUAAAAFAAoAAQADAAUAAAAGAAoAAQADAAUAAAAHAAoAAQADAAUAAAAIAAoAAQADAAUAAAAJAAoAAQADAAUAAAAKAAoAAQADAAUAAAALAAoAAQADAAUAAAAMAAoAAQADAAUAAAANAAoAAQADAAUAAAAOAAoAAQADAAUAAAAPAAoAAQADAAUAAAAQAAoAAQADAAUAAAARAAoAAQADAAUAAAASAAoAAQADAAUAAAABAAsAAQADAAYAAAACAAsAAQADAAYAAAADAAsAAQADAAYAAAAEAAsAAQADAAYAAAAFAAsAAQADAAYAAAAGAAsAAQADAAYAAAAHAAsAAQADAAYAAAAIAAsAAQADAAYAAAAJAAsAAQADAAYAAAAKAAsAAQADAAYAAAALAAsAAQADAAYAAAAMAAsAAQADAAYAAAANAAsAAQADAAYAAAAOAAsAAQADAAYAAAAPAAsAAQADAAYAAAAQAAsAAQADAAYAAAARAAsAAQADAAYAAAASAAsAAQADAAYAAAD//wkAAQACAAQAAAAUAAkAAQAEAAUAAAD//woAAQACAAUAAAAUAAoAAQAEAAUAAAD//wsAAQACAAYAAAAUAAsAAQAEAAYAAAAMAAYAAQACAAQAAAANAAYAAQADAAQAAAAOAAYAAQADAAQAAAAPAAYAAQADAAQAAAAQAAYAAQADAAQAAAARAAYAAQADAAQAAAASAAYAAQADAAQAAAATAAYAAQADAAQAAAAUAAYAAQAEAAQAAAAMAAcAAQACAAUAAAAMAAgAAQACAAUAAAAUAAcAAQAEAAUAAAAUAAgAAQAEAAUAAAANAAcAAQADAAUAAAANAAgAAQADAAUAAAAOAAgAAQADAAUAAAAOAAcAAQADAAUAAAAPAAcAAQADAAUAAAAPAAgAAQADAAUAAAAQAAgAAQADAAUAAAAQAAcAAQADAAUAAAARAAcAAQADAAUAAAARAAgAAQADAAUAAAASAAgAAQADAAUAAAASAAcAAQADAAUAAAATAAcAAQADAAUAAAATAAgAAQADAAUAAAA=")
 
 [node name="Platforms" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAANAAYAAAABAAAAAAAOAAYAAAABAAAAAAAPAAYAAAABAAAAAAAQAAYAAAABAAAAAAARAAYAAAABAAAAAAASAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAUAAYAAAAAAAAAAAAVAAYAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_8ijuy")
 
 [node name="PressurePlate" parent="." instance=ExtResource("7_j6eea")]
-position = Vector2(197, 40)
+position = Vector2(79, 88)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="PressurePlate" index="0"]
 position = Vector2(48.5, 51.5)
-scale = Vector2(0.5625, 0.5625)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="PressurePlate" index="1"]
-position = Vector2(49, 51.5)
+position = Vector2(48.5, 52)
 
 [node name="ButtonDoor" type="StaticBody2D" parent="."]
 position = Vector2(78, 96)
@@ -412,41 +477,34 @@ position = Vector2(31, 60)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("10_273ih")]
 position = Vector2(318, 18)
-destination_level_tag = "space_5"
-destination_door_tag = "E"
-spawn_direction = "right"
+destination_level_tag = "space_7"
+destination_door_tag = "W"
+spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(3, 49)
+position = Vector2(9, 49)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-12, 57)
 
 [node name="EnemySpirit" type="Area2D" parent="."]
-position = Vector2(-90, -1)
+position = Vector2(-115, -1)
 collision_layer = 4
 collision_mask = 7
-script = ExtResource("14_eny32")
+script = ExtResource("12_tgrfq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySpirit"]
-position = Vector2(176.576, 130.962)
-scale = Vector2(1.52649, 1.58357)
-sprite_frames = SubResource("SpriteFrames_2gwxb")
+position = Vector2(177.932, 116.925)
+scale = Vector2(0.845872, 0.877352)
+sprite_frames = SubResource("SpriteFrames_leq57")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
-position = Vector2(178, 134)
-shape = SubResource("CircleShape2D_bpgfv")
+position = Vector2(178, 132)
+shape = SubResource("CircleShape2D_k4cjr")
 
 [node name="Asteroid" parent="." instance=ExtResource("13_tgrfq")]
-position = Vector2(98, -13)
-collision_mask = 6
-
-[node name="Sprite2D" parent="Asteroid" index="0"]
-rotation = -0.437267
-
-[node name="OutlineSprite2D" parent="Asteroid" index="1"]
-rotation = -0.438078
+position = Vector2(-20, 31)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate" to="ButtonDoor" method="close"]
@@ -455,4 +513,3 @@ rotation = -0.438078
 [editable path="PressurePlate"]
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
-[editable path="Asteroid"]

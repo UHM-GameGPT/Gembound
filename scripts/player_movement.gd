@@ -36,6 +36,8 @@ var can_stop: bool = false;
 var is_time_slowed = false  
 var time_slow_cooldown := 0.0
 
+var current_clone: Node = null
+
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	add_to_group("Player")
@@ -193,13 +195,13 @@ func reset_time_slow():
 		time_slow_overlay.visible = false
 		
 func spawn_clone():
-	if not clone_scene:
-		print("No clone scene assigned!")
-		return
-
-	var clone = clone_scene.instantiate()
-	clone.global_position = global_position
-	get_parent().add_child(clone)
+	if current_clone and is_instance_valid(current_clone):
+		current_clone.queue_free()
+		var clone_scene = preload("res://scenes/space/clone.tscn")
+		var new_clone = clone_scene.instantiate()
+		new_clone.global_position = global_position
+		get_tree().current_scene.add_child(new_clone)
+		current_clone = new_clone
 
 func set_can_move(value: bool):
 	can_move = value
