@@ -1,6 +1,7 @@
 extends TextureRect
 
 func _ready():
+	AudioManager.play_music_spacelevel()
 	if NavigationManager.spawn_door_tag !=null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		

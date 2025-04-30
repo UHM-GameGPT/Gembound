@@ -1,8 +1,10 @@
 extends AudioStreamPlayer
 
 const tutorial_music = preload("res://assets/audio/music/Remembrance.mp3")
+const time_level_music = preload("res://assets/audio/music/TimeLVL(JungleTheme).mp3")
+const space_level_music = preload("res://assets/audio/music/Space.mp3")
 
-func _play_music(music: AudioStream, volume = -16.0):
+func _play_music(music: AudioStream, volume = 0.0):
 	if stream == music:
 		return
 
@@ -12,3 +14,9 @@ func _play_music(music: AudioStream, volume = -16.0):
 	
 func play_music_tutorial():
 	_play_music(tutorial_music)
+
+func play_music_timelevel():
+	_play_music(time_level_music)
+	
+func play_music_spacelevel():
+	_play_music(space_level_music)
