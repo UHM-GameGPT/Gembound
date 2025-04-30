@@ -200,3 +200,6 @@ func spawn_clone():
 	var clone = clone_scene.instantiate()
 	clone.global_position = global_position
 	get_parent().add_child(clone)
+
+func set_can_move(value: bool):
+	can_move = value
