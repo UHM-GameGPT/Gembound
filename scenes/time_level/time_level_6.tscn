@@ -392,7 +392,7 @@ destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(27, 138)
+position = Vector2(10, 135)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-2, 150)

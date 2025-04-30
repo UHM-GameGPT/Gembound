@@ -4,6 +4,7 @@ const scene_tutorial1 = preload("res://scenes/tutorial/tutorial_1.tscn")
 const scene_tutorial2 = preload("res://scenes/tutorial/tutorial_2.tscn")
 const scene_tutorial3 = preload("res://scenes/tutorial/tutorial_3.tscn")
 const scene_tutorial5 = preload("res://scenes/tutorial/tutorial_5.tscn")
+const scene_tutorial6 = preload("res://scenes/tutorial/tutorial_6.tscn")
 
 const scene_timestart = preload("res://scenes/time_level/timelevel_start.tscn")
 const scene_time2 = preload("res://scenes/time_level/time_level_2.tscn")
@@ -40,6 +41,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_tutorial3
 		"tutorial_5":
 			scene_to_load = scene_tutorial5
+		"tutorial_6":
+			scene_to_load = scene_tutorial6
 		"time_start":
 			scene_to_load = scene_timestart
 		"time_level2":
