@@ -44,7 +44,10 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	if body is RigidBody2D:
 		print("Something hit the slime!")
-
+		
+		# Play hit sound effect
+		# $HitSound.play()
+		
 		# Optional: stop log from moving
 		body.linear_velocity = Vector2.ZERO
 
@@ -54,6 +57,14 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		await get_tree().create_timer(0.1).timeout
 
+		# Play death animation
+		$AnimatedSprite2D.play("death")
+
+		# Wait for animation to finish
+		await $AnimatedSprite2D.animation_finished
+		
 		# THEN hide and remove both
-		body.queue_free()
+		if is_instance_valid(body):
+			body.queue_free()
+
 		queue_free()
