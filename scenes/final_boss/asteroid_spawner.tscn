@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://boavhb3l6872g"]
+
+[ext_resource type="Script" uid="uid://7ji3gjnyt540" path="res://scenes/final_boss/asteroid_spawner.gd" id="1_i0sqo"]
+[ext_resource type="PackedScene" uid="uid://ej07hhckjxsf" path="res://scenes/final_boss/asteroid.tscn" id="2_78voj"]
+[ext_resource type="PackedScene" uid="uid://inw4tpqj5k86" path="res://scenes/final_boss/exclamation_indicator.tscn" id="3_1e83q"]
+
+[node name="AsteroidSpawner" type="Node2D"]
+script = ExtResource("1_i0sqo")
+asteroid_scene = ExtResource("2_78voj")
+warning_scene = ExtResource("3_1e83q")

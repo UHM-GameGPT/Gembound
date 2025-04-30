@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://caane3jd55lru"]
+[gd_scene load_steps=16 format=4 uid="uid://caane3jd55lru"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_kfuf5"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_l7bkp"]
@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c216i6ku37cj5" path="res://scenes/final_boss/FinalBoss.tscn" id="7_46vrb"]
 [ext_resource type="Texture2D" uid="uid://b1txu2dxxs0ol" path="res://assets/sprites/platforms.png" id="8_igrjo"]
 [ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="9_heain"]
-[ext_resource type="Script" uid="uid://b3fjntjevydgh" path="res://scenes/time_level/time_gems/time_gem2_text.gd" id="10_b4cnm"]
-[ext_resource type="PackedScene" uid="uid://c8k8bk15xtmhk" path="res://scenes/time_level/time_gems/time_gem_2.tscn" id="11_hpmta"]
-[ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="12_hpmta"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_1w4ex")
@@ -302,46 +299,6 @@ physics_layer_0/collision_layer = 1
 sources/6 = SubResource("TileSetAtlasSource_2ycis")
 sources/0 = SubResource("TileSetAtlasSource_p5u6r")
 
-[sub_resource type="LabelSettings" id="LabelSettings_hpmta"]
-font = ExtResource("12_hpmta")
-font_size = 220
-
-[sub_resource type="Animation" id="Animation_60vy7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_4lo02"]
-resource_name = "show_tutorial"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.464, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w83iy"]
-_data = {
-&"RESET": SubResource("Animation_60vy7"),
-&"show_tutorial": SubResource("Animation_4lo02")
-}
-
 [node name="final_boss_phase1" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -362,7 +319,7 @@ tile_map_data = PackedByteArray("AAAAAAsAAwABAAIAAAAAAAoAAwABAAEAAAAAAAkAAwAFAAA
 tile_set = SubResource("TileSet_r75vm")
 
 [node name="Platforms" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAYAAAABAAEAAAABAAYAAAACAAEAAAAAAAIAAAABAAEAAAABAAIAAAACAAEAAAAEAAQAAAABAAEAAAAFAAQAAAACAAEAAAASAAIAAAABAAEAAAATAAIAAAACAAEAAAASAAYAAAABAAEAAAATAAYAAAACAAEAAAANAAQAAAABAAEAAAAOAAQAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAYAAAABAAEAAAABAAYAAAACAAEAAAAAAAIAAAABAAEAAAABAAIAAAACAAEAAAAEAAQAAAABAAEAAAAFAAQAAAACAAEAAAAIAAYAAAABAAEAAAAJAAYAAAACAAEAAAAIAAIAAAABAAEAAAAJAAIAAAACAAEAAAAMAAQAAAABAAEAAAANAAQAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_ov85r")
 
 [node name="HealthBar" type="HBoxContainer" parent="."]
@@ -400,28 +357,3 @@ color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="FinalBoss" parent="." instance=ExtResource("7_46vrb")]
 position = Vector2(310, 128)
-
-[node name="GemText" type="Node2D" parent="."]
-script = ExtResource("10_b4cnm")
-
-[node name="time_gem_2" parent="GemText" instance=ExtResource("11_hpmta")]
-position = Vector2(-168, 32)
-
-[node name="Text" type="Label" parent="GemText"]
-offset_left = 193.0
-offset_top = 6.0
-offset_right = 2573.0
-offset_bottom = 915.0
-scale = Vector2(0.05, 0.05)
-text = "You got a new ability. Press \"Q\" to see what it does.
-"
-label_settings = SubResource("LabelSettings_hpmta")
-horizontal_alignment = 1
-autowrap_mode = 3
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
-libraries = {
-&"": SubResource("AnimationLibrary_w83iy")
-}

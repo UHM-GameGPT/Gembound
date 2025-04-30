@@ -23,6 +23,7 @@ AudioManager="*res://scenes/audio_manager.tscn"
 GemManager="*res://scripts/gems/gem_manager.gd"
 PlayerState="*res://scripts/player_state.gd"
 SceneManager="*res://scripts/scene_manager.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 
