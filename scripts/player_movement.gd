@@ -136,21 +136,15 @@ func _physics_process(delta: float) -> void:
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * 10)
 			
 func die():
-	if is_dead: return
-	is_dead = true
-
-	animated_sprite.play("death")
+	if not is_inside_tree():
+		return
+	time_slow_cooldown = 1.0
+	if has_node("AnimatedSprite2D"):
+		$AnimatedSprite2D.play("death")
 	set_physics_process(false)
-	$CollisionShape2D.call_deferred("set_disabled", false)
-
-	await get_tree().create_timer(1).timeout
-
-	global_position = spawn_point.global_position
-	animated_sprite.play("idle_right")
-
-	is_dead = false
-	set_physics_process(true)
-	$CollisionShape2D.call_deferred("set_disabled", false)
+	if has_method("reset_time_slow"):
+		reset_time_slow()
+	SceneManager.reload_scene_after_delay(1.0)  # Tell the scene manager to reload after 1 second
 	
 func _input(event : InputEvent):
 	if(event.is_action_pressed("down")):
