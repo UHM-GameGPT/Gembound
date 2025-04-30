@@ -197,11 +197,11 @@ func reset_time_slow():
 func spawn_clone():
 	if current_clone and is_instance_valid(current_clone):
 		current_clone.queue_free()
-		var clone_scene = preload("res://scenes/space/clone.tscn")
-		var new_clone = clone_scene.instantiate()
-		new_clone.global_position = global_position
-		get_tree().current_scene.add_child(new_clone)
-		current_clone = new_clone
+	var clone_scene = preload("res://scenes/space/clone.tscn")
+	var new_clone = clone_scene.instantiate()
+	new_clone.global_position = global_position
+	get_tree().current_scene.add_child(new_clone)
+	current_clone = new_clone
 
 func set_can_move(value: bool):
 	can_move = value
