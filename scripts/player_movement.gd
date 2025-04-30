@@ -15,6 +15,7 @@ const DASH_COOLDOWN = 0.5
 @onready var spawn_point = get_parent().get_node("PlayerSpawn")
 @onready var time_slow_overlay := get_parent().get_node("TimeSlowOverlay")
 @export var clone_scene: PackedScene = preload("res://scenes/space/clone.tscn")
+@export var clone_cooldown_duration := 5.0  # seconds
 
 var landing: bool = false
 var is_dead: bool = false
@@ -37,6 +38,7 @@ var is_time_slowed = false
 var time_slow_cooldown := 0.0
 
 var current_clone: Node = null
+var clone_cooldown := false
 
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -165,7 +167,7 @@ func _start_dash(direction: float) -> void:
 	animated_sprite.play("dash")
 
 func use_ability():
-	if PlayerState.clone_unlocked:
+	if PlayerState.clone_unlocked and not clone_cooldown:
 		spawn_clone()
 	elif PlayerState.slow_unlocked and time_slow_cooldown <= 0:
 		toggle_time_slow()
@@ -197,11 +199,17 @@ func reset_time_slow():
 func spawn_clone():
 	if current_clone and is_instance_valid(current_clone):
 		current_clone.queue_free()
+	
 	var clone_scene = preload("res://scenes/space/clone.tscn")
 	var new_clone = clone_scene.instantiate()
 	new_clone.global_position = global_position
 	get_tree().current_scene.add_child(new_clone)
 	current_clone = new_clone
+
+	# Start cooldown
+	clone_cooldown = true
+	await get_tree().create_timer(clone_cooldown_duration).timeout
+	clone_cooldown = false
 
 func set_can_move(value: bool):
 	can_move = value

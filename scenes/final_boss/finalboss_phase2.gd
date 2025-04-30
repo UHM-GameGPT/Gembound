@@ -25,11 +25,13 @@ var attack_phase: int = 0
 var is_paused_for_attack: bool = false
 var is_invincible: bool = false
 var is_flashing_red := false
+var is_stunned := false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	if player and player.has_method("set_can_move"):
 		player.set_can_move(false)
+	PlayerState.clone_unlocked = true
 	health_bar = get_parent().get_node("HealthBar")
 	current_health = max_health
 	position.y = 64  # Hold this position
@@ -46,6 +48,9 @@ func _ready():
 	start_attack_cycle()
 
 func _physics_process(delta):
+	if is_dead:
+		return
+
 	if is_dropping:
 		fall_velocity.y += gravity * delta
 		velocity = fall_velocity  # Set the built-in velocity
@@ -104,10 +109,7 @@ func take_damage():
 	print("Boss took damage! Current Health:", current_health)
 
 	if current_health <= 0:
-		is_dead = true
-		PlayerState.slow_unlocked = false
-		for coconut in get_tree().get_nodes_in_group("Asteroid"):
-			coconut.queue_free()
+		die()
 
 	# Flash and start invincibility cooldown
 	flash_red()
@@ -137,6 +139,24 @@ func flash_red() -> void:
 
 	sprite.modulate = original_modulate
 	is_flashing_red = false
+
+func stun():
+	if is_stunned:
+		return
+	is_stunned = true
+	print("Boss stunned!")
+
+	# Optional: play stun animation or sound
+	$AnimatedSprite2D.play("stun")  # if you have one
+
+	# Stop movement
+	can_follow = false
+
+	await get_tree().create_timer(2.0).timeout
+
+	is_stunned = false
+	can_follow = true
+	print("Boss recovered from stun")
 
 func start_asteroid():
 	var warning_positions: Array = []
@@ -181,5 +201,23 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		print("Asteroid Hit!")
 		flash_red()
 		take_damage()
+		body.queue_free()
 	if body.name == "Player":
 		body.die()
+		
+func die():
+	is_dead = true
+	PlayerState.clone_unlocked = false
+	if has_node("Hitbox"):
+		$Hitbox.set_deferred("monitoring", false)
+
+	# STOP the attack timer
+	if has_node("AttackTimer"):
+		$AttackTimer.stop()
+	var sprite = $AnimatedSprite2D
+	for asteroid in get_tree().get_nodes_in_group("Asteroid"):
+		asteroid.queue_free()
+	sprite.play("death")
+	await sprite.animation_finished
+	queue_free()
+	

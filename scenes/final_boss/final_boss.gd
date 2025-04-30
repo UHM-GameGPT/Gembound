@@ -22,6 +22,7 @@ func _ready():
 	health_bar = get_parent().get_node("HealthBar")
 	current_health = max_health
 	position.x = x_position  # Lock boss to right side
+	PlayerState.slow_unlocked = true
 	$AnimatedSprite2D.scale.x = -1 
 	if has_node("AnimatedSprite2D"):
 		$AnimatedSprite2D.play("fly")  # Start flying animation

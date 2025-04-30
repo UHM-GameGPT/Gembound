@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var linger_time := 6.0
 
 var is_falling := true
+var was_player_lifted := false
 var is_grounded := false
 var is_floating := false
 var is_hovered := false
@@ -46,6 +47,7 @@ func _on_area_input(viewport, event, shape_idx):
 		if not is_floating:
 			is_falling = false
 			is_floating = true
+			was_player_lifted = true  # ✅ mark that player interacted
 		else:
 			is_floating = false
 			is_falling = true
@@ -67,5 +69,5 @@ func start_linger_timer():
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if is_falling and body.name == "Player":
+	if is_falling and body.name == "Player" and not was_player_lifted:
 		body.die()

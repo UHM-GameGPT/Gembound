@@ -14,3 +14,8 @@ func _physics_process(delta: float) -> void:
 	life_timer += delta
 	if life_timer >= LIFE_TIME:
 		queue_free()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "FinalBoss_phase2" and body.has_method("stun"):
+		body.stun()
+		queue_free()  # Optional: destroy clone after stun

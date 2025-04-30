@@ -831,7 +831,7 @@ empty_heart_texture = ExtResource("5_bbjkf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4gsp7")
-animation = &"jump"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 3)
