@@ -357,31 +357,34 @@ animation = &"idle"
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door_W1" parent="Doors" instance=ExtResource("7_ahrub")]
+[node name="Door_W" parent="Doors" instance=ExtResource("7_ahrub")]
+collision_mask = 7
 destination_level_tag = "space_1"
-destination_door_tag = "E1"
+destination_door_tag = "E"
 spawn_direction = "right"
 
-[node name="CollisionShape2D" parent="Doors/Door_W1" index="0"]
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
 position = Vector2(-5, 49)
 
-[node name="Spawn" parent="Doors/Door_W1" index="1"]
+[node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(29, 64)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("7_ahrub")]
+position = Vector2(327, -1)
+collision_mask = 7
 destination_level_tag = "space_3"
 destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(327, 52)
+position = Vector2(-5, 49)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(292, 58)
+position = Vector2(-38, 64)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate" to="ButtonDoor" method="close"]
 
 [editable path="PressurePlate"]
-[editable path="Doors/Door_W1"]
+[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]

@@ -501,10 +501,10 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(-6, 49)
+position = Vector2(-3, 49)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(29, 64)
+position = Vector2(20, 64)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("10_bpgfv")]
 position = Vector2(322, 65)
