@@ -1,8 +1,8 @@
 extends TextureRect
 
 func _ready():
-	#coconutbutton.disabled = true
 	AudioManager.play_music_timelevel()
+		
 	if NavigationManager.spawn_door_tag !=null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		

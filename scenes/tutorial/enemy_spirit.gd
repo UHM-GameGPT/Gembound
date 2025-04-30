@@ -46,7 +46,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Something hit the slime!")
 		
 		# Play hit sound effect
-		$HitSound.play()
+		# $HitSound.play()
 		
 		# Optional: stop log from moving
 		body.linear_velocity = Vector2.ZERO
@@ -64,5 +64,7 @@ func _on_body_entered(body: Node2D) -> void:
 		await $AnimatedSprite2D.animation_finished
 		
 		# THEN hide and remove both
-		body.queue_free()
+		if is_instance_valid(body):
+			body.queue_free()
+
 		queue_free()
