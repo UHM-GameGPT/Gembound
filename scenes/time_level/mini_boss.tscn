@@ -450,7 +450,7 @@ empty_heart_texture = ExtResource("5_k5wa5")
 position = Vector2(9, 13)
 scale = Vector2(0.0606497, 0.0605811)
 sprite_frames = SubResource("SpriteFrames_p23ld")
-animation = &"throw"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0d5pg")

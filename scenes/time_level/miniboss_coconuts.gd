@@ -37,6 +37,7 @@ func is_frozen() -> bool:
 	return frozen
 
 func update_highlight():
+	
 	if frozen:
 		$HighlightSprite2D.visible = true
 		$HighlightSprite2D.modulate = Color.YELLOW
@@ -45,6 +46,25 @@ func update_highlight():
 		$HighlightSprite2D.modulate = Color(1, 1, 1, 0.5) # subtle white glow
 	else:
 		$HighlightSprite2D.visible = false
+
+func break_apart():
+	
+	frozen = true  # Stop motion logic
+	is_hovered = false
+	velocity = Vector2.ZERO  # Stop current velocity
+	set_physics_process(false)  # Disable _physics_process entirely
+	
+	if $Area2D.mouse_entered.is_connected(_on_mouse_entered):
+		$Area2D.mouse_entered.disconnect(_on_mouse_entered)
+	if $Area2D.mouse_exited.is_connected(_on_mouse_exited):
+		$Area2D.mouse_exited.disconnect(_on_mouse_exited)
+	
+	$Sprite2D.visible = false
+	$HighlightSprite2D.visible = false
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play("break")
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not frozen and body.name == "Player":
