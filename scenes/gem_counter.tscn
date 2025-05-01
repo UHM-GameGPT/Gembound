@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://kh28dmr6isdx"]
+
+[ext_resource type="Script" uid="uid://jla61f6w1ach" path="res://scripts/gem_counter.gd" id="1_6t0u6"]
+[ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="1_y62hi"]
+[ext_resource type="Texture2D" uid="uid://bn82704oag5v8" path="res://assets/sprites/space/space_gem.png" id="2_cusk8"]
+[ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="4_wd00n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cusk8"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t0u6"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd00n"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec6rd"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p34a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cusk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t0u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd00n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec6rd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p34a"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdem3"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1yi"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y62hi"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyvpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p34a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdem3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l1yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y62hi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwdyx"]
+atlas = ExtResource("2_cusk8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpdyk"]
+atlas = ExtResource("2_cusk8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tofg"]
+atlas = ExtResource("2_cusk8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyvpw"]
+atlas = ExtResource("2_cusk8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60cli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwdyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpdyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tofg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyvpw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GemCounter" type="Node2D"]
+script = ExtResource("1_6t0u6")
+
+[node name="timestop" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_7p34a")
+autoplay = "default"
+
+[node name="timeslow" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(25, 10)
+sprite_frames = SubResource("SpriteFrames_tyvpw")
+autoplay = "default"
+frame = 2
+frame_progress = 0.595469
+
+[node name="spaceclone" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(40, 10)
+sprite_frames = SubResource("SpriteFrames_60cli")
+autoplay = "default"
+frame_progress = 0.260446
+
+[node name="spacefloat" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(55, 10)
+sprite_frames = SubResource("SpriteFrames_60cli")
+autoplay = "default"
+frame = 1
+frame_progress = 0.680637
+
+[node name="counterlabel" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 17.0
+offset_right = 78.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("4_wd00n")

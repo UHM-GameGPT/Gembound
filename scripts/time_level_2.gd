@@ -1,18 +1,13 @@
 extends TextureRect
-@onready var gemlabel: Label = $gemlabel
-@onready var time_gem_1 = $time_gem1
+@onready var gem_counter: GemCounter = $GemCounter
 
 func _ready():
 	#coconutbutton.disabled = true
 	AudioManager.play_music_timelevel()
 	if NavigationManager.spawn_door_tag !=null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
-
-	print(GemManager.collected_gems.has("gem_time1"))	
-	if GemManager.collected_gems.has("gem_time1"):
-		time_gem_1.visible = true
-		
-		gemlabel.text = str(GemManager.collected_gems.size() - 1) + "/6"
+	
+	#gem_counter.countgems()
 	
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

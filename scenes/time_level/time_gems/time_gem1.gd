@@ -2,8 +2,10 @@ extends Area2D
 
 @onready var gem: AnimatedSprite2D = $Gem
 @onready var gem_collected: AudioStreamPlayer = $Collected
+@onready var gem_counter: GemCounter = $"../../GemCounter"
 
 @export var gem_name: String = "gem_time1"
+
 
 func _ready() -> void:
 	if GemManager.collected_gems.has(gem_name):
@@ -21,3 +23,4 @@ func _on_body_entered(body: Node2D) -> void:
 		PlayerState.stop_unlocked = true
 		body.can_stop = true
 		queue_free()
+		gem_counter.countgems()
