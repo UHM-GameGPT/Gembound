@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cswtf070qv13f"]
+[gd_scene load_steps=19 format=4 uid="uid://cswtf070qv13f"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_vno8r"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_7n6sd"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="9_ibboy"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_u65o7"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="11_7n6sd"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="12_nja65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_pdml4")
@@ -270,6 +271,9 @@ position = Vector2(295, 63)
 
 [node name="Asteroid" parent="." instance=ExtResource("11_7n6sd")]
 position = Vector2(102, -42)
+
+[node name="GemCounter" parent="." instance=ExtResource("12_nja65")]
+position = Vector2(12, 146)
 
 [editable path="GemText/SpaceFloatGem"]
 [editable path="Doors/Door_W"]

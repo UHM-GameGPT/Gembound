@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cb6muslg81rn6"]
+[gd_scene load_steps=53 format=4 uid="uid://cb6muslg81rn6"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_leq57"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_k4cjr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="12_tgrfq"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="13_jej6g"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="13_tgrfq"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="14_jej6g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_32xp0")
@@ -505,6 +506,9 @@ shape = SubResource("CircleShape2D_k4cjr")
 
 [node name="Asteroid" parent="." instance=ExtResource("13_tgrfq")]
 position = Vector2(-20, 31)
+
+[node name="GemCounter" parent="." instance=ExtResource("14_jej6g")]
+position = Vector2(14, 65)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate" to="ButtonDoor" method="close"]

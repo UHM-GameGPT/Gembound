@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://caane3jd55lru"]
+[gd_scene load_steps=17 format=4 uid="uid://caane3jd55lru"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_kfuf5"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_l7bkp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c216i6ku37cj5" path="res://scenes/final_boss/FinalBoss.tscn" id="7_46vrb"]
 [ext_resource type="Texture2D" uid="uid://b1txu2dxxs0ol" path="res://assets/sprites/platforms.png" id="8_igrjo"]
 [ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="9_heain"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="10_l7bkp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_1w4ex")
@@ -357,3 +358,6 @@ color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="FinalBoss" parent="." instance=ExtResource("7_46vrb")]
 position = Vector2(310, 128)
+
+[node name="GemCounter" parent="." instance=ExtResource("10_l7bkp")]
+position = Vector2(13, 146)

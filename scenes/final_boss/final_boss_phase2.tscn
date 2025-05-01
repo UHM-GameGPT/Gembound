@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://tk0leiank2m7"]
+[gd_scene load_steps=15 format=4 uid="uid://tk0leiank2m7"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_bylla"]
 [ext_resource type="Script" uid="uid://qhw12g383nfg" path="res://scenes/final_boss/final_boss_phase_2.gd" id="2_tnine"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_bb4bu"]
 [ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="7_tnine"]
 [ext_resource type="PackedScene" uid="uid://bjx0tvsdbhb3g" path="res://scenes/final_boss/final_boss_phase_2.tscn" id="8_tdfr6"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="9_on63f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_2hgj7")
@@ -256,3 +257,6 @@ one_way_collision = true
 position = Vector2(304, 104)
 shape = SubResource("RectangleShape2D_on63f")
 one_way_collision = true
+
+[node name="GemCounter" parent="." instance=ExtResource("9_on63f")]
+position = Vector2(23, 147)

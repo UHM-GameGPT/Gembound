@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://keyqbe2wrodm"]
+[gd_scene load_steps=24 format=4 uid="uid://keyqbe2wrodm"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_nixt0"]
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="2_btsbo"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="9_jtqqj"]
 [ext_resource type="Script" uid="uid://7j2ybxcqm3uv" path="res://scenes/time_level/text_slide.gd" id="11_70aqn"]
 [ext_resource type="Texture2D" uid="uid://dc8qccw56u87" path="res://assets/sprites/space/space level title.png" id="12_vbabn"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_vbabn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_gqmi1")
@@ -347,6 +348,9 @@ libraries = {
 [node name="PauseTimer" type="Timer" parent="SpaceLevelLabel"]
 wait_time = 2.0
 one_shot = true
+
+[node name="GemCounter" parent="." instance=ExtResource("13_vbabn")]
+position = Vector2(24, 146)
 
 [editable path="GemText/SpaceCloneGem"]
 [editable path="Doors/Door_W"]

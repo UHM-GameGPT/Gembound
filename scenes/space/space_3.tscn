@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://bbbwfvc8v8a2x"]
+[gd_scene load_steps=55 format=4 uid="uid://bbbwfvc8v8a2x"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_uaub7"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_0uwu5"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="12_ogxyq"]
 [ext_resource type="PackedScene" uid="uid://cxt6m0734tqan" path="res://scenes/time_level/coconut.tscn" id="13_c11o2"]
 [ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="14_ogxyq"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="15_c11o2"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="15_ogxyq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
@@ -544,6 +545,9 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
 position = Vector2(156, 132)
 shape = SubResource("CircleShape2D_bpgfv")
+
+[node name="GemCounter" parent="." instance=ExtResource("15_c11o2")]
+position = Vector2(10, 82)
 
 [connection signal="plate_activated" from="PressurePlate3" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate3" to="ButtonDoor" method="close"]

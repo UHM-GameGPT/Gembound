@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cttpxfn0xw1d5"]
+[gd_scene load_steps=36 format=4 uid="uid://cttpxfn0xw1d5"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_3fosr"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_cu557"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="7_ahrub"]
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_3fosr"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_cu557"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="11_wb43s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_wb43s")
@@ -381,6 +382,9 @@ position = Vector2(-5, 49)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-38, 64)
+
+[node name="GemCounter" parent="." instance=ExtResource("11_wb43s")]
+position = Vector2(0, 81)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate" to="ButtonDoor" method="close"]

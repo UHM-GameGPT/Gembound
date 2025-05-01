@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b3doeqcd52nu3"]
+[gd_scene load_steps=40 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
@@ -475,7 +475,7 @@ mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="GemCounter" parent="." instance=ExtResource("17_oq7vi")]
-position = Vector2(23, 147)
+position = Vector2(16, 147)
 
 [connection signal="body_entered" from="Coconut" to="Coconut" method="_on_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

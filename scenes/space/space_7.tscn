@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cal36fdf1s6tu"]
+[gd_scene load_steps=12 format=3 uid="uid://cal36fdf1s6tu"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_pmr7y"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_rjyac"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="4_vjljh"]
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_6tmn0"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_bwpr0"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="8_igtkn"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_xmguv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
@@ -186,5 +187,8 @@ position = Vector2(3, 49)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(31, 60)
+
+[node name="GemCounter" parent="." instance=ExtResource("8_igtkn")]
+position = Vector2(7, 147)
 
 [editable path="Doors/Door_W"]

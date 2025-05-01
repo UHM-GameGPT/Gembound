@@ -318,7 +318,7 @@ mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="GemCounter" parent="." instance=ExtResource("13_efl8c")]
-position = Vector2(10, 147)
+position = Vector2(0, 147)
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
 

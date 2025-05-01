@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var gem: AnimatedSprite2D = $Gem
 @onready var gem_collected: AudioStreamPlayer = $Collected
+@onready var gem_counter: GemCounter = $"../../GemCounter"
 
 @export var gem_name: String = "gem_space_clone"
 @export var clone: Ability
@@ -22,3 +23,4 @@ func _on_body_entered(body: Node2D) -> void:
 		PlayerState.clone_unlocked = true
 		body.current_ability = clone
 		queue_free()
+		gem_counter.countgems()
