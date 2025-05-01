@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6hvri2ovemkv"]
+
+[ext_resource type="Script" uid="uid://dcxgvieaytq45" path="res://scenes/space/miniboss_asteroid.gd" id="1_0hfio"]
+[ext_resource type="Texture2D" uid="uid://da7gwij3tka8v" path="res://assets/sprites/FinalBoss/asteriod_highlight.png" id="2_0hfio"]
+[ext_resource type="Texture2D" uid="uid://quti5lvnesr2" path="res://assets/sprites/space/asteroid_animation.png" id="4_vq4eo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s01h1"]
+atlas = ExtResource("4_vq4eo")
+region = Rect2(0, 0, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i6q3"]
+atlas = ExtResource("4_vq4eo")
+region = Rect2(0, 28, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80sss"]
+atlas = ExtResource("4_vq4eo")
+region = Rect2(0, 56, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi4ho"]
+atlas = ExtResource("4_vq4eo")
+region = Rect2(0, 84, 33, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jukh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s01h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i6q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80sss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi4ho")
+}],
+"loop": true,
+"name": &"shake",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq4eo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s01h1"]
+radius = 16.0
+
+[node name="MinibossAsteroid" type="CharacterBody2D"]
+collision_layer = 48
+collision_mask = 48
+script = ExtResource("1_0hfio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.40625, 1)
+scale = Vector2(0.933712, 1.07143)
+sprite_frames = SubResource("SpriteFrames_8jukh")
+animation = &"shake"
+frame_progress = 0.474346
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -1.19209e-07)
+scale = Vector2(0.925781, 1.08965)
+
+[node name="HighlightSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.18519)
+texture = ExtResource("2_0hfio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vq4eo")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s01h1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

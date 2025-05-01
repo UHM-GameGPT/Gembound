@@ -186,7 +186,7 @@ position = Vector2(22, 128)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("5_fij67")]
 position = Vector2(320, -4)
-destination_level_tag = "tutorial_5"
+destination_level_tag = "space_7"
 destination_door_tag = "W"
 spawn_direction = "left"
 
