@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://ljr7ab8mr1ws"]
+[gd_scene load_steps=38 format=4 uid="uid://ljr7ab8mr1ws"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qbhvt"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_vixr4"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_a8v41"]
 [ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="14_l7fsx"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="15_g0lo8"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="16_g0lo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_hhuqg")
@@ -481,6 +482,9 @@ offset_right = 336.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
+
+[node name="GemCounter" parent="." instance=ExtResource("16_g0lo8")]
+position = Vector2(4, 147)
 
 [connection signal="body_entered" from="GroundEnemy/Area2D" to="GroundEnemy" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="FlyingEnemy2/Area2D" to="FlyingEnemy2" method="_on_area_2d_body_entered"]
