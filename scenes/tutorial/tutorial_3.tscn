@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dpsuej1t35y1g"]
+[gd_scene load_steps=17 format=4 uid="uid://dpsuej1t35y1g"]
 
 [ext_resource type="Texture2D" uid="uid://b33qkw6qg2a6w" path="res://assets/sprites/backgrounds/forest.png" id="1_ehf8j"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_245l4"]
@@ -102,16 +102,12 @@ physics_layer_0/collision_layer = 1
 sources/6 = SubResource("TileSetAtlasSource_u6bh8")
 sources/0 = SubResource("TileSetAtlasSource_76njk")
 
-[sub_resource type="LabelSettings" id="LabelSettings_eysq8"]
-font = ExtResource("9_vqmsi")
-font_size = 220
-
-[sub_resource type="Animation" id="Animation_60vy7"]
+[sub_resource type="Animation" id="Animation_w83iy"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/path = NodePath(".:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -121,25 +117,25 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_4lo02"]
+[sub_resource type="Animation" id="Animation_eysq8"]
 resource_name = "show_tutorial"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/path = NodePath(".:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2974, 1),
 "update": 0,
-"values": [0.0, 0.464, 1.0]
+"values": [0.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w83iy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7wsjy"]
 _data = {
-&"RESET": SubResource("Animation_60vy7"),
-&"show_tutorial": SubResource("Animation_4lo02")
+&"RESET": SubResource("Animation_w83iy"),
+&"show_tutorial": SubResource("Animation_eysq8")
 }
 
 [node name="TutorialCollect" type="TextureRect"]
@@ -211,22 +207,28 @@ position = Vector2(119, 70)
 [node name="Text" type="Label" parent="GemText"]
 offset_left = 158.0
 offset_top = 8.0
-offset_right = 3094.0
-offset_bottom = 917.0
+offset_right = 2973.0
+offset_bottom = 1295.0
 scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0.372549, 0.372549, 0.372549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 72
+theme_override_fonts/font = ExtResource("9_vqmsi")
+theme_override_font_sizes/font_size = 211
 text = "Certain gems grant special
 abilities. Check out your
 new ability.
 
 - Press 'Shift' -"
-label_settings = SubResource("LabelSettings_eysq8")
 horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
+root_node = NodePath("../Text")
 libraries = {
-&"": SubResource("AnimationLibrary_w83iy")
+&"": SubResource("AnimationLibrary_7wsjy")
 }
 
 [editable path="Doors/Door_W1"]

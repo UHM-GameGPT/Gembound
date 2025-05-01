@@ -148,7 +148,7 @@ func die():
 	set_physics_process(false)
 	if has_method("reset_time_slow"):
 		reset_time_slow()
-	SceneManager.reload_scene_after_delay(1.0)  # Tell the scene manager to reload after 1 second
+	SceneManager.reload_scene_after_delay(0.7)  # Tell the scene manager to reload after 1 second
 	
 func _input(event : InputEvent):
 	if(event.is_action_pressed("down")):

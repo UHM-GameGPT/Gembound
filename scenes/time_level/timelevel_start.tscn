@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://d1vrlu0l8t8o"]
+[gd_scene load_steps=61 format=4 uid="uid://d1vrlu0l8t8o"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qdw5g"]
 [ext_resource type="Script" uid="uid://cnem844s6ma4p" path="res://scenes/time_level/time_level.gd" id="2_q6roq"]
@@ -458,16 +458,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r75vm"]
-font = ExtResource("8_sqqab")
-font_size = 220
-
-[sub_resource type="Animation" id="Animation_60vy7"]
+[sub_resource type="Animation" id="Animation_7h6yf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/path = NodePath(".:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -477,25 +473,25 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_4lo02"]
+[sub_resource type="Animation" id="Animation_amlgd"]
 resource_name = "show_tutorial"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/path = NodePath(".:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2974, 1),
 "update": 0,
-"values": [0.0, 0.464, 1.0]
+"values": [0.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w83iy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iv75p"]
 _data = {
-&"RESET": SubResource("Animation_60vy7"),
-&"show_tutorial": SubResource("Animation_4lo02")
+&"RESET": SubResource("Animation_7h6yf"),
+&"show_tutorial": SubResource("Animation_amlgd")
 }
 
 [sub_resource type="Animation" id="Animation_ah4c7"]
@@ -610,23 +606,28 @@ frame_progress = 0.13782
 position = Vector2(192, 98)
 
 [node name="Text" type="Label" parent="GemText"]
-offset_left = 158.0
+offset_left = 128.0
 offset_top = 8.0
-offset_right = 3094.0
-offset_bottom = 917.0
+offset_right = 4119.0
+offset_bottom = 1064.0
 scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0.372549, 0.372549, 0.372549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 72
+theme_override_fonts/font = ExtResource("8_sqqab")
+theme_override_font_sizes/font_size = 211
 text = "Certain gems grant special
 abilities. Check out your
-new ability in the next room.
-"
-label_settings = SubResource("LabelSettings_r75vm")
+new ability in the next room."
 horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
+root_node = NodePath("../Text")
 libraries = {
-&"": SubResource("AnimationLibrary_w83iy")
+&"": SubResource("AnimationLibrary_iv75p")
 }
 
 [node name="TimeSlowOverlay" type="ColorRect" parent="."]
