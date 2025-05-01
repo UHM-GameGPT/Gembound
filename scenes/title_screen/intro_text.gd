@@ -9,7 +9,7 @@ var messages = [
 ]
 
 var typing_speed = .1
-var read_time = 2
+var read_time = 1
 
 var current_message = 0
 var display = ""

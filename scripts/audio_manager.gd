@@ -10,6 +10,11 @@ func _play_music(music: AudioStream, volume = 0.0):
 
 	stream = music
 	volume_db = volume
+	
+	# Set looping
+	if stream is AudioStream:
+		stream.loop = true
+		
 	play()
 	
 func play_music_tutorial():
