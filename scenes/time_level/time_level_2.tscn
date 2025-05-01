@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://b3doeqcd52nu3"]
+[gd_scene load_steps=41 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
@@ -16,8 +16,7 @@
 [ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="13_ek4c7"]
 [ext_resource type="AudioStream" uid="uid://0xde7nio4k78" path="res://assets/audio/soundfx/Enemy-Death_SFX.mp3" id="13_mc3vn"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_wu7qb"]
-[ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="16_oq7vi"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="18_iu2jg"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="17_oq7vi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("6_n22yi")
@@ -216,20 +215,20 @@ atlas = ExtResource("10_n22yi")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iu2jg"]
-atlas = ExtResource("16_oq7vi")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("10_n22yi")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lint"]
-atlas = ExtResource("16_oq7vi")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("10_n22yi")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rurh"]
-atlas = ExtResource("16_oq7vi")
-region = Rect2(32, 0, 16, 16)
+atlas = ExtResource("10_n22yi")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sfn67"]
-atlas = ExtResource("16_oq7vi")
-region = Rect2(48, 0, 16, 16)
+atlas = ExtResource("10_n22yi")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjwo8"]
 atlas = ExtResource("10_n22yi")
@@ -472,8 +471,8 @@ offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
-[node name="GemCounter" parent="." instance=ExtResource("18_iu2jg")]
-position = Vector2(17, 152)
+[node name="GemCounter" parent="." instance=ExtResource("17_oq7vi")]
+position = Vector2(23, 147)
 
 [connection signal="body_entered" from="Coconut" to="Coconut" method="_on_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

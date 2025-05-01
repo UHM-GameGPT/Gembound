@@ -662,7 +662,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="GemCounter" parent="." instance=ExtResource("17_ah4c7")]
-position = Vector2(8, 151)
+position = Vector2(10, 147)
 
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]

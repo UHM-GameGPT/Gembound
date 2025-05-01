@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://ciepxnexgldla"]
+[gd_scene load_steps=27 format=4 uid="uid://ciepxnexgldla"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_ykmg6"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_6fh1u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dnu1vqwfjiwuq" path="res://assets/sprites/time_level/Phoenix_SpriteSheet_1.png" id="10_ddrfg"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="11_oxtxk"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_ddrfg"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_avtyt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_avtyt")
@@ -358,6 +359,9 @@ offset_right = 336.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
+
+[node name="GemCounter" parent="." instance=ExtResource("13_avtyt")]
+position = Vector2(-3, 147)
 
 [connection signal="body_entered" from="FlyingEnemy/Area2D" to="FlyingEnemy" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]

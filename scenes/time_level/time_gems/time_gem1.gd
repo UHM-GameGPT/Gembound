@@ -6,7 +6,6 @@ extends Area2D
 
 @export var gem_name: String = "gem_time1"
 
-
 func _ready() -> void:
 	if GemManager.collected_gems.has(gem_name):
 		queue_free()

@@ -118,13 +118,13 @@ script = ExtResource("1_6t0u6")
 
 [node name="timestop" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(10, 10)
+position = Vector2(9, 7)
 sprite_frames = SubResource("SpriteFrames_7p34a")
 autoplay = "default"
 
 [node name="timeslow" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(25, 10)
+position = Vector2(25, 7)
 sprite_frames = SubResource("SpriteFrames_tyvpw")
 autoplay = "default"
 frame = 2
@@ -132,22 +132,23 @@ frame_progress = 0.595469
 
 [node name="spaceclone" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(40, 10)
+position = Vector2(40, 7)
 sprite_frames = SubResource("SpriteFrames_60cli")
 autoplay = "default"
 frame_progress = 0.260446
 
 [node name="spacefloat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(55, 10)
+position = Vector2(55, 7)
 sprite_frames = SubResource("SpriteFrames_60cli")
 autoplay = "default"
 frame = 1
 frame_progress = 0.680637
 
 [node name="counterlabel" type="Label" parent="."]
-offset_left = 7.0
+offset_left = 4.0
 offset_top = 17.0
-offset_right = 78.0
+offset_right = 75.0
 offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("4_wd00n")
+theme_override_font_sizes/font_size = 8
