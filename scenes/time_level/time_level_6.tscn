@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://ljr7ab8mr1ws"]
+[gd_scene load_steps=37 format=4 uid="uid://ljr7ab8mr1ws"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qbhvt"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_vixr4"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://cstkne10i0rly" path="res://scenes/time_level/flying_enemy_2.gd" id="10_hhuqg"]
 [ext_resource type="Texture2D" uid="uid://dnu1vqwfjiwuq" path="res://assets/sprites/time_level/Phoenix_SpriteSheet_1.png" id="11_a8v41"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_a8v41"]
+[ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="14_l7fsx"]
+[ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="15_g0lo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_hhuqg")
@@ -322,6 +324,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_3och6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_avtyt"]
+resource_name = "show_tutorial"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2974, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qkht"]
+_data = {
+&"RESET": SubResource("Animation_3och6"),
+&"show_tutorial": SubResource("Animation_avtyt")
+}
+
 [node name="time_level_6" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -408,6 +446,33 @@ position = Vector2(-29, 142)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(28, 162)
+
+[node name="Text" type="Node2D" parent="."]
+position = Vector2(-16, 0)
+script = ExtResource("14_l7fsx")
+
+[node name="Label" type="Label" parent="Text"]
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 3754.0
+offset_bottom = 529.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0.372549, 0.372549, 0.372549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 72
+theme_override_fonts/font = ExtResource("15_g0lo8")
+theme_override_font_sizes/font_size = 211
+text = "Those critters are moving fast!
+Slow them down."
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Text"]
+libraries = {
+&"": SubResource("AnimationLibrary_4qkht")
+}
 
 [node name="TimeSlowOverlay" type="ColorRect" parent="."]
 visible = false

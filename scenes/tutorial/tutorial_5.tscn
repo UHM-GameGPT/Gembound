@@ -190,7 +190,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -260,6 +260,8 @@ position = Vector2(215, 118)
 scale = Vector2(2.66846, 2.98438)
 sprite_frames = SubResource("SpriteFrames_pu40o")
 animation = &"death"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
 position = Vector2(218, 128)
