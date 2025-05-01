@@ -19,3 +19,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "FinalBoss_phase2" and body.has_method("stun"):
 		body.stun()
 		queue_free()  # Optional: destroy clone after stun
+	if body.name == "mini_boss2" and body.has_method("stun"):
+		body.stun()
+		queue_free()  # Optional: destroy clone after stun

@@ -224,7 +224,6 @@ mouse_filter = 1
 
 [node name="FinalBoss_phase2" parent="." instance=ExtResource("8_tdfr6")]
 position = Vector2(160, 64)
-collision_layer = 1
 
 [node name="Area2D" type="CharacterBody2D" parent="."]
 collision_layer = 32
