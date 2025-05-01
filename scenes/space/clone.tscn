@@ -1,27 +1,30 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwocuybspb5ke"]
 
 [ext_resource type="Script" uid="uid://4wls80m8gy50" path="res://scenes/space/clone.gd" id="1_2hl1k"]
-[ext_resource type="Texture2D" uid="uid://bglx6cwuv4cgr" path="res://assets/sprites/movement/player_idle_right.png" id="2_cmdxx"]
+[ext_resource type="Texture2D" uid="uid://dq7rr1u14snny" path="res://assets/sprites/space/clone_idle_right.png" id="2_2hl1k"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eyfl2"]
-atlas = ExtResource("2_cmdxx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmdxx"]
+atlas = ExtResource("2_2hl1k")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sierh"]
-atlas = ExtResource("2_cmdxx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyfl2"]
+atlas = ExtResource("2_2hl1k")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5nn5j"]
-atlas = ExtResource("2_cmdxx")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierh"]
+atlas = ExtResource("2_2hl1k")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvo5e"]
-atlas = ExtResource("2_cmdxx")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nn5j"]
+atlas = ExtResource("2_2hl1k")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jk3ao"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmdxx")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eyfl2")
 }, {
@@ -30,9 +33,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5nn5j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xvo5e")
 }],
 "loop": true,
 "name": &"idle",
