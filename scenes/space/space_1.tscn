@@ -303,6 +303,7 @@ libraries = {
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_W" parent="Doors" instance=ExtResource("9_jtqqj")]
+visible = false
 collision_mask = 7
 destination_level_tag = "tutorial_5"
 destination_door_tag = "E"

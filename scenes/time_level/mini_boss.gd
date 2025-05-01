@@ -23,6 +23,8 @@ var is_dead = false
 var death_fall_speed = 100.0
 var is_throwing = false
 
+signal boss_died
+
 func _ready():
 	$AnimatedSprite2D.play("fly")
 	health_bar = get_parent().get_node("HealthBar")
@@ -188,4 +190,7 @@ func die():
 		var sprite = $AnimatedSprite2D
 		sprite.play("death")  # Play the death animation
 		await get_tree().create_timer(2).timeout  # Wait until animation is done
+		
+		emit_signal("boss_died")
+		
 	queue_free()  # Delete boss after death animation

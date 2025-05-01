@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_4kdpc"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_dvv37"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_273ih"]
-[ext_resource type="Script" path="res://scenes/space/space_slime.gd" id="12_tgrfq"]
+[ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="12_tgrfq"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="13_jej6g"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="13_tgrfq"]
 
