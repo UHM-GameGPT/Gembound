@@ -104,7 +104,7 @@ func _physics_process(delta):
 			# Optionally trigger next state/reset
 
 	if is_dashing_up:
-		var step = move_speed * delta
+		var step = dash_speed * delta
 		position.y -= step
 		if position.y <= -40:
 			is_dashing_up = false
@@ -149,8 +149,9 @@ func die():
 
 	await get_tree().create_timer(7).timeout
 	queue_free()
+
 func stun():
-	if current_state == BossState.STUNNED or current_state == BossState.DEAD:
+	if current_state == BossState.STUNNED:
 		return
 
 	print("Mini Boss is stunned!")
@@ -158,10 +159,23 @@ func stun():
 	is_dashing_left = false
 	is_dashing_right = false
 
-	await get_tree().create_timer(2.0).timeout  # Wait 3 seconds
+	# Show and play the stun animation
+	$AnimatedSprite2D.visible = false
+	$StunSprite.visible = true
+	$StunSprite.play("stun")
+
+	await get_tree().create_timer(2.0).timeout  # Wait 2 seconds
 
 	print("Mini Boss recovering from stun...")
 	is_recovering_from_stun = true
+
+	# Stop the stun animation and return to normal
+	$StunSprite.visible = false
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play("fly")
+	
+	if current_state == BossState.DEAD:
+		die()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if current_state == BossState.DEAD:
@@ -174,9 +188,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif body.is_in_group("Asteroid"):
 		if current_state == BossState.STUNNED:
 			take_damage()
+			var sprite = $StunSprite
+			var original_modulate = sprite.modulate
+			sprite.modulate = Color(1, 0, 0)  # Full red
+			await get_tree().create_timer(0.3).timeout  # Wait 0.1 seconds
+			sprite.modulate = original_modulate  # Go back to normal
+			body.break_apart()
 		else:
 			print("Boss destroys asteroid")
-		body.queue_free()
+		body.break_apart()
 
 func _on_pause_timer_timeout() -> void:
 	is_pausing = false

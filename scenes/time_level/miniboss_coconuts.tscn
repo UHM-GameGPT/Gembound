@@ -1,8 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr128b3phih61"]
+[gd_scene load_steps=12 format=3 uid="uid://cr128b3phih61"]
 
 [ext_resource type="Script" uid="uid://cklayouxrs03" path="res://scenes/time_level/miniboss_coconuts.gd" id="1_psfd6"]
 [ext_resource type="Texture2D" uid="uid://i3xex376nq8f" path="res://assets/sprites/time_level/coconut.png" id="1_raat7"]
+[ext_resource type="Texture2D" uid="uid://f0d7b0eutujc" path="res://assets/sprites/time_level/cocobust.png" id="2_ohhcn"]
 [ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="2_psfd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gduww"]
+atlas = ExtResource("2_ohhcn")
+region = Rect2(0, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6brjr"]
+atlas = ExtResource("2_ohhcn")
+region = Rect2(40, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugke1"]
+atlas = ExtResource("2_ohhcn")
+region = Rect2(80, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvlin"]
+atlas = ExtResource("2_ohhcn")
+region = Rect2(120, 0, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0sofk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gduww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6brjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugke1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvlin")
+}],
+"loop": false,
+"name": &"break",
+"speed": 4.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8thni"]
 radius = 5.0
@@ -13,6 +50,13 @@ radius = 8.0
 [node name="miniboss_coconuts" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_psfd6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.35, 0.4375)
+sprite_frames = SubResource("SpriteFrames_0sofk")
+animation = &"break"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_raat7")

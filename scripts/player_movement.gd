@@ -15,7 +15,7 @@ const DASH_COOLDOWN = 0.5
 @onready var spawn_point = get_parent().get_node("PlayerSpawn")
 @onready var time_slow_overlay := get_parent().get_node("TimeSlowOverlay")
 @export var clone_scene: PackedScene = preload("res://scenes/space/clone.tscn")
-@export var clone_cooldown_duration := 5.0  # seconds
+@export var clone_cooldown_duration := 3.0  # seconds
 
 var landing: bool = false
 var is_dead: bool = false

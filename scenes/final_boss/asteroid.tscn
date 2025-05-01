@@ -1,8 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://ej07hhckjxsf"]
+[gd_scene load_steps=14 format=3 uid="uid://ej07hhckjxsf"]
 
 [ext_resource type="Script" uid="uid://c8ppligc54ht0" path="res://scenes/final_boss/asteroid.gd" id="1_dnbmn"]
 [ext_resource type="Texture2D" uid="uid://vxqk10i7wk71" path="res://assets/sprites/FinalBoss/asteriod.png" id="2_4hflv"]
+[ext_resource type="Texture2D" uid="uid://bpg2acd70mpws" path="res://assets/sprites/FinalBoss/asteriod breaks.png" id="2_voju0"]
 [ext_resource type="Texture2D" uid="uid://da7gwij3tka8v" path="res://assets/sprites/FinalBoss/asteriod_highlight.png" id="3_4hflv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t7wt"]
+atlas = ExtResource("2_voju0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmrkl"]
+atlas = ExtResource("2_voju0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy0np"]
+atlas = ExtResource("2_voju0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4t5r"]
+atlas = ExtResource("2_voju0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1w8i"]
+atlas = ExtResource("2_voju0")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwply"]
+atlas = ExtResource("2_voju0")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kseph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t7wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmrkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy0np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4t5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1w8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwply")
+}],
+"loop": false,
+"name": &"break",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hflv"]
 radius = 8.0
@@ -14,6 +65,13 @@ radius = 11.0
 collision_layer = 48
 collision_mask = 32
 script = ExtResource("1_dnbmn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(7.10543e-15, 2)
+scale = Vector2(0.734375, 0.75)
+sprite_frames = SubResource("SpriteFrames_kseph")
+animation = &"break"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.76837e-07, 0)

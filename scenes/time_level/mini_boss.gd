@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var start_y: float = -30.
 @export var coconut_scene: PackedScene
 @export var poo_scene: PackedScene
-@export var max_health: int = 3  # Max hearts
+@export var max_health: int = 3 # Max hearts
 @export var full_heart_texture: Texture2D
 @export var empty_heart_texture: Texture2D
 
@@ -97,9 +97,13 @@ func _shoot_coconut():
 		return  # Don't shoot if boss is offscreen
 	if global_position.y <= 20:
 		return  # Don't shoot if boss is too high
+	if is_dead == true:
+		die()
 	if coconut_scene and $AnimatedSprite2D:
 		is_throwing = true
 		$AnimatedSprite2D.play("throw")  # Play throw animation
+		if is_dead == true:
+			die()
 		spawn_coconut_delayed()
 
 func spawn_coconut_delayed() -> void:
@@ -107,6 +111,8 @@ func spawn_coconut_delayed() -> void:
 		await get_tree().create_timer(1).timeout  # Adjust timing to match throw animation
 		spawn_coconut()
 		$AnimatedSprite2D.play("fly")
+		if is_dead == true:
+			die()
 		is_throwing = false  # Return to flying animation
 
 func spawn_coconut():
@@ -154,16 +160,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.has_method("die"):
 			body.die()
 		
-	elif body is CharacterBody2D and body.scene_file_path == preload("res://scenes/time_level/miniboss_coconuts.tscn").resource_path:
+	elif body.is_in_group("Coconuts"):
 		if body.has_method("is_frozen") and body.is_frozen():
-			# If the coconut is frozen, destroy it but NO damage
-			body.queue_free()
+			body.break_apart()
 		else:
-			# Moving coconut → deal damage!
 			print("coconut")
 			flash_red()
 			take_damage()
-			body.queue_free()
+			body.break_apart()
 
 func flash_red() -> void:
 	var sprite = $AnimatedSprite2D
@@ -178,19 +182,31 @@ func die():
 	paused = true
 	is_offscreen = true
 	PlayerState.slow_unlocked = false
-	
+
+	# Clear coconuts
 	for coconut in get_tree().get_nodes_in_group("Coconuts"):
 		coconut.queue_free()
-	
+
+	# Reset player time slow
 	var player = get_tree().get_first_node_in_group("Player")
 	if player and player.is_time_slowed:
 		player.reset_time_slow()
-	
-	if is_dead == true:
+
+	# Play death animation
+	if is_dead:
 		var sprite = $AnimatedSprite2D
-		sprite.play("death")  # Play the death animation
-		await get_tree().create_timer(2).timeout  # Wait until animation is done
-		
-		emit_signal("boss_died")
-		
-	queue_free()  # Delete boss after death animation
+		sprite.play("death")
+
+		# Tween fall to y = 148 (keep same x)
+		var target_y := 148.0
+		var tween := create_tween()
+		tween.tween_property(self, "global_position:y", target_y, 2.0)  # Adjust time to match animation
+
+		await tween.finished  # Wait for fall to finish
+
+		# Fade out after fall
+		var fade_tween := create_tween()
+		fade_tween.tween_property(self, "modulate:a", 0.0, 1.5)  # 1.5 seconds to fade out
+
+		await fade_tween.finished
+		queue_free()
