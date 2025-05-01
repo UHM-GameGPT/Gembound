@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var start_y: float = -30.
 @export var coconut_scene: PackedScene
 @export var poo_scene: PackedScene
-@export var max_health: int = 2  # Max hearts
+@export var max_health: int = 3 # Max hearts
 @export var full_heart_texture: Texture2D
 @export var empty_heart_texture: Texture2D
 
