@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dc0gerc0ha11p"]
+[gd_scene load_steps=32 format=4 uid="uid://dc0gerc0ha11p"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_a8mg3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_i8iip"]
@@ -219,11 +219,7 @@ sources/3 = SubResource("TileSetAtlasSource_sqqab")
 sources/0 = SubResource("TileSetAtlasSource_r75vm")
 sources/1 = SubResource("TileSetAtlasSource_3bit1")
 
-[sub_resource type="LabelSettings" id="LabelSettings_r75vm"]
-font = ExtResource("10_7eblj")
-font_size = 220
-
-[sub_resource type="Animation" id="Animation_60vy7"]
+[sub_resource type="Animation" id="Animation_l8raw"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -238,7 +234,7 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_4lo02"]
+[sub_resource type="Animation" id="Animation_i8iip"]
 resource_name = "show_tutorial"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -247,16 +243,16 @@ tracks/0/path = NodePath("Text:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2974, 1),
 "update": 0,
-"values": [0.0, 0.464, 1.0]
+"values": [0.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w83iy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fx6aj"]
 _data = {
-&"RESET": SubResource("Animation_60vy7"),
-&"show_tutorial": SubResource("Animation_4lo02")
+&"RESET": SubResource("Animation_l8raw"),
+&"show_tutorial": SubResource("Animation_i8iip")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8raw"]
@@ -352,22 +348,27 @@ script = ExtResource("8_yqyej")
 [node name="time_gem_2" parent="GemText" instance=ExtResource("9_22r3q")]
 
 [node name="Text" type="Label" parent="GemText"]
-offset_left = 193.0
-offset_top = 6.0
-offset_right = 2573.0
-offset_bottom = 915.0
+offset_left = 168.0
+offset_top = 24.0
+offset_right = 3229.0
+offset_bottom = 795.0
 scale = Vector2(0.05, 0.05)
-text = "You got a new ability. Press \"Q\" to see what it does.
-"
-label_settings = SubResource("LabelSettings_r75vm")
+theme_override_colors/font_shadow_color = Color(0.372549, 0.372549, 0.372549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 72
+theme_override_fonts/font = ExtResource("10_7eblj")
+theme_override_font_sizes/font_size = 211
+text = "You got a new ability!
+Press \"Q\" to see 
+what it does."
 horizontal_alignment = 1
-autowrap_mode = 3
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GemText"]
 libraries = {
-&"": SubResource("AnimationLibrary_w83iy")
+&"": SubResource("AnimationLibrary_fx6aj")
 }
 
 [node name="FlyingBird" type="CharacterBody2D" parent="."]
