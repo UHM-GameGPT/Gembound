@@ -15,6 +15,7 @@ const DASH_COOLDOWN = 0.5
 @onready var spawn_point = get_parent().get_node("PlayerSpawn")
 @onready var time_slow_overlay := get_parent().get_node("TimeSlowOverlay")
 @export var clone_scene: PackedScene = preload("res://scenes/space/clone.tscn")
+@export var clone_cooldown_duration := 5.0  # seconds
 
 var landing: bool = false
 var is_dead: bool = false
@@ -35,6 +36,9 @@ var can_stop: bool = false;
 # Time ability 2 (Slowing down time)
 var is_time_slowed = false  
 var time_slow_cooldown := 0.0
+
+var current_clone: Node = null
+var clone_cooldown := false
 
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -136,21 +140,15 @@ func _physics_process(delta: float) -> void:
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * 10)
 			
 func die():
-	if is_dead: return
-	is_dead = true
-
-	animated_sprite.play("death")
+	if not is_inside_tree():
+		return
+	time_slow_cooldown = 1.0
+	if has_node("AnimatedSprite2D"):
+		$AnimatedSprite2D.play("death")
 	set_physics_process(false)
-	$CollisionShape2D.call_deferred("set_disabled", false)
-
-	await get_tree().create_timer(1).timeout
-
-	global_position = spawn_point.global_position
-	animated_sprite.play("idle_right")
-
-	is_dead = false
-	set_physics_process(true)
-	$CollisionShape2D.call_deferred("set_disabled", false)
+	if has_method("reset_time_slow"):
+		reset_time_slow()
+	SceneManager.reload_scene_after_delay(1.0)  # Tell the scene manager to reload after 1 second
 	
 func _input(event : InputEvent):
 	if(event.is_action_pressed("down")):
@@ -169,7 +167,7 @@ func _start_dash(direction: float) -> void:
 	animated_sprite.play("dash")
 
 func use_ability():
-	if PlayerState.clone_unlocked:
+	if PlayerState.clone_unlocked and not clone_cooldown:
 		spawn_clone()
 	elif PlayerState.slow_unlocked and time_slow_cooldown <= 0:
 		toggle_time_slow()
@@ -199,10 +197,19 @@ func reset_time_slow():
 		time_slow_overlay.visible = false
 		
 func spawn_clone():
-	if not clone_scene:
-		print("No clone scene assigned!")
-		return
+	if current_clone and is_instance_valid(current_clone):
+		current_clone.queue_free()
+	
+	var clone_scene = preload("res://scenes/space/clone.tscn")
+	var new_clone = clone_scene.instantiate()
+	new_clone.global_position = global_position
+	get_tree().current_scene.add_child(new_clone)
+	current_clone = new_clone
 
-	var clone = clone_scene.instantiate()
-	clone.global_position = global_position
-	get_parent().add_child(clone)
+	# Start cooldown
+	clone_cooldown = true
+	await get_tree().create_timer(clone_cooldown_duration).timeout
+	clone_cooldown = false
+
+func set_can_move(value: bool):
+	can_move = value

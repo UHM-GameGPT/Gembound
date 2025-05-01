@@ -26,6 +26,12 @@ texture = ExtResource("6_7d2df")
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Door_W" parent="Doors" instance=ExtResource("6_ibhh6")]
+position = Vector2(-6, -23)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(37, 155)
+
 [node name="Door_E" parent="Doors" instance=ExtResource("6_ibhh6")]
 destination_level_tag = "tutorial_2"
 destination_door_tag = "W"
@@ -37,4 +43,5 @@ position = Vector2(325, 114)
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(296, 133)
 
+[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]

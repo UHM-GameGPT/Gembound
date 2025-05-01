@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://b3doeqcd52nu3"]
+[gd_scene load_steps=40 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
@@ -10,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_n22yi"]
 [ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="7_xk3wa"]
 [ext_resource type="Script" uid="uid://bbgikxqbo8pof" path="res://scenes/tutorial/enemy_spirit.gd" id="9_5xohw"]
+[ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="9_wu7qb"]
 [ext_resource type="Texture2D" uid="uid://ligp2ff8q0yf" path="res://assets/sprites/tutorial/slime_enemy.png" id="10_n22yi"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_0hwx0"]
 [ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="13_ek4c7"]
+[ext_resource type="AudioStream" uid="uid://0xde7nio4k78" path="res://assets/audio/soundfx/Enemy-Death_SFX.mp3" id="13_mc3vn"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_wu7qb"]
 [ext_resource type="FontFile" uid="uid://dsb6338jj88k8" path="res://assets/fonts/Planes_ValMore.ttf" id="16_mc3vn"]
 [ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="16_oq7vi"]
@@ -205,6 +207,42 @@ sources/0 = SubResource("TileSetAtlasSource_r75vm")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpemy"]
 size = Vector2(350, 17)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc3vn"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq7vi"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu2jg"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lint"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rurh"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfn67"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjwo8"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq1w2"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a6cc"]
+atlas = ExtResource("10_n22yi")
+region = Rect2(128, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s834"]
 atlas = ExtResource("10_n22yi")
 region = Rect2(0, 0, 32, 32)
@@ -223,6 +261,38 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0hwx0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc3vn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq7vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lint")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rurh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfn67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjwo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq1w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a6cc")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7s834")
@@ -348,6 +418,9 @@ tile_set = SubResource("TileSet_r75vm")
 position = Vector2(167, 20)
 gravity_scale = 0.2
 
+[node name="coconutbutton" parent="Coconut" index="2"]
+texture_hover = ExtResource("9_wu7qb")
+
 [node name="CoconutSpawn" type="Node2D" parent="."]
 position = Vector2(167, 25)
 
@@ -371,11 +444,14 @@ script = ExtResource("9_5xohw")
 position = Vector2(186, 121)
 scale = Vector2(2.55298, 2.64844)
 sprite_frames = SubResource("SpriteFrames_0hwx0")
-animation = &"idle"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
 position = Vector2(187, 125)
 shape = SubResource("CircleShape2D_hvore")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EnemySpirit"]
+stream = ExtResource("13_mc3vn")
 
 [node name="Doors" type="Node" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bbbwfvc8v8a2x"]
+[gd_scene load_steps=54 format=4 uid="uid://bbbwfvc8v8a2x"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_uaub7"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_0uwu5"]
@@ -10,11 +10,10 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_qr23u"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_2gwxb"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_bpgfv"]
-[ext_resource type="Script" uid="uid://bbgikxqbo8pof" path="res://scenes/tutorial/enemy_spirit.gd" id="11_1ytg0"]
-[ext_resource type="Texture2D" uid="uid://ligp2ff8q0yf" path="res://assets/sprites/tutorial/slime_enemy.png" id="12_6d2ya"]
 [ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="12_ogxyq"]
 [ext_resource type="PackedScene" uid="uid://cxt6m0734tqan" path="res://scenes/time_level/coconut.tscn" id="13_c11o2"]
-[ext_resource type="Texture2D" uid="uid://cnm7sr43nwnmb" path="res://assets/sprites/tutorial/log.png" id="13_ogxyq"]
+[ext_resource type="Script" path="res://scenes/space/space_slime.gd" id="14_ogxyq"]
+[ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="15_ogxyq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_6d2ya")
@@ -162,7 +161,7 @@ sources/6 = SubResource("TileSetAtlasSource_ocjhh")
 sources/0 = SubResource("TileSetAtlasSource_pntx0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc7ip"]
-size = Vector2(27.5, 92.5)
+size = Vector2(28.75, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xim1i"]
 atlas = ExtResource("9_2gwxb")
@@ -315,42 +314,100 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gwxb"]
-size = Vector2(26, 14)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr23u"]
 size = Vector2(350, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7s834"]
-atlas = ExtResource("12_6d2ya")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_irkhd"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(0, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86tkr"]
-atlas = ExtResource("12_6d2ya")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6ghh"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(64, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2nxha"]
-atlas = ExtResource("12_6d2ya")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkryl"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(128, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7ey2"]
-atlas = ExtResource("12_6d2ya")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvwgq"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c11o2"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr23u"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gwxb"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpgfv"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36o4c"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twe7w"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwlcx"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2dpn"]
+atlas = ExtResource("15_ogxyq")
+region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2gwxb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7s834")
+"texture": SubResource("AtlasTexture_irkhd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_86tkr")
+"texture": SubResource("AtlasTexture_k6ghh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2nxha")
+"texture": SubResource("AtlasTexture_dkryl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i7ey2")
+"texture": SubResource("AtlasTexture_uvwgq")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c11o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr23u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gwxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpgfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36o4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twe7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwlcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2dpn")
 }],
 "loop": true,
 "name": &"idle",
@@ -358,7 +415,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bpgfv"]
-radius = 19.0
+radius = 16.0
 
 [node name="SpaceCloneEnemy" type="TextureRect"]
 offset_right = 320.0
@@ -368,34 +425,28 @@ expand_mode = 1
 script = ExtResource("2_0uwu5")
 
 [node name="Player" parent="." instance=ExtResource("3_t3sow")]
-position = Vector2(31, 64)
+position = Vector2(43, 64)
 collision_layer = 1
+collision_mask = 5
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(29, 65)
+position = Vector2(31, 65)
 
 [node name="Floor" parent="." instance=ExtResource("4_1ytg0")]
+tile_map_data = PackedByteArray("AAAAAAsAAQADAAYAAAAAAAoAAQADAAUAAAAAAAkAAQADAAUAAAABAAkAAQADAAUAAAACAAkAAQADAAUAAAADAAkAAQADAAUAAAAEAAkAAQADAAQAAAAFAAkAAQADAAQAAAAGAAkAAQADAAQAAAAHAAkAAQADAAQAAAAIAAkAAQADAAQAAAAJAAkAAQADAAQAAAAKAAkAAQADAAQAAAALAAkAAQADAAQAAAAMAAkAAQADAAQAAAANAAkAAQADAAQAAAAOAAkAAQADAAQAAAAPAAkAAQADAAQAAAAQAAkAAQADAAQAAAARAAkAAQADAAQAAAASAAkAAQADAAQAAAATAAkAAQADAAQAAAATAAoAAQADAAUAAAATAAsAAQADAAYAAAABAAoAAQADAAUAAAACAAoAAQADAAUAAAADAAoAAQADAAUAAAAEAAoAAQADAAUAAAAFAAoAAQADAAUAAAAGAAoAAQADAAUAAAAHAAoAAQADAAUAAAAIAAoAAQADAAUAAAAJAAoAAQADAAUAAAAKAAoAAQADAAUAAAALAAoAAQADAAUAAAAMAAoAAQADAAUAAAANAAoAAQADAAUAAAAOAAoAAQADAAUAAAAPAAoAAQADAAUAAAAQAAoAAQADAAUAAAARAAoAAQADAAUAAAASAAoAAQADAAUAAAABAAsAAQADAAYAAAACAAsAAQADAAYAAAADAAsAAQADAAYAAAAEAAsAAQADAAYAAAAFAAsAAQADAAYAAAAGAAsAAQADAAYAAAAHAAsAAQADAAYAAAAIAAsAAQADAAYAAAAJAAsAAQADAAYAAAAKAAsAAQADAAYAAAALAAsAAQADAAYAAAAMAAsAAQADAAYAAAANAAsAAQADAAYAAAAOAAsAAQADAAYAAAAPAAsAAQADAAYAAAAQAAsAAQADAAYAAAARAAsAAQADAAYAAAASAAsAAQADAAYAAAD//wkAAQACAAUAAAAUAAkAAQAEAAQAAAD//woAAQACAAUAAAAUAAoAAQAEAAUAAAD//wsAAQACAAYAAAAUAAsAAQAEAAYAAAD//wUAAQACAAQAAAADAAUAAQAEAAQAAAAAAAUAAQADAAQAAAABAAUAAQADAAQAAAACAAUAAQADAAQAAAADAAYAAQAEAAUAAAADAAcAAQAEAAUAAAADAAgAAQAEAAUAAAD//wYAAQACAAUAAAD//wcAAQACAAUAAAD//wgAAQACAAUAAAAAAAYAAQADAAUAAAABAAYAAQADAAUAAAACAAYAAQADAAUAAAACAAcAAQADAAUAAAABAAcAAQADAAUAAAAAAAcAAQADAAUAAAAAAAgAAQADAAUAAAABAAgAAQADAAUAAAACAAgAAQADAAUAAAALAAQAAQACAAQAAAAMAAQAAQADAAQAAAANAAQAAQADAAQAAAAOAAQAAQADAAQAAAAPAAQAAQADAAQAAAAQAAQAAQADAAQAAAARAAQAAQADAAQAAAASAAQAAQADAAQAAAATAAQAAQADAAQAAAAUAAQAAQAEAAQAAAAUAAUAAQAEAAYAAAATAAUAAQADAAYAAAASAAUAAQADAAYAAAARAAUAAQADAAYAAAAQAAUAAQADAAYAAAAPAAUAAQADAAYAAAAOAAUAAQADAAYAAAANAAUAAQADAAYAAAAMAAUAAQADAAYAAAALAAUAAQACAAYAAAAUAP//AQADAAUAAAAUAAAAAQADAAUAAAAUAAEAAQADAAUAAAAUAAIAAQADAAUAAAAUAAMAAQADAAUAAAA=")
 
 [node name="Platforms" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAFAAYAAAABAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAABAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/wcAAAAAAAAAAAD+/wgAAAAAAAAAAAD+/wkAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_8ijuy")
-
-[node name="PressurePlate" parent="." instance=ExtResource("7_c11o2")]
-position = Vector2(40, -8)
-
-[node name="AnimatedSprite2D" parent="PressurePlate" index="0"]
-position = Vector2(48.5, 51.5)
-scale = Vector2(0.5625, 0.5625)
-
-[node name="CollisionShape2D" parent="PressurePlate" index="1"]
-position = Vector2(49, 51.5)
 
 [node name="PressurePlate3" parent="." instance=ExtResource("7_c11o2")]
 position = Vector2(252, 8)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="PressurePlate3" index="0"]
 position = Vector2(48.5, 51.5)
-scale = Vector2(0.5625, 0.5625)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="PressurePlate3" index="1"]
 position = Vector2(49, 51.5)
@@ -404,36 +455,41 @@ position = Vector2(49, 51.5)
 script = ExtResource("8_qr23u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDoor"]
-position = Vector2(214, 33)
+visibility_layer = 7
+position = Vector2(120, 94.375)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_sc7ip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonDoor"]
-position = Vector2(207, 32.14)
-scale = Vector2(0.637, 1.00437)
+position = Vector2(120.349, 87.9485)
+rotation = -1.5708
+scale = Vector2(0.669859, 1.75047)
 sprite_frames = SubResource("SpriteFrames_7g00e")
 animation = &"idle"
 
 [node name="PressurePlate2" parent="." instance=ExtResource("7_c11o2")]
-position = Vector2(55, 40)
+position = Vector2(158, 88)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="PressurePlate2" index="0"]
-position = Vector2(48.5, 51.5)
-scale = Vector2(0.5625, 0.5625)
+position = Vector2(5.5, 51.5)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="PressurePlate2" index="1"]
-position = Vector2(49, 51.5)
+position = Vector2(6, 51.5)
 
 [node name="ButtonDoor2" type="StaticBody2D" parent="."]
-position = Vector2(56, 89)
+position = Vector2(44, 89)
 script = ExtResource("8_qr23u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDoor2"]
-position = Vector2(238, 23)
+position = Vector2(238, 31.625)
 shape = SubResource("RectangleShape2D_sc7ip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonDoor2"]
-position = Vector2(231.4, 22.5)
-scale = Vector2(0.6375, 1.01562)
+position = Vector2(231.4, 30.9999)
+scale = Vector2(0.6375, 0.749998)
 sprite_frames = SubResource("SpriteFrames_7g00e")
 animation = &"idle"
 
@@ -445,10 +501,10 @@ destination_door_tag = "E"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
-position = Vector2(3, 49)
+position = Vector2(-3, 49)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(29, 64)
+position = Vector2(20, 64)
 
 [node name="Door_E" parent="Doors" instance=ExtResource("10_bpgfv")]
 position = Vector2(322, 65)
@@ -457,25 +513,10 @@ destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(6, 49)
+position = Vector2(5, 49)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-16, 59)
-
-[node name="Log" type="RigidBody2D" parent="."]
-position = Vector2(88, 8)
-collision_layer = 4
-collision_mask = 7
-gravity_scale = 0.5
-
-[node name="Sprite2D" type="Sprite2D" parent="Log"]
-position = Vector2(163, 4)
-scale = Vector2(0.120455, 0.15)
-texture = ExtResource("13_ogxyq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Log"]
-position = Vector2(163, 5)
-shape = SubResource("RectangleShape2D_2gwxb")
 
 [node name="KillZone" type="Area2D" parent="." groups=["ground"]]
 position = Vector2(-5, 154)
@@ -489,23 +530,21 @@ position = Vector2(165, -1.5)
 shape = SubResource("RectangleShape2D_qr23u")
 
 [node name="EnemySpirit" type="Area2D" parent="."]
-position = Vector2(-22, -1)
+position = Vector2(-64, -1)
 collision_layer = 4
 collision_mask = 7
-script = ExtResource("11_1ytg0")
+script = ExtResource("14_ogxyq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySpirit"]
-position = Vector2(176.576, 130.962)
-scale = Vector2(1.52649, 1.58357)
+position = Vector2(155.932, 116.925)
+scale = Vector2(0.845872, 0.877352)
 sprite_frames = SubResource("SpriteFrames_2gwxb")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpirit"]
-position = Vector2(178, 134)
+position = Vector2(156, 132)
 shape = SubResource("CircleShape2D_bpgfv")
 
-[connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
-[connection signal="plate_deactivated" from="PressurePlate" to="ButtonDoor" method="close"]
 [connection signal="plate_activated" from="PressurePlate3" to="ButtonDoor" method="open"]
 [connection signal="plate_deactivated" from="PressurePlate3" to="ButtonDoor" method="close"]
 [connection signal="plate_activated" from="PressurePlate2" to="ButtonDoor2" method="open"]
@@ -513,7 +552,6 @@ shape = SubResource("CircleShape2D_bpgfv")
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_entered" from="EnemySpirit" to="EnemySpirit" method="_on_body_entered"]
 
-[editable path="PressurePlate"]
 [editable path="PressurePlate3"]
 [editable path="PressurePlate2"]
 [editable path="Doors/Door_W"]

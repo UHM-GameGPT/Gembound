@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=4 uid="uid://dc0gerc0ha11p"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_a8mg3"]
-[ext_resource type="Script" uid="uid://bc3txq5k7s8cd" path="res://scripts/tutorial.gd" id="2_c4r03"]
+[ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_i8iip"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_5sy45"]
 [ext_resource type="Texture2D" uid="uid://cjm47g6gu63om" path="res://assets/sprites/time_level/palm_tree.png" id="3_c4r03"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_22r3q"]
@@ -332,7 +332,7 @@ offset_right = 320.0
 offset_bottom = 180.0
 texture = ExtResource("1_a8mg3")
 expand_mode = 1
-script = ExtResource("2_c4r03")
+script = ExtResource("2_i8iip")
 
 [node name="PalmTree" type="Sprite2D" parent="."]
 position = Vector2(201, 63)
