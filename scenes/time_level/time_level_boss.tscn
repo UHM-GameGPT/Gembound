@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="9_rlktc"]
 [ext_resource type="Script" uid="uid://ccfj8eor6qu47" path="res://scenes/time_level/portal_boss_script.gd" id="9_uivjy"]
 [ext_resource type="Script" uid="uid://b0t0cq082da82" path="res://scenes/door_boss.gd" id="11_uivjy"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_huwda"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="13_huwda"]
 [ext_resource type="Script" uid="uid://dkroex5gey0jf" path="res://scenes/time_level/text.gd" id="13_vg1pl"]
 
@@ -861,9 +860,6 @@ position = Vector2(-43, 135)
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(170, 149)
 
-[node name="GemCounter" parent="." instance=ExtResource("13_huwda")]
-visible = false
-position = Vector2(11, 146)
 [node name="Text" type="Node2D" parent="."]
 script = ExtResource("13_vg1pl")
 
