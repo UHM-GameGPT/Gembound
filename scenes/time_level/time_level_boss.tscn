@@ -1,7 +1,7 @@
 [gd_scene load_steps=90 format=4 uid="uid://vvowr2dh6j1q"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xmwvo"]
-[ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_y54xv"]
+[ext_resource type="Script" uid="uid://dj3c3s2qafvio" path="res://scenes/time_level/time_level_boss.gd" id="2_uivjy"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_rlktc"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_gcnod"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="5_qh8ip"]
@@ -724,7 +724,7 @@ offset_right = 320.0
 offset_bottom = 180.0
 texture = ExtResource("1_xmwvo")
 expand_mode = 1
-script = ExtResource("2_y54xv")
+script = ExtResource("2_uivjy")
 
 [node name="Player" parent="." instance=ExtResource("3_rlktc")]
 position = Vector2(163, 128)
