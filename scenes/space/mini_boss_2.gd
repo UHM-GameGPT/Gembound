@@ -36,7 +36,6 @@ var has_started_shaking := false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
-	PlayerState.clone_unlocked = true
 	health_bar = get_parent().get_node("HealthBar")
 	current_health = max_health
 	if has_node("AnimatedSprite2D"):
@@ -142,8 +141,6 @@ func die():
 	# Disable the main collision body too
 	if has_node("CollisionShape2D"):
 		$CollisionShape2D.set_deferred("disabled", true)
-
-	PlayerState.clone_unlocked = false
 	change_state(BossState.DEAD)
 	$AnimatedSprite2D.play("death")
 

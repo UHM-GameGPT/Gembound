@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var fall_speed := 1000.0
-@export var float_speed := 50.0
+@export var float_speed := 100.0
 @export var max_float_height := 10.0
 @export var linger_time := 7.0
 
