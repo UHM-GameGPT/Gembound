@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dw2k0x26axehh" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_hover.png" id="17_ilwv4"]
 [ext_resource type="Texture2D" uid="uid://dbxk1b30qqnbh" path="res://assets/sprites/FinalBoss/2 Owlet_Monster/Owlet_paunch_4.png" id="18_81ppl"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="18_feohv"]
-[ext_resource type="Script" path="res://scenes/final_boss/text.gd" id="18_t4lbs"]
-[ext_resource type="Script" path="res://scenes/final_boss/text_2.gd" id="20_t4lbs"]
+[ext_resource type="Script" uid="uid://cvqbgfg0ehyau" path="res://scenes/final_boss/text.gd" id="18_t4lbs"]
+[ext_resource type="Script" uid="uid://cx0jvbc40hlnv" path="res://scenes/final_boss/text_2.gd" id="20_t4lbs"]
 [ext_resource type="Script" uid="uid://bm1dxf1nbswjl" path="res://scenes/time_level/portal_close.gd" id="21_ilwv4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t4lbs"]
