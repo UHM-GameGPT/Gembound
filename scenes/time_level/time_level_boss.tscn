@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://vvowr2dh6j1q"]
+[gd_scene load_steps=95 format=4 uid="uid://vvowr2dh6j1q"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xmwvo"]
 [ext_resource type="Script" uid="uid://dj3c3s2qafvio" path="res://scenes/time_level/time_level_boss.gd" id="2_uivjy"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://ccfj8eor6qu47" path="res://scenes/time_level/portal_boss_script.gd" id="9_uivjy"]
 [ext_resource type="Script" uid="uid://b0t0cq082da82" path="res://scenes/door_boss.gd" id="11_uivjy"]
 [ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_huwda"]
+[ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="13_huwda"]
+[ext_resource type="Script" uid="uid://dkroex5gey0jf" path="res://scenes/time_level/text.gd" id="13_vg1pl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_qh8ip")
@@ -719,6 +721,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_msmkg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vg1pl"]
+resource_name = "text_in_and_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c42ag"]
+_data = {
+&"RESET": SubResource("Animation_msmkg"),
+&"text_in_and_out": SubResource("Animation_vg1pl")
+}
+
 [node name="time_level_boss" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -825,6 +864,31 @@ position = Vector2(170, 149)
 [node name="GemCounter" parent="." instance=ExtResource("13_huwda")]
 visible = false
 position = Vector2(11, 146)
+[node name="Text" type="Node2D" parent="."]
+script = ExtResource("13_vg1pl")
+
+[node name="Label" type="Label" parent="Text"]
+offset_left = 104.0
+offset_top = 41.0
+offset_right = 2280.0
+offset_bottom = 554.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0.858824, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 72
+theme_override_fonts/font = ExtResource("13_huwda")
+theme_override_font_sizes/font_size = 211
+text = "Not so fast!
+Those gems are MINE."
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Text"]
+libraries = {
+&"": SubResource("AnimationLibrary_c42ag")
+}
 
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_E2"]
