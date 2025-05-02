@@ -19,6 +19,7 @@ func unlock_portal():
 	door.visible = true
 	door.monitoring = true
 	$Door_E2/CollisionShape2D.disabled = false
+	door.open()
 	door.set_deferred("monitoring", true)
 	if portal.has_method("play"):
 		portal.play("portal_open")
