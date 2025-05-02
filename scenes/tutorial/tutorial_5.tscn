@@ -393,7 +393,7 @@ theme_override_constants/shadow_outline_size = 72
 theme_override_fonts/font = ExtResource("13_6v1co")
 theme_override_font_sizes/font_size = 221
 text = "Nice work! Use your wits and surroundings
-to defeat creatures that
+ to defeat creatures that 
 get in your way."
 visible_characters = 0
 visible_ratio = 0.0

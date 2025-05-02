@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b3doeqcd52nu3"]
+[gd_scene load_steps=40 format=4 uid="uid://b3doeqcd52nu3"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_xlol3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_0hwx0"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://cxt6m0734tqan" path="res://scenes/time_level/coconut.tscn" id="6_hpemy"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_n22yi"]
 [ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="7_xk3wa"]
-[ext_resource type="Script" uid="uid://bbgikxqbo8pof" path="res://scenes/tutorial/enemy_spirit.gd" id="9_5xohw"]
 [ext_resource type="Texture2D" uid="uid://bo7gs2diwbrjf" path="res://assets/sprites/time_level/coconuthover.png" id="9_wu7qb"]
 [ext_resource type="Texture2D" uid="uid://ligp2ff8q0yf" path="res://assets/sprites/tutorial/slime_enemy.png" id="10_n22yi"]
+[ext_resource type="Script" uid="uid://doceedl5ejqkh" path="res://scenes/tutorial/enemy_spirit_tutorial4.gd" id="11_oq7vi"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_0hwx0"]
-[ext_resource type="Script" uid="uid://bho1hy5k11jnk" path="res://scenes/time_level/ability_text_time.gd" id="13_ek4c7"]
 [ext_resource type="AudioStream" uid="uid://0xde7nio4k78" path="res://assets/audio/soundfx/Enemy-Death_SFX.mp3" id="13_mc3vn"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_wu7qb"]
+[ext_resource type="Script" uid="uid://btyy0e1rjej3s" path="res://scenes/tutorial/text_tutorial_5.gd" id="15_iu2jg"]
+[ext_resource type="Script" uid="uid://bpaxufym1fq67" path="res://scenes/tutorial/enemy_death_message.gd" id="17_oq7vi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("6_n22yi")
@@ -317,7 +318,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -332,7 +333,7 @@ resource_name = "show_tutorial"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
+tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -396,7 +397,7 @@ shape = SubResource("RectangleShape2D_hpemy")
 [node name="EnemySpirit" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 7
-script = ExtResource("9_5xohw")
+script = ExtResource("11_oq7vi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySpirit"]
 position = Vector2(186, 121)
@@ -439,10 +440,10 @@ position = Vector2(-15, 140)
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(28, 162)
 
-[node name="AbilityText" type="Node2D" parent="."]
-script = ExtResource("13_ek4c7")
+[node name="Text" type="Node2D" parent="."]
+script = ExtResource("15_iu2jg")
 
-[node name="Text" type="Label" parent="AbilityText"]
+[node name="Label" type="Label" parent="Text"]
 offset_left = 24.0
 offset_top = 16.0
 offset_right = 2240.0
@@ -460,7 +461,33 @@ horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AbilityText"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Text"]
+libraries = {
+&"": SubResource("AnimationLibrary_iu2jg")
+}
+
+[node name="EnemyDeathMessage" type="Node2D" parent="."]
+script = ExtResource("17_oq7vi")
+
+[node name="Label" type="Label" parent="EnemyDeathMessage"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 2240.0
+offset_bottom = 529.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0.372549, 0.372549, 0.372549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 75
+theme_override_fonts/font = ExtResource("14_wu7qb")
+theme_override_font_sizes/font_size = 211
+text = "Got em! Take that,
+slime!"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyDeathMessage"]
 libraries = {
 &"": SubResource("AnimationLibrary_iu2jg")
 }
