@@ -10,9 +10,9 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_qr23u"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_2gwxb"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_bpgfv"]
-[ext_resource type="Script" path="res://scenes/space/kill_area.gd" id="13_1ytg0"]
+[ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="13_1ytg0"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="14_6d2ya"]
 [ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="14_ogxyq"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="15_c11o2"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="15_ogxyq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
@@ -552,6 +552,9 @@ script = ExtResource("13_1ytg0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea2"]
 position = Vector2(276, 114.5)
 shape = SubResource("RectangleShape2D_1ytg0")
+
+[node name="GemCounter" parent="." instance=ExtResource("14_6d2ya")]
+position = Vector2(11, 83)
 
 [connection signal="plate_activated" from="PressurePlate3" to="ButtonDoor" method="open"]
 [connection signal="plate_activated" from="PressurePlate3" to="KillArea" method="_on_pressure_plate_activated"]

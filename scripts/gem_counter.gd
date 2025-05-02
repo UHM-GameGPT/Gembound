@@ -16,19 +16,23 @@ class_name GemCounter
 
 func countgems():
 	
-	if PlayerState.stop_unlocked:
+	#if PlayerState.stop_unlocked:
+	if GemManager.collected_gems.has("gem_time1"):
 		timestopempty.visible = false
 		timestop.visible = true
 		
-	if PlayerState.slow_unlocked:
+	#if PlayerState.slow_unlocked:
+	if GemManager.collected_gems.has("gem_time_slow"):
 		timeslowempty.visible = false
 		timeslow.visible = true
 		
-	if PlayerState.clone_unlocked:
+	#if PlayerState.clone_unlocked:
+	if GemManager.collected_gems.has("gem_space_clone"):
 		spacecloneempty.visible = false
 		spaceclone.visible = true
 		
-	if PlayerState.float_unlocked:
+	#if PlayerState.float_unlocked:
+	if GemManager.collected_gems.has("gem_float_clone"):
 		spacefloatempty.visible = false
 		spacefloat.visible = true
 		

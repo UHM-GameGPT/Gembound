@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=4 uid="uid://cgev1rypgchec"]
+[gd_scene load_steps=167 format=4 uid="uid://cgev1rypgchec"]
 
 [ext_resource type="Texture2D" uid="uid://52hi5k2qufgh" path="res://assets/sprites/backgrounds/final_boss_background2.png" id="1_7byla"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="1_e3oug"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://cvqbgfg0ehyau" path="res://scenes/final_boss/text.gd" id="18_t4lbs"]
 [ext_resource type="Script" uid="uid://cx0jvbc40hlnv" path="res://scenes/final_boss/text_2.gd" id="20_t4lbs"]
 [ext_resource type="Script" uid="uid://bm1dxf1nbswjl" path="res://scenes/time_level/portal_close.gd" id="21_ilwv4"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="23_81ppl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t4lbs"]
 texture = ExtResource("4_7ur1f")
@@ -1439,3 +1440,6 @@ position = Vector2(32, 104)
 scale = Vector2(1.93275, 1.51204)
 sprite_frames = SubResource("SpriteFrames_81ppl")
 animation = &"portal_close"
+
+[node name="GemCounter" parent="." instance=ExtResource("23_81ppl")]
+position = Vector2(25, 148)

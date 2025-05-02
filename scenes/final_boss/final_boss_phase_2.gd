@@ -1,7 +1,5 @@
 extends TextureRect
 
-@onready var gem_counter: GemCounter = $GemCounter
-
 func _ready():
 	await get_tree().create_timer(4.0).timeout
 	$Text.visible = false  
@@ -12,5 +10,3 @@ func _ready():
 		Global.has_faded_from_white_in_phase2 = true
 	else:
 		$WhiteFade.modulate = Color(1, 1, 1, 0)  # Skip fade; start clear
-		
-	gem_counter.countgems()

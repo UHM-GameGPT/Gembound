@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cttpxfn0xw1d5"]
+[gd_scene load_steps=38 format=4 uid="uid://cttpxfn0xw1d5"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_3fosr"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_cu557"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="7_ahrub"]
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_3fosr"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_cu557"]
-[ext_resource type="Script" path="res://scenes/space/kill_area.gd" id="11_wb43s"]
+[ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="11_wb43s"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="12_l7fyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_wb43s")
@@ -393,6 +394,9 @@ script = ExtResource("11_wb43s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
 position = Vector2(238, 48)
 shape = SubResource("RectangleShape2D_l7fyx")
+
+[node name="GemCounter" parent="." instance=ExtResource("12_l7fyx")]
+position = Vector2(1, 82)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_activated" from="PressurePlate" to="KillArea" method="_on_pressure_plate_activated"]

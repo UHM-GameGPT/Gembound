@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cal36fdf1s6tu"]
+[gd_scene load_steps=15 format=4 uid="uid://cal36fdf1s6tu"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_pmr7y"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_rjyac"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_bwpr0"]
 [ext_resource type="PackedScene" uid="uid://cofx7xtws4k7o" path="res://scenes/space/mini_boss_2.tscn" id="8_igtkn"]
 [ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="9_2ee70"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="10_3p2ia"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_xmguv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
@@ -228,5 +229,8 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(159.5, 154)
 shape = SubResource("RectangleShape2D_igtkn")
+
+[node name="GemCounter" parent="." instance=ExtResource("10_3p2ia")]
+position = Vector2(10, 147)
 
 [editable path="Doors/Door_W"]

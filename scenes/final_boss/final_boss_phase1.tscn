@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://caane3jd55lru"]
+[gd_scene load_steps=32 format=4 uid="uid://caane3jd55lru"]
 
 [ext_resource type="Texture2D" uid="uid://52hi5k2qufgh" path="res://assets/sprites/backgrounds/final_boss_background2.png" id="1_kfuf5"]
 [ext_resource type="Script" uid="uid://cs8jcg7caq0t0" path="res://scenes/final_boss/final_boss_phase_1.gd" id="2_igrjo"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dykbusdobpf3j" path="res://assets/sprites/tilesets/boss_platforms_2.png" id="11_1w4ex"]
 [ext_resource type="Script" uid="uid://bp8kmc575c88d" path="res://scenes/final_boss/text3.gd" id="15_igrjo"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="16_heain"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="17_heain"]
 
 [sub_resource type="Animation" id="Animation_qvbwd"]
 length = 0.001
@@ -500,3 +501,6 @@ color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="FinalBoss" parent="." instance=ExtResource("7_46vrb")]
 position = Vector2(312, 128)
+
+[node name="GemCounter" parent="." instance=ExtResource("17_heain")]
+position = Vector2(27, 145)

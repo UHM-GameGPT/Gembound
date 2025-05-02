@@ -568,6 +568,3 @@ one_way_collision = true
 position = Vector2(304, 104)
 shape = SubResource("RectangleShape2D_on63f")
 one_way_collision = true
-
-[node name="GemCounter" parent="." instance=ExtResource("9_on63f")]
-position = Vector2(23, 147)
