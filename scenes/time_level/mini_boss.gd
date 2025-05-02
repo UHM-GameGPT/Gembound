@@ -209,4 +209,5 @@ func die():
 		fade_tween.tween_property(self, "modulate:a", 0.0, 1.5)  # 1.5 seconds to fade out
 
 		await fade_tween.finished
+		emit_signal("boss_died")
 		queue_free()

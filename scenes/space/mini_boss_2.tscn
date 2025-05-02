@@ -707,7 +707,7 @@ empty_heart_texture = ExtResource("4_jkm4k")
 position = Vector2(0, 9.09495e-13)
 scale = Vector2(0.0726563, 0.071875)
 sprite_frames = SubResource("SpriteFrames_fhidi")
-animation = &"fly"
+animation = &"death"
 
 [node name="StunSprite" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -33,6 +33,9 @@ var is_dashing_up := false
 var is_recovering_from_stun := false
 var dash_warning: Node = null
 var has_started_shaking := false
+var is_dead = false
+
+signal boss_died
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -136,6 +139,8 @@ func update_health_bar():
 		heart.texture = full_heart_texture if i < current_health else empty_heart_texture
 
 func die():
+	print("Space Mini Boss defeated!")
+	is_dead = true
 	if has_node("Hitbox"):
 		$Hitbox.set_deferred("monitoring", false)
 
@@ -144,11 +149,12 @@ func die():
 		$CollisionShape2D.set_deferred("disabled", true)
 
 	PlayerState.clone_unlocked = false
-	change_state(BossState.DEAD)
-	$AnimatedSprite2D.play("death")
-
-	await get_tree().create_timer(7).timeout
-	queue_free()
+	if is_dead:
+		change_state(BossState.DEAD)
+		$AnimatedSprite2D.play("death")
+		await get_tree().create_timer(7).timeout
+		emit_signal("boss_died")
+		queue_free()
 
 func stun():
 	if current_state == BossState.STUNNED:

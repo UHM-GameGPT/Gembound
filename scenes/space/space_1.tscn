@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://keyqbe2wrodm"]
+[gd_scene load_steps=24 format=4 uid="uid://keyqbe2wrodm"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_nixt0"]
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="2_btsbo"]
@@ -246,6 +246,9 @@ _data = {
 &"drop_out": SubResource("Animation_eg21y")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70aqn"]
+size = Vector2(28, 145)
+
 [node name="SpaceCollect" type="TextureRect"]
 offset_right = 320.0
 offset_bottom = 190.0
@@ -305,8 +308,7 @@ libraries = {
 [node name="Door_W" parent="Doors" instance=ExtResource("9_jtqqj")]
 visible = false
 collision_mask = 7
-destination_level_tag = "tutorial_5"
-destination_door_tag = "E"
+spawn_direction = ""
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
 position = Vector2(4, 118)
@@ -348,6 +350,12 @@ libraries = {
 [node name="PauseTimer" type="Timer" parent="SpaceLevelLabel"]
 wait_time = 2.0
 one_shot = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-16, 120)
+shape = SubResource("RectangleShape2D_70aqn")
 
 [editable path="GemText/SpaceCloneGem"]
 [editable path="Doors/Door_W"]

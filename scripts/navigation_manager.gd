@@ -25,6 +25,9 @@ const scene_space7 = preload("res://scenes/space/space_7.tscn")
 
 const scene_end = preload("res://scenes/end.tscn")
 
+const final_boss_phase1 = preload("res://scenes/final_boss/final_boss_phase1.tscn")
+const final_boss_phase2 = preload("res://scenes/final_boss/final_boss_phase2.tscn")
+
 signal on_trigger_player_spawn
 
 var spawn_door_tag
@@ -73,6 +76,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_space6
 		"space_7":
 			scene_to_load = scene_space7
+		"final_boss_phase1":
+			scene_to_load = final_boss_phase1
+		"final_boss_phase2":
+			scene_to_load = final_boss_phase2
 		"end":
 			scene_to_load = scene_end
 		
