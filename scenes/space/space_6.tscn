@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="12_tgrfq"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="13_jej6g"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="13_tgrfq"]
-[ext_resource type="Script" path="res://scenes/space/kill_area.gd" id="14_jej6g"]
+[ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="14_jej6g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_32xp0")

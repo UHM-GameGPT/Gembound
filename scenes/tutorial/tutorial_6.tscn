@@ -583,7 +583,7 @@ tile_map_data = PackedByteArray("AAAAAAsAAAABAAIAAAAAAAoAAAABAAEAAAAAAAkAAAABAAA
 [node name="Doors" type="Node" parent="."]
 script = ExtResource("5_d2fk2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Doors"]
+[node name="Portal" type="AnimatedSprite2D" parent="Doors"]
 texture_filter = 1
 position = Vector2(288, 104)
 scale = Vector2(1.93275, 1.51204)
