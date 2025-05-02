@@ -155,9 +155,6 @@ func stun():
 	is_stunned = false
 	can_follow = true
 	print("Boss recovered from stun")
-	
-	if is_dead:
-		die()
 
 func start_asteroid():
 	var warning_positions: Array = []
@@ -218,8 +215,8 @@ func die():
 		asteroid.queue_free()
 	sprite.play("death")
 	await sprite.animation_finished
-	queue_free()
+	play_end_scene()
 	
-	await get_tree().create_timer(1.0).timeout
+func play_end_scene():
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/end.tscn")
-	
