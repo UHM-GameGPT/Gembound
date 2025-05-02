@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://chxf20aag1vy7"]
+[gd_scene load_steps=23 format=4 uid="uid://bt86tvqgba8gl"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_fsarr"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_jidb8"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="12_lwyy0"]
 [ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_efl8c"]
 [ext_resource type="PackedScene" uid="uid://cxonwjt7pi6yg" path="res://scenes/time_level/time_gems/time_gem1.tscn" id="14_3tgxv"]
-[ext_resource type="Script" uid="uid://di4cjsmm5wsed" path="res://scenes/time_level/time_gems/time_gem_1-2.gd" id="15_081eh"]
+[ext_resource type="Script" uid="uid://di4cjsmm5wsed" path="res://scenes/time_level/time_gems/time_gem_1-2.gd" id="15_3tgxv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_ldaxc")
@@ -320,11 +320,11 @@ mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="GemCounter" parent="." instance=ExtResource("13_efl8c")]
-position = Vector2(0, 160)
+position = Vector2(0, 147)
 
 [node name="TimeGem2" parent="." instance=ExtResource("14_3tgxv")]
 position = Vector2(-161, -75)
-script = ExtResource("15_081eh")
+script = ExtResource("15_3tgxv")
 gem_name = "gem_time1-1"
 
 [node name="Gem" parent="TimeGem2" index="0"]

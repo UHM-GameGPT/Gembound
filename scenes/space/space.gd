@@ -11,7 +11,7 @@ func _ready():
 		boss.boss_died.connect(_on_boss_died)
 	if NavigationManager.spawn_door_tag !=null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
-	
+	#print(GemManager.collected_gems)
 	gem_counter.countgems()
 		
 func _on_level_spawn(destination_tag: String):

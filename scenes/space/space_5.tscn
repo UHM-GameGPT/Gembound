@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d3hkcdnxtxdmj"]
+[gd_scene load_steps=24 format=4 uid="uid://d3hkcdnxtxdmj"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_gx8nm"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_eolda"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_jxkn1"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_a6x8e"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="6_ixo8n"]
-[ext_resource type="Script" path="res://scenes/space/flying_slime.gd" id="9_ouc5m"]
+[ext_resource type="Script" uid="uid://bd7jqbamspfp2" path="res://scenes/space/flying_slime.gd" id="9_ouc5m"]
 [ext_resource type="Texture2D" uid="uid://c5hmd2crwvl18" path="res://assets/sprites/space/flying_slime.png" id="10_gx8nm"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_ldxqx"]
 [ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="11_gx8nm"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="11_yhcmd"]
+[ext_resource type="PackedScene" uid="uid://ueubrfcbour3" path="res://scenes/space/space_float_gem.tscn" id="12_s0u7f"]
+[ext_resource type="Script" uid="uid://cfh75pjw2b1da" path="res://scenes/space/space_float_gem-2.gd" id="13_0b82l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_jxkn1")
@@ -278,6 +280,11 @@ shape = SubResource("RectangleShape2D_e8ge4")
 [node name="GemCounter" parent="." instance=ExtResource("11_gx8nm")]
 position = Vector2(0, 160)
 
+[node name="SpaceFloatGem" parent="." instance=ExtResource("12_s0u7f")]
+position = Vector2(-9, -39)
+script = ExtResource("13_0b82l")
+gem_name = "gem_float_clone-2"
+
 [connection signal="body_entered" from="Platforms/FallDetector" to="Platforms/FallDetector" method="_on_body_entered"]
 [connection signal="body_entered" from="FlyingSlime" to="FlyingSlime" method="_on_body_entered"]
 
@@ -286,3 +293,4 @@ position = Vector2(0, 160)
 [editable path="Asteroid"]
 [editable path="Asteroid2"]
 [editable path="Asteroid3"]
+[editable path="SpaceFloatGem"]

@@ -2,9 +2,11 @@ extends TextureRect
 
 @onready var boss = $MiniBoss
 @onready var doors = $Doors
+@onready var gem_counter: GemCounter = $GemCounter
 
 func _ready():
 	#coconutbutton.disabled = true
+	gem_counter.countgems()
 	AudioManager.play_music_timeboss()
 	if boss:
 		boss.boss_died.connect(_on_boss_died)
