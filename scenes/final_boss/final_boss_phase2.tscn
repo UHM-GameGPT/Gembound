@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://tk0leiank2m7"]
+[gd_scene load_steps=32 format=4 uid="uid://tk0leiank2m7"]
 
 [ext_resource type="Texture2D" uid="uid://52hi5k2qufgh" path="res://assets/sprites/backgrounds/final_boss_background2.png" id="1_on63f"]
 [ext_resource type="Script" uid="uid://qhw12g383nfg" path="res://scenes/final_boss/final_boss_phase_2.gd" id="2_tnine"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="8_quv1f"]
 [ext_resource type="PackedScene" uid="uid://bjx0tvsdbhb3g" path="res://scenes/final_boss/final_boss_phase_2.tscn" id="8_tdfr6"]
 [ext_resource type="Texture2D" uid="uid://b815dvlwngr8i" path="res://assets/sprites/tilesets/boss_titles_no_pink.png" id="9_tfykc"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="16_quv1f"]
 
 [sub_resource type="Animation" id="Animation_qvbwd"]
 length = 0.001
@@ -568,3 +569,6 @@ one_way_collision = true
 position = Vector2(304, 104)
 shape = SubResource("RectangleShape2D_on63f")
 one_way_collision = true
+
+[node name="GemCounter" parent="." instance=ExtResource("16_quv1f")]
+position = Vector2(21, 146)
