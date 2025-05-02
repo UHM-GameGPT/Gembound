@@ -907,7 +907,7 @@ position = Vector2(310, 72)
 shape = SubResource("RectangleShape2D_yd2uv")
 
 [node name="GemCounter" parent="." instance=ExtResource("16_xtn0d")]
-position = Vector2(0, 146)
+position = Vector2(0, 160)
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDetector2" to="FallDetector2" method="_on_body_entered"]

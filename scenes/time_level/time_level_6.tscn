@@ -484,7 +484,7 @@ mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="GemCounter" parent="." instance=ExtResource("16_g0lo8")]
-position = Vector2(4, 147)
+position = Vector2(0, 160)
 
 [connection signal="body_entered" from="GroundEnemy/Area2D" to="GroundEnemy" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="FlyingEnemy2/Area2D" to="FlyingEnemy2" method="_on_area_2d_body_entered"]

@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="12_tgrfq"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="13_jej6g"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="13_tgrfq"]
-[ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="14_jej6g"]
+[ext_resource type="Script" path="res://scenes/space/kill_area.gd" id="14_jej6g"]
 [ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="17_1cpob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
@@ -1069,7 +1069,7 @@ position = Vector2(640, 65)
 shape = SubResource("RectangleShape2D_k4cjr")
 
 [node name="GemCounter" parent="." instance=ExtResource("17_1cpob")]
-position = Vector2(14, 67)
+position = Vector2(0, 160)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_activated" from="PressurePlate" to="KillArea" method="_on_pressure_plate_activated"]

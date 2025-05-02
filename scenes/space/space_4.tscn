@@ -273,7 +273,7 @@ position = Vector2(295, 63)
 position = Vector2(102, -42)
 
 [node name="GemCounter" parent="." instance=ExtResource("12_nja65")]
-position = Vector2(12, 146)
+position = Vector2(0, 160)
 
 [editable path="GemText/SpaceFloatGem"]
 [editable path="Doors/Door_W"]

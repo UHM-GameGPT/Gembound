@@ -823,6 +823,7 @@ position = Vector2(-43, 135)
 position = Vector2(170, 149)
 
 [node name="GemCounter" parent="." instance=ExtResource("13_huwda")]
+visible = false
 position = Vector2(11, 146)
 
 [editable path="Doors/Door_E"]
