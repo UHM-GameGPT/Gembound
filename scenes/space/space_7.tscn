@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://cal36fdf1s6tu"]
+[gd_scene load_steps=92 format=4 uid="uid://cal36fdf1s6tu"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_pmr7y"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_rjyac"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://ccfj8eor6qu47" path="res://scenes/time_level/portal_boss_script.gd" id="9_ugcpf"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_xmguv"]
 [ext_resource type="Script" uid="uid://b0t0cq082da82" path="res://scenes/door_boss.gd" id="12_pmr7y"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_pmr7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("5_6tmn0")
@@ -782,6 +783,9 @@ shape = SubResource("RectangleShape2D_ugcpf")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
 position = Vector2(650, 72)
 shape = SubResource("RectangleShape2D_ugcpf")
+
+[node name="GemCounter" parent="." instance=ExtResource("13_pmr7y")]
+position = Vector2(11, 147)
 
 [editable path="Doors/Door_E2"]
 [editable path="Doors/Door_W"]

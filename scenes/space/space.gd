@@ -1,4 +1,5 @@
 extends TextureRect
+
 @onready var gem_counter: GemCounter = $GemCounter
 
 @onready var boss = $mini_boss2

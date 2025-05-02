@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://14s43r11leaw"]
+[gd_scene load_steps=101 format=4 uid="uid://14s43r11leaw"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_545c7"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_3mrvj"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://c4pnimm2tl2tp" path="res://scenes/time_level/moving_platform2.gd" id="11_xmr8k"]
 [ext_resource type="Texture2D" uid="uid://c8kpoax8n3b4g" path="res://assets/sprites/time_level/platforms.png" id="12_sibck"]
 [ext_resource type="Texture2D" uid="uid://b03k28y6db0e0" path="res://assets/sprites/time_level/platforms_hover.png" id="13_yd2uv"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="14_sibck"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="16_xtn0d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
 texture = ExtResource("5_70e6a")
@@ -905,6 +905,9 @@ position = Vector2(13, -1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2(310, 72)
 shape = SubResource("RectangleShape2D_yd2uv")
+
+[node name="GemCounter" parent="." instance=ExtResource("16_xtn0d")]
+position = Vector2(0, 146)
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
 [connection signal="body_entered" from="FallDetector2" to="FallDetector2" method="_on_body_entered"]

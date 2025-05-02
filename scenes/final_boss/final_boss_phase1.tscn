@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://caane3jd55lru"]
+[gd_scene load_steps=33 format=4 uid="uid://caane3jd55lru"]
 
 [ext_resource type="Texture2D" uid="uid://52hi5k2qufgh" path="res://assets/sprites/backgrounds/final_boss_background2.png" id="1_kfuf5"]
 [ext_resource type="Script" uid="uid://cs8jcg7caq0t0" path="res://scenes/final_boss/final_boss_phase_1.gd" id="2_igrjo"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b815dvlwngr8i" path="res://assets/sprites/tilesets/boss_titles_no_pink.png" id="9_mf1nn"]
 [ext_resource type="Texture2D" uid="uid://djwftmtrtg7pq" path="res://assets/sprites/tilesets/boss_platforms.png" id="10_hpmta"]
 [ext_resource type="Texture2D" uid="uid://dykbusdobpf3j" path="res://assets/sprites/tilesets/boss_platforms_2.png" id="11_1w4ex"]
-[ext_resource type="Script" path="res://scenes/final_boss/text3.gd" id="15_igrjo"]
+[ext_resource type="Script" uid="uid://bp8kmc575c88d" path="res://scenes/final_boss/text3.gd" id="15_igrjo"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="16_heain"]
 [ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="17_heain"]
 
@@ -515,3 +515,6 @@ shape = SubResource("RectangleShape2D_igrjo")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
 position = Vector2(650, 72)
 shape = SubResource("RectangleShape2D_igrjo")
+
+[node name="GemCounter" parent="." instance=ExtResource("17_heain")]
+position = Vector2(25, 148)

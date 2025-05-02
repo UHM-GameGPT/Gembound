@@ -3,6 +3,8 @@ extends TextureRect
 @onready var gem_counter: GemCounter = $GemCounter
 
 func _ready():
+	gem_counter.countgems()
+	
 	AudioManager.play_music_finalboss()
 
 	if not Global.has_faded_from_white_in_phase2:

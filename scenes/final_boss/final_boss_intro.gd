@@ -3,6 +3,13 @@ extends TextureRect
 @onready var gem_counter: GemCounter = $GemCounter
 
 func _ready():
+	#GemManager.collected_gems.append("gem_time1")
+	#GemManager.collected_gems.append("gem_time_slow")
+	#GemManager.collected_gems.append("gem_space_clone")
+	#GemManager.collected_gems.append("gem_float_clone")
+	
+	gem_counter.countgems()
+	
 	AudioManager.play_music_finalboss()
 	$Player.can_move = false
 	$Player.get_node("AnimatedSprite2D").play("walk_right")
@@ -39,8 +46,6 @@ func _ready():
 	
 	if NavigationManager.spawn_door_tag !=null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
-	
-	gem_counter.countgems()
 	
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
