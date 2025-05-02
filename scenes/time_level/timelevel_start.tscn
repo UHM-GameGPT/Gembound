@@ -565,7 +565,7 @@ tile_set = SubResource("TileSet_r75vm")
 [node name="Doors" type="Node" parent="."]
 script = ExtResource("8_lxh86")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Doors"]
+[node name="Portal" type="AnimatedSprite2D" parent="Doors"]
 texture_filter = 1
 position = Vector2(32, 104)
 scale = Vector2(1.93275, 1.51204)

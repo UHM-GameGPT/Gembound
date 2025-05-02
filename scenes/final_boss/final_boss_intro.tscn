@@ -1434,7 +1434,7 @@ libraries = {
 [node name="Doors" type="Node" parent="."]
 script = ExtResource("21_ilwv4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Doors"]
+[node name="Portal" type="AnimatedSprite2D" parent="Doors"]
 texture_filter = 1
 position = Vector2(32, 104)
 scale = Vector2(1.93275, 1.51204)

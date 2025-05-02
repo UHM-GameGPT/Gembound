@@ -1,6 +1,6 @@
 extends Node
 
-@onready var animation = $AnimatedSprite2D
+@onready var animation = $Portal
 
 func _ready():
 	# Play portal_open once
