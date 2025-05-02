@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d3hkcdnxtxdmj"]
+[gd_scene load_steps=21 format=4 uid="uid://d3hkcdnxtxdmj"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_gx8nm"]
 [ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_eolda"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_jxkn1"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_a6x8e"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="6_ixo8n"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="9_8hshw"]
+[ext_resource type="Script" path="res://scenes/space/flying_slime.gd" id="9_ouc5m"]
+[ext_resource type="Texture2D" uid="uid://c5hmd2crwvl18" path="res://assets/sprites/space/flying_slime.png" id="10_gx8nm"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_ldxqx"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="11_yhcmd"]
 
@@ -158,6 +159,45 @@ sources/0 = SubResource("TileSetAtlasSource_pntx0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hshw"]
 size = Vector2(343, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eolda"]
+atlas = ExtResource("10_gx8nm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0u7f"]
+atlas = ExtResource("10_gx8nm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b82l"]
+atlas = ExtResource("10_gx8nm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxkn1"]
+atlas = ExtResource("10_gx8nm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6x8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eolda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0u7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b82l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxkn1")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8ge4"]
+size = Vector2(13.0635, 11.8689)
+
 [node name="SpaceCollect" type="TextureRect"]
 offset_right = 320.0
 offset_bottom = 190.0
@@ -210,21 +250,32 @@ position = Vector2(9, 118)
 position = Vector2(-24, 127)
 
 [node name="Asteroid" parent="." instance=ExtResource("11_yhcmd")]
-position = Vector2(-51, 35)
+position = Vector2(-51, 83)
 collision_mask = 6
 
 [node name="Asteroid2" parent="." instance=ExtResource("11_yhcmd")]
-position = Vector2(17, 35)
+position = Vector2(17, 83)
 collision_mask = 6
 
 [node name="Asteroid3" parent="." instance=ExtResource("11_yhcmd")]
-position = Vector2(89, 35)
+position = Vector2(89, 83)
 collision_mask = 6
 
-[node name="GemCounter" parent="." instance=ExtResource("9_8hshw")]
-position = Vector2(12, 83)
+[node name="FlyingSlime" type="Area2D" parent="."]
+position = Vector2(88, 31)
+scale = Vector2(1.67422, 1.67422)
+script = ExtResource("9_ouc5m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlyingSlime"]
+sprite_frames = SubResource("SpriteFrames_a6x8e")
+animation = &"flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingSlime"]
+position = Vector2(-0.558796, -0.558794)
+shape = SubResource("RectangleShape2D_e8ge4")
 
 [connection signal="body_entered" from="Platforms/FallDetector" to="Platforms/FallDetector" method="_on_body_entered"]
+[connection signal="body_entered" from="FlyingSlime" to="FlyingSlime" method="_on_body_entered"]
 
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]

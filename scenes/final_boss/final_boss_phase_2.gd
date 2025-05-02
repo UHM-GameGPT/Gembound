@@ -3,6 +3,8 @@ extends TextureRect
 @onready var gem_counter: GemCounter = $GemCounter
 
 func _ready():
+	await get_tree().create_timer(4.0).timeout
+	$Text.visible = false  
 	if not Global.has_faded_from_white_in_phase2:
 		$WhiteFade.modulate = Color(1, 1, 1, 1)
 		var tween = create_tween()

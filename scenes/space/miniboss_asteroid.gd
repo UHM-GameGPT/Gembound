@@ -76,6 +76,24 @@ func update_highlight():
 	else:
 		$HighlightSprite2D.visible = false
 
+func break_apart():
+	is_hovered = false
+	velocity = Vector2.ZERO  # Stop current velocity
+	set_physics_process(false)  # Disable _physics_process entirely
+	
+	if $Area2D.mouse_entered.is_connected(_on_mouse_entered):
+		$Area2D.mouse_entered.disconnect(_on_mouse_entered)
+	if $Area2D.mouse_exited.is_connected(_on_mouse_exited):
+		$Area2D.mouse_exited.disconnect(_on_mouse_exited)
+	
+	$Sprite2D.visible = false
+	$HighlightSprite2D.visible = false
+	$AnimatedSprite2D.visible = false
+	$breaking.visible = true
+	$breaking.play("break")
+	await $breaking.animation_finished
+	queue_free()
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_falling and body.name == "Player" and not was_player_lifted:
 		body.die()

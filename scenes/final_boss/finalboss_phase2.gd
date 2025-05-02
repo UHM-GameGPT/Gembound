@@ -42,8 +42,6 @@ func _ready():
 	if player and player.has_method("set_can_move"):
 		player.set_can_move(true)
 	gravity = 1200.0
-	if has_node("AnimatedSprite2D"):
-		$AnimatedSprite2D.play("fly")
 	is_dropping = true
 	start_attack_cycle()
 
@@ -67,6 +65,7 @@ func _physics_process(delta):
 
 	if can_follow and player and player.can_move:
 		# Record player position history
+		$AnimatedSprite2D.play("fly")
 		position_history.append({
 			"position": player.global_position,
 			"time": Time.get_ticks_msec() / 1000.0
@@ -96,7 +95,6 @@ func _physics_process(delta):
 					$AnimatedSprite2D.flip_h = false
 
 func start_attack_cycle():
-	is_paused_for_attack = true
 	$AttackTimer.start(0.1)  # Wait 1 second before shooting block
 
 func take_damage():
@@ -152,11 +150,14 @@ func stun():
 	# Stop movement
 	can_follow = false
 
-	await get_tree().create_timer(2.0).timeout
-
+	await get_tree().create_timer(2.5).timeout
+	
 	is_stunned = false
 	can_follow = true
 	print("Boss recovered from stun")
+	
+	if is_dead:
+		die()
 
 func start_asteroid():
 	var warning_positions: Array = []
@@ -194,23 +195,21 @@ func _on_attack_timer_timeout() -> void:
 		start_asteroid()
 		is_paused_for_attack = false
 		attack_phase = 0
-		$AttackTimer.start(10.0)
+		$AttackTimer.start(7.0)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Asteroid") and "is_falling" in body and body.is_falling:
 		print("Asteroid Hit!")
 		flash_red()
 		take_damage()
-		body.queue_free()
+		body.break_apart()
 	if body.name == "Player":
 		body.die()
 		
 func die():
 	is_dead = true
-	PlayerState.clone_unlocked = false
 	if has_node("Hitbox"):
 		$Hitbox.set_deferred("monitoring", false)
-
 	# STOP the attack timer
 	if has_node("AttackTimer"):
 		$AttackTimer.stop()

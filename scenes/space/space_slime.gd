@@ -43,16 +43,13 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.die()
 	elif body.is_in_group("weights"):
-		print("Clone touched slime!")
 		die()
 	elif body is RigidBody2D:
-		print("Something hit the slime!")
 		body.linear_velocity = Vector2.ZERO
 		await get_tree().create_timer(0.1).timeout
 		$AnimatedSprite2D.play("death")
 		body.queue_free()
 		queue_free()
-
 
 func die():
 	if is_dying:
