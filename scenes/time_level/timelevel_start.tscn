@@ -1,7 +1,7 @@
 [gd_scene load_steps=61 format=4 uid="uid://d1vrlu0l8t8o"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_qdw5g"]
-[ext_resource type="Script" path="res://scenes/time_level/time_level.gd" id="2_q6roq"]
+[ext_resource type="Script" uid="uid://cnem844s6ma4p" path="res://scenes/time_level/time_level.gd" id="2_q6roq"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_bridp"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_5n7uh"]
 [ext_resource type="Texture2D" uid="uid://oqc5cg55jq" path="res://assets/sprites/time_level/Sand Tiles.png" id="5_jemru"]
@@ -564,7 +564,7 @@ tile_set = SubResource("TileSet_r75vm")
 [node name="Doors" type="Node" parent="."]
 script = ExtResource("8_lxh86")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Doors"]
+[node name="Portal" type="AnimatedSprite2D" parent="Doors"]
 texture_filter = 1
 position = Vector2(32, 104)
 scale = Vector2(1.93275, 1.51204)

@@ -1,6 +1,7 @@
 extends TextureRect
 
 func _ready():
+	AudioManager.play_music_finalboss()
 	await get_tree().create_timer(3.0).timeout
 	$Text.visible = false  
 	if NavigationManager.spawn_door_tag !=null:

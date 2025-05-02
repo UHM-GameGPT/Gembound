@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://tk0leiank2m7"]
+[gd_scene load_steps=32 format=4 uid="uid://tk0leiank2m7"]
 
 [ext_resource type="Texture2D" uid="uid://52hi5k2qufgh" path="res://assets/sprites/backgrounds/final_boss_background2.png" id="1_on63f"]
 [ext_resource type="Script" uid="uid://qhw12g383nfg" path="res://scenes/final_boss/final_boss_phase_2.gd" id="2_tnine"]
@@ -444,6 +444,9 @@ size = Vector2(383, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_on63f"]
 size = Vector2(32, 15.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc4n8"]
+size = Vector2(20, 145)
+
 [node name="final_boss_phase2" type="TextureRect"]
 offset_right = 320.0
 offset_bottom = 190.0
@@ -568,3 +571,14 @@ one_way_collision = true
 position = Vector2(304, 104)
 shape = SubResource("RectangleShape2D_on63f")
 one_way_collision = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-320, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(309, 72)
+shape = SubResource("RectangleShape2D_sc4n8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(650, 72)
+shape = SubResource("RectangleShape2D_sc4n8")
