@@ -41,6 +41,8 @@ func start_patrol():
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.die()
+		await get_tree().create_timer(0.5).timeout  # Wait for death animation to finish
+		get_tree().change_scene_to_file("res://scenes/tutorial/tutorial_5.tscn")
 		
 	if body is RigidBody2D:
 		print("Something hit the slime!")
@@ -63,9 +65,14 @@ func _on_body_entered(body: Node2D) -> void:
 		# Wait for animation to finish
 		await $AnimatedSprite2D.animation_finished
 		
+		var old_message_node = get_parent().get_node("Text")
+		old_message_node.hide_message()
+		
+		var message_node = get_parent().get_node("EnemyDeathMessage")
+		message_node.show_message()
+		
 		# THEN hide and remove both
 		if is_instance_valid(body):
 			body.queue_free()
 
 		queue_free()
-		
