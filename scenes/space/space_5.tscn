@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_jxkn1"]
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_a6x8e"]
 [ext_resource type="Script" uid="uid://bunqf5fxu1r5h" path="res://scenes/time_level/fall_detector.gd" id="6_ixo8n"]
-[ext_resource type="Script" uid="uid://bd7jqbamspfp2" path="res://scenes/space/flying_slime.gd" id="9_ouc5m"]
+[ext_resource type="Script" path="res://scenes/space/flying_slime.gd" id="9_ouc5m"]
 [ext_resource type="Texture2D" uid="uid://c5hmd2crwvl18" path="res://assets/sprites/space/flying_slime.png" id="10_gx8nm"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_ldxqx"]
 [ext_resource type="PackedScene" uid="uid://cw0b6lf2a6adc" path="res://scenes/space/asteroid.tscn" id="11_yhcmd"]
