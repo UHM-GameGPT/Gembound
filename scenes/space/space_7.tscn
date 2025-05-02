@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgngfxopfhbkm" path="res://assets/sprites/tilesets/tileset_platform_temp.png" id="6_bwpr0"]
 [ext_resource type="PackedScene" uid="uid://cofx7xtws4k7o" path="res://scenes/space/mini_boss_2.tscn" id="8_igtkn"]
 [ext_resource type="Texture2D" uid="uid://cj4e155b3mtih" path="res://assets/sprites/time_level/miniboss_health.png" id="9_2ee70"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="10_3p2ia"]
+[ext_resource type="PackedScene" path="res://scenes/gem_counter.tscn" id="10_3p2ia"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_xmguv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
