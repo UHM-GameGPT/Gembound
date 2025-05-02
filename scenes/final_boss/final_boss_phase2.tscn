@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://52hi5k2qufgh" path="res://assets/sprites/backgrounds/final_boss_background2.png" id="1_on63f"]
 [ext_resource type="Script" uid="uid://qhw12g383nfg" path="res://scenes/final_boss/final_boss_phase_2.gd" id="2_tnine"]
-[ext_resource type="Script" uid="uid://drndm57kw20ob" path="res://scenes/final_boss/text4.gd" id="3_sc4n8"]
+[ext_resource type="Script" path="res://scenes/final_boss/text4.gd" id="3_sc4n8"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_tdfr6"]
 [ext_resource type="PackedScene" uid="uid://cor2scf4l42ei" path="res://scenes/tutorial/tutorial_tileset.tscn" id="4_i7g3n"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="4_quv1f"]
@@ -445,7 +445,7 @@ size = Vector2(383, 20)
 size = Vector2(32, 15.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc4n8"]
-size = Vector2(20, 145)
+size = Vector2(20, 220.25)
 
 [node name="final_boss_phase2" type="TextureRect"]
 offset_right = 320.0
@@ -576,9 +576,9 @@ one_way_collision = true
 position = Vector2(-320, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(309, 72)
+position = Vector2(309, 54.125)
 shape = SubResource("RectangleShape2D_sc4n8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
-position = Vector2(650, 72)
+position = Vector2(650, 52.25)
 shape = SubResource("RectangleShape2D_sc4n8")
