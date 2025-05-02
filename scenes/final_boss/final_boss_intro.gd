@@ -1,6 +1,7 @@
 extends TextureRect
 
 func _ready():
+	AudioManager.play_music_finalboss()
 	$Player.can_move = false
 	$Player.get_node("AnimatedSprite2D").play("walk_right")
 
