@@ -53,8 +53,10 @@ collision_mask = 7
 script = ExtResource("1_qcosd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0.63138, 0.982349, 1)
 sprite_frames = SubResource("SpriteFrames_xltso")
-animation = &"idle"
+animation = &"pressed"
+frame_progress = 0.48544
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qcosd")
