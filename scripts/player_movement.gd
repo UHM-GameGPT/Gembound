@@ -150,6 +150,18 @@ func die():
 		reset_time_slow()
 	SceneManager.reload_scene_after_delay(0.7)  # Tell the scene manager to reload after 1 second
 	
+func die_tutorial_4():
+	if not is_inside_tree():
+		return
+	time_slow_cooldown = 1.0
+	if has_node("AnimatedSprite2D"):
+		$AnimatedSprite2D.play("death")
+	set_physics_process(false)
+	if has_method("reset_time_slow"):
+		reset_time_slow()
+	await get_tree().create_timer(0.7).timeout
+	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial_5.tscn")
+
 func _input(event : InputEvent):
 	if(event.is_action_pressed("down")):
 		position.y += 1
