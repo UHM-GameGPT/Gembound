@@ -547,10 +547,12 @@ script = ExtResource("10_54jog")
 
 [node name="Portal" type="AnimatedSprite2D" parent="Doors"]
 texture_filter = 1
-position = Vector2(24, 104)
-scale = Vector2(1.93275, 1.51204)
+position = Vector2(24, 112)
+scale = Vector2(1.71637, 1.34276)
 sprite_frames = SubResource("SpriteFrames_54jog")
 animation = &"portal_close"
+frame = 15
+frame_progress = 1.0
 
 [node name="Door_W" parent="Doors" instance=ExtResource("9_jtqqj")]
 collision_mask = 7
