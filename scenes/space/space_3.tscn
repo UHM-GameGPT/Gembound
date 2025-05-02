@@ -10,8 +10,7 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_qr23u"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_2gwxb"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_bpgfv"]
-[ext_resource type="Script" uid="uid://cxfugxk14vbvr" path="res://scenes/time_level/kill_zone.gd" id="12_ogxyq"]
-[ext_resource type="PackedScene" uid="uid://cxt6m0734tqan" path="res://scenes/time_level/coconut.tscn" id="13_c11o2"]
+[ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="13_1ytg0"]
 [ext_resource type="Script" uid="uid://wydnyp1xj63l" path="res://scenes/space/space_slime.gd" id="14_ogxyq"]
 [ext_resource type="Texture2D" uid="uid://8kqb5fmdc7yy" path="res://assets/sprites/space/space_slime.png" id="15_ogxyq"]
 
@@ -314,9 +313,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr23u"]
-size = Vector2(350, 17)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_irkhd"]
 atlas = ExtResource("15_ogxyq")
 region = Rect2(0, 192, 64, 64)
@@ -417,6 +413,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bpgfv"]
 radius = 16.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d2ya"]
+size = Vector2(116, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ytg0"]
+size = Vector2(20, 83)
+
 [node name="SpaceCloneEnemy" type="TextureRect"]
 offset_right = 320.0
 offset_bottom = 190.0
@@ -452,6 +454,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(49, 51.5)
 
 [node name="ButtonDoor" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.631373, 0.980392, 1)
 script = ExtResource("8_qr23u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDoor"]
@@ -480,6 +483,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(6, 51.5)
 
 [node name="ButtonDoor2" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.631373, 0.980392, 1)
 position = Vector2(44, 89)
 script = ExtResource("8_qr23u")
 
@@ -518,17 +522,6 @@ position = Vector2(5, 49)
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-16, 59)
 
-[node name="KillZone" type="Area2D" parent="." groups=["ground"]]
-position = Vector2(-5, 154)
-collision_mask = 7
-script = ExtResource("12_ogxyq")
-coconut_scene = ExtResource("13_c11o2")
-spawn_point = NodePath("../CoconutSpawn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
-position = Vector2(165, -1.5)
-shape = SubResource("RectangleShape2D_qr23u")
-
 [node name="EnemySpirit" type="Area2D" parent="."]
 position = Vector2(-64, -1)
 collision_layer = 4
@@ -545,12 +538,33 @@ animation = &"idle"
 position = Vector2(156, 132)
 shape = SubResource("CircleShape2D_bpgfv")
 
+[node name="KillArea" type="Area2D" parent="."]
+script = ExtResource("13_1ytg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
+position = Vector2(122, 92.5)
+shape = SubResource("RectangleShape2D_6d2ya")
+
+[node name="KillArea2" type="Area2D" parent="."]
+script = ExtResource("13_1ytg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea2"]
+position = Vector2(276, 114.5)
+shape = SubResource("RectangleShape2D_1ytg0")
+
 [connection signal="plate_activated" from="PressurePlate3" to="ButtonDoor" method="open"]
+[connection signal="plate_activated" from="PressurePlate3" to="KillArea" method="_on_pressure_plate_activated"]
+[connection signal="plate_activated" from="PressurePlate3" to="KillArea2" method="_on_pressure_plate_activated"]
 [connection signal="plate_deactivated" from="PressurePlate3" to="ButtonDoor" method="close"]
+[connection signal="plate_deactivated" from="PressurePlate3" to="KillArea" method="_on_pressure_plate_deactivated"]
+[connection signal="plate_deactivated" from="PressurePlate3" to="KillArea2" method="_on_pressure_plate_deactivated"]
 [connection signal="plate_activated" from="PressurePlate2" to="ButtonDoor2" method="open"]
+[connection signal="plate_activated" from="PressurePlate2" to="KillArea2" method="_on_pressure_plate_activated"]
 [connection signal="plate_deactivated" from="PressurePlate2" to="ButtonDoor2" method="close"]
-[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
+[connection signal="plate_deactivated" from="PressurePlate2" to="KillArea2" method="_on_pressure_plate_deactivated"]
 [connection signal="body_entered" from="EnemySpirit" to="EnemySpirit" method="_on_body_entered"]
+[connection signal="body_entered" from="KillArea" to="KillArea" method="_on_body_entered"]
+[connection signal="body_entered" from="KillArea2" to="KillArea2" method="_on_body_entered"]
 
 [editable path="PressurePlate3"]
 [editable path="PressurePlate2"]

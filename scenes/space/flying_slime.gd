@@ -1,11 +1,11 @@
 extends Area2D
 # How far to move left and right
-@export var move_distance := 10.0
+@export var move_distance := 13.0
 # How long it takes to move one direction
 @export var move_duration := 1
 
 # Track direction (1 = right, -1 = left)
-var direction := 10
+var direction := 13
 # Where the enemy started
 var start_position := Vector2.ZERO
 var is_dying = false
@@ -21,7 +21,7 @@ func _ready():
 	
 	# Start the patrol loop
 	var current_scene = get_tree().current_scene.name
-	if current_scene == "SpaceCloneEnemy":
+	if current_scene == "SpaceCollect":
 		start_patrol()
 
 func start_patrol():
