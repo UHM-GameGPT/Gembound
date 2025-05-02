@@ -5,7 +5,7 @@ extends TextureRect
 
 func _ready():
 	#coconutbutton.disabled = true
-	AudioManager.play_music_timelevel()
+	AudioManager.play_music_timeboss()
 	if boss:
 		boss.boss_died.connect(_on_boss_died)
 	if NavigationManager.spawn_door_tag !=null:

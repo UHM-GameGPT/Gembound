@@ -16,6 +16,7 @@ var display = ""
 var current_char = 0
 
 func _ready():
+	AudioManager.play_music_tutorial()
 	start_dialogue()
 	
 func start_dialogue():
