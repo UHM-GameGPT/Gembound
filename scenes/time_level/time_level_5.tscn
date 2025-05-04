@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dc0gerc0ha11p"]
+[gd_scene load_steps=37 format=4 uid="uid://dc0gerc0ha11p"]
 
 [ext_resource type="Texture2D" uid="uid://dq50epqb4345c" path="res://assets/sprites/time_level/desert_background.png" id="1_a8mg3"]
 [ext_resource type="Script" uid="uid://cc3efngvlcd0n" path="res://scripts/time_level_2.gd" id="2_i8iip"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bsc6xgn3ngwu2" path="res://scenes/time_level/flying_bird.gd" id="12_22r3q"]
 [ext_resource type="Texture2D" uid="uid://dcpq6ekqi3pj5" path="res://assets/sprites/time_level/BirdSprite.png" id="13_i8iip"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="14_i8iip"]
+[ext_resource type="Script" uid="uid://c8xlpew7pxg54" path="res://scenes/slow_time_door.gd" id="15_fx6aj"]
 [ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="15_l8raw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r75vm"]
@@ -323,6 +324,42 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5syww"]
 size = Vector2(16, 9)
 
+[sub_resource type="Animation" id="Animation_qvbwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0t1bs"]
+resource_name = "show_tutorial"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2974, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpase"]
+_data = {
+&"RESET": SubResource("Animation_qvbwd"),
+&"show_tutorial": SubResource("Animation_0t1bs")
+}
+
 [node name="time_level_5" type="TextureRect"]
 custom_minimum_size = Vector2(320, 180)
 offset_right = 320.0
@@ -391,21 +428,20 @@ shape = SubResource("RectangleShape2D_5syww")
 
 [node name="Door_E" parent="Doors" instance=ExtResource("14_i8iip")]
 position = Vector2(318, -23)
+script = ExtResource("15_fx6aj")
 destination_level_tag = "time_level6"
 destination_door_tag = "W"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(18, 141)
+position = Vector2(10, 135)
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-29, 155)
 
 [node name="Door_W" parent="Doors" instance=ExtResource("14_i8iip")]
 position = Vector2(-6, -23)
-destination_level_tag = "time_level4"
-destination_door_tag = "E"
-spawn_direction = "right"
+spawn_direction = ""
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
 position = Vector2(-15, 141)
@@ -423,6 +459,32 @@ color = Color(1, 1, 0.533333, 0.227451)
 
 [node name="GemCounter" parent="." instance=ExtResource("15_l8raw")]
 position = Vector2(0, 160)
+
+[node name="LockedMessage" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="LockedMessage"]
+offset_left = 192.0
+offset_top = 72.0
+offset_right = 2752.0
+offset_bottom = 1414.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0.374139, 0.374139, 0.374139, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 72
+theme_override_fonts/font = ExtResource("10_7eblj")
+theme_override_font_sizes/font_size = 221
+text = "Grab the Gem"
+horizontal_alignment = 1
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LockedMessage"]
+root_node = NodePath("../Label")
+libraries = {
+&"": SubResource("AnimationLibrary_qpase")
+}
 
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_W"]

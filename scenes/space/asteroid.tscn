@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://csg04fjwpxlrt" path="res://assets/sprites/space/asteroidoutline.png" id="3_053qt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l6eax"]
-radius = 22.0
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_velwx"]
-radius = 22.0
+radius = 24.0
 
 [node name="Asteroid" type="StaticBody2D"]
 collision_layer = 4

@@ -12,6 +12,9 @@ var is_hovered := false
 var start_y := 0.0
 var can_float := true
 
+var HandPointer = load("res://assets/sprites/cursor/Hand Pointer.png")
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
+
 func _ready():
 	add_to_group("Asteroid")
 	start_y = global_position.y
@@ -62,10 +65,14 @@ func _on_area_input(viewport, event, shape_idx):
 			is_falling = true
 
 func _on_mouse_entered():
+	Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
 	is_hovered = true
+	update_highlight()
 
 func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	is_hovered = false
+	update_highlight()
 
 func update_highlight():
 	if not can_float:

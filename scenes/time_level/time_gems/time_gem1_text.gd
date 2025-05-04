@@ -14,6 +14,9 @@ func _play_animation(body):
 		current_player = body
 	
 	$AnimationPlayer.play("show_tutorial")
+	await get_tree().create_timer(3.0).timeout  # Wait 3 seconds
+
+	$Text.visible = false
 
 func _on_animation_finished(anim_name: String):
 	if anim_name == "show_tutorial" and current_player:

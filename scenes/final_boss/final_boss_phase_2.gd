@@ -1,6 +1,7 @@
 extends TextureRect
 
 @onready var gem_counter: GemCounter = $GemCounter
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
 
 func _ready():
 	gem_counter.countgems()

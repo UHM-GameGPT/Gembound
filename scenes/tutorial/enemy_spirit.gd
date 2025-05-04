@@ -41,7 +41,18 @@ func start_patrol():
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.die()
-		
+	
+	elif body.is_in_group("Coconuts"):
+		if body.has_method("is_frozen") and body.is_frozen():
+			body.break_apart()
+		else:
+			print("coconut")
+			body.break_apart()
+
+			# Slight delay before triggering the reaction
+			await get_tree().create_timer(0.1).timeout
+			_on_coconut_hit()
+
 	if body is RigidBody2D:
 		print("Something hit the slime!")
 		
@@ -68,4 +79,20 @@ func _on_body_entered(body: Node2D) -> void:
 			body.queue_free()
 
 		queue_free()
-		
+
+# This should be at the same level as _ready() or _on_body_entered()
+func _on_coconut_hit():
+	# Stop movement by killing the tween
+	for child in get_children():
+		if is_instance_of(child, Tween):
+			child.kill()
+
+	# Disable collision
+	if $CollisionShape2D:
+		$CollisionShape2D.disabled = true
+
+	# Play death animation
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
+
+	queue_free()
