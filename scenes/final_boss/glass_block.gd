@@ -8,6 +8,9 @@ var is_attached_to_boss: bool = false
 var is_breaking = false
 var boss_node: Node2D = null  # Store boss reference
 
+var HandPointer = load("res://assets/sprites/cursor/Hand Pointer.png")
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
+
 func _ready():
 	$Area2D.input_event.connect(_on_area_input)
 	$Area2D.mouse_entered.connect(_on_mouse_entered)
@@ -34,10 +37,12 @@ func _on_area_input(viewport, event, shape_idx):
 		update_highlight()
 
 func _on_mouse_entered():
+	Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
 	is_hovered = true
 	update_highlight()
 
 func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	is_hovered = false
 	update_highlight()
 

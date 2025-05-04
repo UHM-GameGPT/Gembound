@@ -11,6 +11,9 @@ var target_position: Vector2
 var is_floating = false
 var going_up = true
 
+var HandPointer = load("res://assets/sprites/cursor/Hand Pointer.png")
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
+
 func _ready():
 	start_position = global_position
 	target_position = start_position - Vector2(0, float_height)
@@ -22,9 +25,11 @@ func _ready():
 
 func _on_mouse_entered():
 	if not is_floating and (not requires_gem or PlayerState.float_unlocked):
+		Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
 		outline.visible = true
 
 func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	outline.visible = false
 
 func _on_click(viewport, event, shape_idx):

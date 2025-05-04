@@ -1,4 +1,6 @@
 extends Control
+var HandPointer = load("res://assets/sprites/cursor/Hand Pointer.png")
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,3 +15,17 @@ func _on_play_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_play_button_mouse_entered() -> void:
+	Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
+
+func _on_play_button_mouse_exited() -> void:
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
+
+
+func _on_exit_button_mouse_entered() -> void:
+	Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
+
+func _on_exit_button_mouse_exited() -> void:
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)

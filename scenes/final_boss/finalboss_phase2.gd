@@ -27,6 +27,8 @@ var is_invincible: bool = false
 var is_flashing_red := false
 var is_stunned := false
 
+
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	if player and player.has_method("set_can_move"):

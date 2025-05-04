@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cttpxfn0xw1d5"]
+[gd_scene load_steps=39 format=4 uid="uid://cttpxfn0xw1d5"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_3fosr"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="2_cu557"]
@@ -10,9 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="7_ahrub"]
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_3fosr"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_cu557"]
-[ext_resource type="Script" path="res://scenes/space/kill_area.gd" id="11_wb43s"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="12_l7fyx"]
 [ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="11_wb43s"]
+[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="12_l7fyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_wb43s")
@@ -316,6 +315,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7fyx"]
 size = Vector2(20, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqqgq"]
+size = Vector2(24, 145)
+
 [node name="SpaceClone" type="TextureRect"]
 offset_right = 320.0
 offset_bottom = 190.0
@@ -366,9 +368,7 @@ animation = &"idle"
 
 [node name="Door_W" parent="Doors" instance=ExtResource("7_ahrub")]
 collision_mask = 7
-destination_level_tag = "space_1"
-destination_door_tag = "E"
-spawn_direction = "right"
+spawn_direction = ""
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
 position = Vector2(-5, 49)
@@ -398,6 +398,17 @@ shape = SubResource("RectangleShape2D_l7fyx")
 
 [node name="GemCounter" parent="." instance=ExtResource("12_l7fyx")]
 position = Vector2(0, 160)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-320, 40)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(664, 24)
+shape = SubResource("RectangleShape2D_jqqgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(304, 24)
+shape = SubResource("RectangleShape2D_jqqgq")
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_activated" from="PressurePlate" to="KillArea" method="_on_pressure_plate_activated"]

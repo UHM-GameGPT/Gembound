@@ -654,8 +654,9 @@ position = Vector2(0, 160)
 
 [node name="Label" type="Label" parent="LockedMessage"]
 offset_left = 192.0
+offset_top = 72.0
 offset_right = 2752.0
-offset_bottom = 1342.0
+offset_bottom = 1414.0
 scale = Vector2(0.05, 0.05)
 theme_override_colors/font_shadow_color = Color(0.374139, 0.374139, 0.374139, 1)
 theme_override_constants/shadow_offset_x = 1

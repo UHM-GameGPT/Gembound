@@ -1,10 +1,12 @@
 extends TextureRect
 @onready var gem_counter: GemCounter = $GemCounter
-
 @onready var boss = $MiniBoss
 @onready var doors = $Doors
 
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
+
 func _ready():
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	#coconutbutton.disabled = true
 	AudioManager.play_music_timelevel()
 	if boss:

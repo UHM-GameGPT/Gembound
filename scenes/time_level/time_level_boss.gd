@@ -2,10 +2,11 @@ extends TextureRect
 
 @onready var boss = $MiniBoss
 @onready var doors = $Doors
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
 
 func _ready():
 	#coconutbutton.disabled = true
-	
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	AudioManager.play_music_timeboss()
 	if boss:
 		boss.boss_died.connect(_on_boss_died)

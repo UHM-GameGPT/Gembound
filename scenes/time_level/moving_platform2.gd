@@ -10,6 +10,9 @@ var frozen := false
 var player_on_platform := false
 var is_hovered := false
 
+var HandPointer = load("res://assets/sprites/cursor/Hand Pointer.png")
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
+
 func _ready():
 	start_y = position.y
 	
@@ -36,10 +39,12 @@ func _on_area_input(viewport, event, shape_idx):
 		update_highlight()
 
 func _on_mouse_entered():
+	Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
 	is_hovered = true
 	update_highlight()
 
 func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	is_hovered = false
 	update_highlight()
 

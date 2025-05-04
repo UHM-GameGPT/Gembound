@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var top_limit: float = -50.0
 @export var bottom_limit: float = 50.0
 
+var HandPointer = load("res://assets/sprites/cursor/Hand Pointer.png")
+var Pointer = load("res://assets/sprites/cursor/Pointer.png")
+
 var direction := 1
 var start_y := 0.0
 var frozen := false
@@ -53,10 +56,12 @@ func _on_body_exited(body):
 		player_on_platform = false
 
 func _on_mouse_entered():
+	Input.set_custom_mouse_cursor(HandPointer, Input.CURSOR_ARROW)
 	is_hovered = true
 	update_highlight()
 
 func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Pointer, Input.CURSOR_ARROW)
 	is_hovered = false
 	update_highlight()
 
