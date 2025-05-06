@@ -4,12 +4,15 @@ class_name GemCounter
 
 # acquired gems
 @onready var timestop: AnimatedSprite2D = $timestop
+@onready var time3: AnimatedSprite2D = $time3
 @onready var timeslow: AnimatedSprite2D = $timeslow
 @onready var spaceclone: AnimatedSprite2D = $spaceclone
 @onready var spacefloat: AnimatedSprite2D = $spacefloat
 
+
 # blank gems
 @onready var timestopempty: AnimatedSprite2D = $timestopempty
+@onready var time3empty: AnimatedSprite2D = $time3empty
 @onready var timeslowempty: AnimatedSprite2D = $timeslowempty
 @onready var spacecloneempty: AnimatedSprite2D = $spacecloneempty
 @onready var spacefloatempty: AnimatedSprite2D = $spacefloatempty
@@ -21,6 +24,10 @@ func countgems():
 		timestopempty.visible = false
 		timestop.visible = true
 		
+	if GemManager.collected_gems.has("gem_time1-1"):
+		time3empty.visible = false
+		time3.visible = true
+	
 	#if PlayerState.slow_unlocked:
 	if GemManager.collected_gems.has("gem_time_slow"):
 		timeslowempty.visible = false

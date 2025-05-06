@@ -319,9 +319,6 @@ offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 0.533333, 0.227451)
 
-[node name="GemCounter" parent="." instance=ExtResource("13_efl8c")]
-position = Vector2(0, 160)
-
 [node name="TimeGem2" parent="." instance=ExtResource("14_3tgxv")]
 position = Vector2(-161, -75)
 script = ExtResource("15_081eh")
@@ -333,6 +330,9 @@ frame_progress = 0.13782
 
 [node name="CollisionShape2D" parent="TimeGem2" index="1"]
 position = Vector2(192, 98)
+
+[node name="GemCounter" parent="." instance=ExtResource("13_efl8c")]
+position = Vector2(0, 160)
 
 [connection signal="body_entered" from="FallDetector" to="FallDetector" method="_on_body_entered"]
 

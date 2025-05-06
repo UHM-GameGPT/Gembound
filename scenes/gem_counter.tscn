@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://kh28dmr6isdx"]
+[gd_scene load_steps=34 format=3 uid="uid://kh28dmr6isdx"]
 
 [ext_resource type="Script" uid="uid://jla61f6w1ach" path="res://scripts/gem_counter.gd" id="1_6t0u6"]
 [ext_resource type="Texture2D" uid="uid://b0ktp7mm3hmyi" path="res://assets/sprites/time_level/time_gem1.png" id="1_y62hi"]
@@ -14,6 +14,21 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wd00n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5mfn"]
+atlas = ExtResource("2_wd00n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up3k3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5mfn")
 }],
 "loop": true,
 "name": &"default",
@@ -50,6 +65,42 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jdem3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndhi0"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh10j"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yyx5"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg2bi"]
+atlas = ExtResource("1_y62hi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p00o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndhi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh10j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yyx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg2bi")
 }],
 "loop": true,
 "name": &"default",
@@ -172,18 +223,22 @@ position = Vector2(6, 7)
 sprite_frames = SubResource("SpriteFrames_7p34a")
 autoplay = "default"
 
-[node name="timeslowempty" type="AnimatedSprite2D" parent="."]
+[node name="time3empty" type="AnimatedSprite2D" parent="."]
 position = Vector2(18, 7)
-sprite_frames = SubResource("SpriteFrames_7p34a")
-autoplay = "default"
+sprite_frames = SubResource("SpriteFrames_up3k3")
 
-[node name="spacecloneempty" type="AnimatedSprite2D" parent="."]
+[node name="timeslowempty" type="AnimatedSprite2D" parent="."]
 position = Vector2(30, 7)
 sprite_frames = SubResource("SpriteFrames_7p34a")
 autoplay = "default"
 
-[node name="spacefloatempty" type="AnimatedSprite2D" parent="."]
+[node name="spacecloneempty" type="AnimatedSprite2D" parent="."]
 position = Vector2(42, 7)
+sprite_frames = SubResource("SpriteFrames_7p34a")
+autoplay = "default"
+
+[node name="spacefloatempty" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, 7)
 sprite_frames = SubResource("SpriteFrames_7p34a")
 autoplay = "default"
 
@@ -192,6 +247,11 @@ visible = false
 position = Vector2(6, 7)
 sprite_frames = SubResource("SpriteFrames_4l1yi")
 autoplay = "default"
+
+[node name="time3" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(18, 7)
+sprite_frames = SubResource("SpriteFrames_p00o3")
 
 [node name="timeslow" type="AnimatedSprite2D" parent="."]
 visible = false
