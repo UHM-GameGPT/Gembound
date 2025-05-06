@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://7j2ybxcqm3uv" path="res://scenes/time_level/text_slide.gd" id="11_70aqn"]
 [ext_resource type="Texture2D" uid="uid://dc8qccw56u87" path="res://assets/sprites/space/space level title.png" id="12_vbabn"]
 [ext_resource type="Script" uid="uid://dnm0ku5nb6xji" path="res://scenes/space/clone_door.gd" id="13_81d7r"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="15_7j8db"]
+[ext_resource type="PackedScene" uid="uid://cpsdj1jinr1vc" path="res://scenes/time_level/space_gem_counter.tscn" id="16_81d7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_gqmi1")
@@ -647,9 +647,6 @@ shape = SubResource("RectangleShape2D_54jog")
 position = Vector2(308, 72)
 shape = SubResource("RectangleShape2D_54jog")
 
-[node name="GemCounter" parent="." instance=ExtResource("15_7j8db")]
-position = Vector2(0, 160)
-
 [node name="LockedMessage" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="LockedMessage"]
@@ -674,6 +671,9 @@ root_node = NodePath("../Label")
 libraries = {
 &"": SubResource("AnimationLibrary_qpase")
 }
+
+[node name="Space_GemCounter" parent="." instance=ExtResource("16_81d7r")]
+position = Vector2(0, 163)
 
 [editable path="GemText/SpaceCloneGem"]
 [editable path="Doors/Door_W"]

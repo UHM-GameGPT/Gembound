@@ -1,5 +1,5 @@
 extends TextureRect
-@onready var gem_counter: GemCounter = $GemCounter
+@onready var gem_counter: Space_GemCounter = $Space_GemCounter
 
 var Pointer = load("res://assets/sprites/cursor/Pointer.png")
 

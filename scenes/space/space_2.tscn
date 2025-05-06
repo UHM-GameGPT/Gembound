@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://wkdfrke1mkdb" path="res://scenes/space/button_door.gd" id="8_3fosr"]
 [ext_resource type="Texture2D" uid="uid://cxarlif6ajlvn" path="res://assets/sprites/space/doors.png" id="9_cu557"]
 [ext_resource type="Script" uid="uid://cp8lr8gu8i7hq" path="res://scenes/space/kill_area.gd" id="11_wb43s"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="12_l7fyx"]
+[ext_resource type="PackedScene" uid="uid://cpsdj1jinr1vc" path="res://scenes/time_level/space_gem_counter.tscn" id="12_l7fyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pntx0"]
 texture = ExtResource("4_wb43s")
@@ -396,9 +396,6 @@ script = ExtResource("11_wb43s")
 position = Vector2(238, 48)
 shape = SubResource("RectangleShape2D_l7fyx")
 
-[node name="GemCounter" parent="." instance=ExtResource("12_l7fyx")]
-position = Vector2(0, 160)
-
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(-320, 40)
 
@@ -409,6 +406,9 @@ shape = SubResource("RectangleShape2D_jqqgq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2(304, 24)
 shape = SubResource("RectangleShape2D_jqqgq")
+
+[node name="Space_GemCounter" parent="." instance=ExtResource("12_l7fyx")]
+position = Vector2(0, 163)
 
 [connection signal="plate_activated" from="PressurePlate" to="ButtonDoor" method="open"]
 [connection signal="plate_activated" from="PressurePlate" to="KillArea" method="_on_pressure_plate_activated"]

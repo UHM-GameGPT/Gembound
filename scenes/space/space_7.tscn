@@ -1,7 +1,7 @@
-[gd_scene load_steps=97 format=4 uid="uid://cal36fdf1s6tu"]
+[gd_scene load_steps=96 format=4 uid="uid://cal36fdf1s6tu"]
 
 [ext_resource type="Texture2D" uid="uid://dqkdarwvd5kga" path="res://assets/sprites/backgrounds/space.png" id="1_pmr7y"]
-[ext_resource type="Script" uid="uid://b2s7i8t8pvnaf" path="res://scenes/space/space.gd" id="2_rjyac"]
+[ext_resource type="Script" uid="uid://bw6qc7s2o0pby" path="res://scenes/space/space_7.gd" id="2_rjyac"]
 [ext_resource type="PackedScene" uid="uid://1dwenc3ti31r" path="res://scenes/player.tscn" id="3_qaduo"]
 [ext_resource type="PackedScene" uid="uid://bsadsl3loo0ha" path="res://scenes/space/space_tileset.tscn" id="4_vjljh"]
 [ext_resource type="Texture2D" uid="uid://b426c6vqsype3" path="res://assets/sprites/tilesets/space_tileset.png" id="5_6tmn0"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://ccfj8eor6qu47" path="res://scenes/time_level/portal_boss_script.gd" id="9_ugcpf"]
 [ext_resource type="PackedScene" uid="uid://3enkgish2037" path="res://scenes/door.tscn" id="10_xmguv"]
 [ext_resource type="Script" uid="uid://b0t0cq082da82" path="res://scenes/door_boss.gd" id="12_pmr7y"]
-[ext_resource type="PackedScene" uid="uid://kh28dmr6isdx" path="res://scenes/gem_counter.tscn" id="13_pmr7y"]
 [ext_resource type="Script" uid="uid://dkroex5gey0jf" path="res://scenes/time_level/text.gd" id="13_rjyac"]
 [ext_resource type="FontFile" uid="uid://cagjx8tuk6q7w" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_qaduo"]
 
@@ -822,10 +821,6 @@ shape = SubResource("RectangleShape2D_ugcpf")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
 position = Vector2(650, 72)
 shape = SubResource("RectangleShape2D_ugcpf")
-
-[node name="GemCounter" parent="." instance=ExtResource("13_pmr7y")]
-visible = false
-position = Vector2(0, 164)
 
 [node name="Text" type="Node2D" parent="."]
 script = ExtResource("13_rjyac")

@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var gem: AnimatedSprite2D = $Gem
 @onready var gem_collected: AudioStreamPlayer = $Collected
-@onready var gem_counter: GemCounter = $"../../GemCounter"
+@onready var gem_counter: Space_GemCounter = $"../../Space_GemCounter"
 
 @export var gem_name: String = "gem_space_clone"
 @export var clone: Ability
